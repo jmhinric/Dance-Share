@@ -10,16 +10,10 @@
   <li>Birthday: <%= @user.dob %></li>
 </ul>
 
-
-<br/>
-<br/>
 <br/>
 
-
-<%= link_to "Edit Profile", edit_user_path(@user) %>
-
-<br/>
-<br/>
-<br/>
-
-<%= link_to "Delete Profile", user_path(@user), method: "delete" %>
+<% if current_user == @user %>
+  <%= link_to "Edit Profile", edit_user_path(@user) %>
+  <br/><br/><br/>
+  <%= link_to "Delete Profile", user_path(@user), method: "delete" %>
+<% end %>
