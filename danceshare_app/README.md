@@ -2,7 +2,7 @@
 
 ##### GA WDI NYC Jan 14, Project 1
 
-### Dance Share allows audience members to write reviews for modern dance concerts. 
+##### Dance Share allows audience members to write reviews for modern dance concerts. 
 
 ### Gems/ APIs/ Libraries:
 * [Yelp API](http://www.yelp.com/developers/getting_started)

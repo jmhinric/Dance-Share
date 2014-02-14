@@ -1,0 +1,25 @@
+<h2><%= @user.first_name %> <%= @user.last_name %>'s Profile</h2>
+
+<img src="<%= @user.photo_url %> " />
+
+<br/>
+
+<ul>
+  <li>Email: <%= @user.email %></li>
+  <li>Gender: <%= @user.gender %></li>
+  <li>Birthday: <%= @user.dob %></li>
+</ul>
+
+
+<br/>
+<br/>
+<br/>
+
+
+<%= link_to "Edit Profile", edit_user_path(@user) %>
+
+<br/>
+<br/>
+<br/>
+
+<%= link_to "Delete Profile", user_path(@user), method: "delete" %>
