@@ -7,6 +7,11 @@ class PerformancesController < ApplicationController
     @performances = @user.performances
   end
 
+  # def user_index
+    
+  #   render :user_index
+  # end
+
   def show
     @venue = @performance.venue
   end
@@ -19,7 +24,6 @@ class PerformancesController < ApplicationController
     @performance = Performance.create(title: "#{@user.first_name} #{@user.last_name}", date: params[:date], time: params[:time], venue_id: "#{@venue.id}")
     @user.performances << @performance
     redirect_to user_performance_path(@user, @performance)
-    # render :show
   end
 
 
