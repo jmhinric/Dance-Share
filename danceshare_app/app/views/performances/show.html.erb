@@ -1,15 +1,17 @@
 <h1><%= @performance[:title] %> Performance</h1>
+<h2><%= @performance.date.strftime("%A, %B %e, %Y") %>, <%= @performance.time.strftime("%l:%M %p") %></h2>
+<a href="<%= @venue.url %>"><h2><%= @venue.name %></h2></a>
+
 
 <img src="<%= @venue.image_url %>" />
-<br/>
-<p><%= @venue.name %></p>
+
 <p>
   <% @venue.display_address.split("\n").each do |line| %>
     <%= line %><br/>
   <% end %>
 </p>
-<a href="<%= @venue.url %>"><%= @venue.name %>'s Yelp page</a>
-<p>[Need to insert Yelp image here]</p>
+
+<img src="http://s3-media4.ak.yelpcdn.com/assets/2/www/img/9d213bfb766e/logo/logo_tiny.png" />
 <img src="<%= @venue.rating_image_url %>" />
-<p>(based on <%= @venue.review_count %> ratings)</p>
+<p>(based on <%= @venue.review_count %> ratings of <%= @venue.name %>)</p>
   

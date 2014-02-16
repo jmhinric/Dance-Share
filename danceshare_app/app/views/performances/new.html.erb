@@ -1,14 +1,24 @@
+<h2>Create a Performance:</h2>
 
-<h2>Enter the name of a NYC theater:<h2>
 <form action="/users/<%= @user.id %>/performances" method="POST" />
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
 
   <label>
-    Venue Name:
-    <input type="text" name="venue_name"/>
-  </label>
+    Enter the name of a theater in NYC:
+    <input type="text" name="venue_name" placeholder="Venue name" />
+  </label><br/>
 
-  <button>Find Venue</button>
+  <label>
+    Date
+    <input type="date" name="date" />
+  </label><br/>
+
+  <label>
+    Time
+    <input type="time" name="time" />
+  </label><br/>
+
+  <button>Add Performance</button>
 </form>
 
 

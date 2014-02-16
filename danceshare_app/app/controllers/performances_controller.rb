@@ -16,7 +16,7 @@ class PerformancesController < ApplicationController
 
   def create
     @venue = yelp_call(params[:venue_name])
-    @performance = @user.performances.create(title: "#{@user.first_name} #{@user.last_name}", venue_id: "#{@venue.id}")
+    @performance = @user.performances.create(title: "#{@user.first_name} #{@user.last_name}", date: params[:date], time: params[:time], venue_id: "#{@venue.id}")
     redirect_to user_performance_path(@user, @performance, @venue)
   end
 
