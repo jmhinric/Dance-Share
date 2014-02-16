@@ -14,6 +14,8 @@
 <img src="http://s3-media4.ak.yelpcdn.com/assets/2/www/img/9d213bfb766e/logo/logo_tiny.png" />
 <img src="<%= @venue.rating_image_url %>" />
 <p>(based on <%= @venue.review_count %> ratings of <%= @venue.name %>)</p>
+
+<%= render "reviews" %>
   
 <br/><br/>
 <%= link_to "#{@user.first_name}'s Performances", user_performances_path(@user) %>

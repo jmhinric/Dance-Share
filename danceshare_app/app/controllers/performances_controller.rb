@@ -7,11 +7,6 @@ class PerformancesController < ApplicationController
     @performances = @user.performances
   end
 
-  # def user_index
-    
-  #   render :user_index
-  # end
-
   def show
     @venue = @performance.venue
   end

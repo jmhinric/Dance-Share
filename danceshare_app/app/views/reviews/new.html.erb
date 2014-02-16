@@ -1,0 +1,6 @@
+<h1>Write a review for <%= @performance.title %></h1>
+<h2><%= @performance.venue.name %></h2>
+<h2><%= @performance.date.strftime("%A, %B %e, %Y") %>, <%= @performance.time.strftime("%l:%M %p") %></h2>
+
+
+<%= render "review_form" %>

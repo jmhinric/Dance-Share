@@ -10,6 +10,9 @@
       <li><%= performance.venue.name %></li>
       <li><%= performance.date.strftime("%A, %B %e, %Y") %></li>
     </ul>
+    <% if logged_in? %>
+      <p><%= link_to "Review this Performance", new_performance_review_path(performance) %></p>
+    <% end %>
 <% end %>
 </ul>
 

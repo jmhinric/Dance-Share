@@ -10,6 +10,7 @@
   <li>Birthday: <%= @user.dob %></li>
   <br/>
   <li><%= link_to "Performances", user_performances_path(@user) %></li>
+  <li><%= link_to "Reviews", "/users/#{@user.id}/reviews" %></li>
 </ul>
 
 <br/>

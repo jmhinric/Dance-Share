@@ -1,0 +1,13 @@
+<h2>Reviews</h2>
+
+<% @performance.reviews.each do |review| %>
+  <p>
+    <em><%= review.title %></em><br/> 
+    By: <%= review.user.first_name %>
+    <%= review.user.last_name %><br/>
+    <%= @performance.date.strftime("%A, %B %e, %Y") %>
+  </p>
+  <p>Rating: <%= review.rating %>/5</p>
+  <p><%= review.review_text %></p>
+
+<% end %>
