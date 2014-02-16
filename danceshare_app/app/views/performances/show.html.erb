@@ -1,5 +1,5 @@
 <h1><%= @performance[:title] %> Performance</h1>
-<h2><%= @performance.date.strftime("%A, %B %e, %Y") %>, <%= @performance.time.strftime("%l:%M %p") %></h2>
+<h2><%= @performance.pretty_date %>, <%= @performance.pretty_time %></h2>
 <a href="<%= @venue.url %>"><h2><%= @venue.name %></h2></a>
 
 

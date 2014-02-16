@@ -1,0 +1,13 @@
+<h1>Reviews by <%= @user.first_name @user.last_name %></h1>
+
+<% @user.reviews.each do |review| %>
+
+  <h3><%= review.performance.title %></h3>
+  <p>Performed 
+    <%= review.performance.pretty_date %>, 
+    <%= review.performance.venue.name %>
+  </p>
+  <h4><em><%= review.title %></em></h4>
+
+
+<% end %>

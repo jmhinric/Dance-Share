@@ -15,4 +15,6 @@ DanceshareApp::Application.routes.draw do
   post "/session", to: "session#create"
   delete "/session", to: "session#destroy"
 
+  get "/users/:id/reviews", to: "users#reviews_index"
+
 end

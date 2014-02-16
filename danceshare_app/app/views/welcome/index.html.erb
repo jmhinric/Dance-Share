@@ -8,7 +8,7 @@
     <li><a href="<%= user_performance_path(performance.user, performance) %>"><%= performance.title %></a></li>
     <ul>
       <li><%= performance.venue.name %></li>
-      <li><%= performance.date.strftime("%A, %B %e, %Y") %></li>
+      <li><%= performance.pretty_date %></li>
     </ul>
     <% if logged_in? %>
       <p><%= link_to "Review this Performance", new_performance_review_path(performance) %></p>
@@ -23,7 +23,7 @@
     <li><a href="<%= user_performance_path(performance.user, performance) %>"><%= performance.title %></a></li>
     <ul>
       <li><%= performance.venue.name %></li>
-      <li><%= performance.date.strftime("%A, %B %e, %Y") %></li>
+      <li><%= performance.pretty_date %></li>
     </ul>
 <% end %>
 </ul>

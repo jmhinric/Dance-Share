@@ -5,7 +5,7 @@
     <em><%= review.title %></em><br/> 
     By: <%= review.user.first_name %>
     <%= review.user.last_name %><br/>
-    <%= @performance.date.strftime("%A, %B %e, %Y") %>
+    <%= @performance.pretty_date %>
   </p>
   <p>Rating: <%= review.rating %>/5</p>
   <p><%= review.review_text %></p>

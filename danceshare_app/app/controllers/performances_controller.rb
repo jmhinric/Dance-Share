@@ -16,7 +16,15 @@ class PerformancesController < ApplicationController
 
   def create
     @venue = yelp_call(params[:venue_name])
-    @performance = Performance.create(title: "#{@user.first_name} #{@user.last_name}", date: params[:date], time: params[:time], venue_id: "#{@venue.id}")
+    @performance = Performance.create(
+      title: "#{@user.first_name} #{@user.last_name}", 
+      date: params[:date],
+      time: params[:time],
+      venue_id: "#{@venue.id}"
+      )
+    @performance.pretty_date = @performance.date.strftime("%A, %B %e, %Y")
+    @performance.pretty_time = @performance.time.strftime("%l:%M %p")
+      
     @user.performances << @performance
     redirect_to user_performance_path(@user, @performance)
   end
@@ -55,7 +63,7 @@ class PerformancesController < ApplicationController
       yelp = JSON(yelp_search)
 
       # binding.pry
-      @venue = Venue.create(
+      return Venue.create(
         name: yelp["businesses"][0]["name"],
         display_address: yelp["businesses"][0]["location"]["display_address"].join("\n"),
         image_url: yelp["businesses"][0]["image_url"],
@@ -64,7 +72,6 @@ class PerformancesController < ApplicationController
         yelp_id: yelp["businesses"][0]["id"],
         review_count: yelp["businesses"][0]["review_count"]
         )
-      return @venue
     end
 
 end
