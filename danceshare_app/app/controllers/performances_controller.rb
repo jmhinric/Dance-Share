@@ -4,7 +4,7 @@ class PerformancesController < ApplicationController
   before_action :load_performance, only: [:show, :update, :destroy]
 
   def index
-    @performances = @user.performances.all
+    @performances = @user.performances
   end
 
   def show
@@ -16,8 +16,10 @@ class PerformancesController < ApplicationController
 
   def create
     @venue = yelp_call(params[:venue_name])
-    @performance = @user.performances.create(title: "#{@user.first_name} #{@user.last_name}", date: params[:date], time: params[:time], venue_id: "#{@venue.id}")
-    redirect_to user_performance_path(@user, @performance, @venue)
+    @performance = Performance.create(title: "#{@user.first_name} #{@user.last_name}", date: params[:date], time: params[:time], venue_id: "#{@venue.id}")
+    @user.performances << @performance
+    redirect_to user_performance_path(@user, @performance)
+    # render :show
   end
 
 

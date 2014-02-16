@@ -1,11 +1,11 @@
-<h1><%= @user[:first_name] %>'s Performances</h1>
+<h1><%= @user.first_name %>'s Performances</h1>
 
+<ul>
 <% @performances.each do |performance| %>
-  <ul>
-    <li><%= performance.venue[:name] %></li>
-    <li><%= performance.venue[:display_address] %></li>
-
-
-  </ul>
-
+    <li><a href="<%= user_performance_path(@user, performance) %>"><%= performance.title %></a></li>
+    <ul>
+      <li><%= performance.venue.name %></li>
+      <li><%= performance.date.strftime("%A, %B %e, %Y") %></li>
+    </ul>
 <% end %>
+</ul>

@@ -3,4 +3,6 @@ class Performance < ActiveRecord::Base
   has_many :concerts
   # has_many :venues, through: :concerts
   belongs_to :venue
+
+  validates :date, :time, presence: true
 end

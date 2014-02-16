@@ -15,3 +15,5 @@
 <img src="<%= @venue.rating_image_url %>" />
 <p>(based on <%= @venue.review_count %> ratings of <%= @venue.name %>)</p>
   
+<br/><br/>
+<%= link_to "#{@user.first_name}'s Performances", user_performances_path(@user) %>
