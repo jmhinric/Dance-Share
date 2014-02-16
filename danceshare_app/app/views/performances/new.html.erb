@@ -1,0 +1,17 @@
+
+<h2>Enter the name of a NYC theater:<h2>
+<form action="/users/<%= @user.id %>/performances" method="POST" />
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+
+  <label>
+    Venue Name:
+    <input type="text" name="venue_name"/>
+  </label>
+
+  <button>Find Venue</button>
+</form>
+
+
+
+
+

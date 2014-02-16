@@ -1,0 +1,15 @@
+<h1><%= @performance[:title] %> Performance</h1>
+
+<img src="<%= @venue.image_url %>" />
+<br/>
+<p><%= @venue.name %></p>
+<p>
+  <% @venue.display_address.split("\n").each do |line| %>
+    <%= line %><br/>
+  <% end %>
+</p>
+<a href="<%= @venue.url %>"><%= @venue.name %>'s Yelp page</a>
+<p>[Need to insert Yelp image here]</p>
+<img src="<%= @venue.rating_image_url %>" />
+<p>(based on <%= @venue.review_count %> ratings)</p>
+  

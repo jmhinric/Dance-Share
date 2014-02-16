@@ -1,0 +1,11 @@
+<h1><%= @user[:first_name] %>'s Performances</h1>
+
+<% @performances.each do |performance| %>
+  <ul>
+    <li><%= performance.venue[:name] %></li>
+    <li><%= performance.venue[:display_address] %></li>
+
+
+  </ul>
+
+<% end %>
