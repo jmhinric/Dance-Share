@@ -1,4 +1,4 @@
-<h1>Reviews by <%= @user.first_name @user.last_name %></h1>
+<h1>Reviews by <%= @user.first_name %> <%= @user.last_name %></h1>
 
 <% @user.reviews.each do |review| %>
 
@@ -7,7 +7,9 @@
     <%= review.performance.pretty_date %>, 
     <%= review.performance.venue.name %>
   </p>
-  <h4><em><%= review.title %></em></h4>
-
+  <p><em><%= review.title %></em></p>
+  <p>Rating: <%= review.rating %>/5</p>
+  <p><%= review.review_text %></p>
+  <br/>
 
 <% end %>
