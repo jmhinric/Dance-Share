@@ -15,8 +15,8 @@ class ReviewsController < ApplicationController
     @performance.reviews << @review
     
     if @review.save
-      @user = @performance.user
-      redirect_to user_performance_path(@user, @performance)
+      @company = @performance.company
+      redirect_to company_performance_path(@company, @performance)
     else
       render :new
     end

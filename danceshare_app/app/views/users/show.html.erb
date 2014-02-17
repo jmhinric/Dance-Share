@@ -8,14 +8,15 @@
   <li>Email: <%= @user.email %></li>
   <li>Gender: <%= @user.gender %></li>
   <li>Birthday: <%= @user.dob %></li>
-  <br/>
-  <li><%= link_to "Performances", user_performances_path(@user) %></li>
   <li><%= link_to "Reviews", "/users/#{@user.id}/reviews" %></li>
+  <%= render "companies" if @user.is_admin %>
 </ul>
 
 <br/>
 
-<%= link_to "Add Performance", new_user_performance_path(@user) %>
+<%= link_to "Create a Dance Company", new_company_path %>
+
+
 
 <br/>
 

@@ -5,7 +5,7 @@
 <h2>Recent Performances:</h2>
 <ul>
 <% @recent_performances.each do |performance| %>
-    <li><a href="<%= user_performance_path(performance.user, performance) %>"><%= performance.title %></a></li>
+    <li><a href="<%= company_performance_path(performance.company, performance) %>"><%= performance.title %></a></li>
     <ul>
       <li><%= performance.venue.name %></li>
       <li><%= performance.pretty_date %></li>
@@ -20,7 +20,7 @@
 <h2>Upcoming Performances:</h2>
 <ul>
 <% @upcoming_performances.each do |performance| %>
-    <li><a href="<%= user_performance_path(performance.user, performance) %>"><%= performance.title %></a></li>
+    <li><a href="<%= company_performance_path(performance.company, performance) %>"><%= performance.title %></a></li>
     <ul>
       <li><%= performance.venue.name %></li>
       <li><%= performance.pretty_date %></li>

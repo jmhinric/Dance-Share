@@ -1,5 +1,5 @@
 class Performance < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :company
   belongs_to :venue
 
   has_many :concerts
@@ -7,5 +7,5 @@ class Performance < ActiveRecord::Base
 
   # has_many :venues, through: :concerts
   
-  validates :date, :time, :venue_id, :user_id, presence: true
+  validates :date, :time, :venue_id, :company_id, presence: true
 end

@@ -1,10 +1,10 @@
 class PerformancesController < ApplicationController
 
-  before_action :load_user, only: [:index, :show, :new, :create]
+  before_action :load_company, only: [:index, :show, :new, :create]
   before_action :load_performance, only: [:show, :update, :destroy]
 
   def index
-    @performances = @user.performances
+    @performances = @company.performances
   end
 
   def show
@@ -17,16 +17,16 @@ class PerformancesController < ApplicationController
   def create
     @venue = yelp_call(params[:venue_name])
     @performance = Performance.create(
-      title: "#{@user.first_name} #{@user.last_name}", 
+      title: "#{@company.name}", 
       date: params[:date],
-      time: params[:time],
-      venue_id: "#{@venue.id}"
+      time: params[:time]
       )
     @performance.pretty_date = @performance.date.strftime("%A, %B %e, %Y")
     @performance.pretty_time = @performance.time.strftime("%l:%M %p")
       
-    @user.performances << @performance
-    redirect_to user_performance_path(@user, @performance)
+    @venue.performances << @performance  
+    @company.performances << @performance
+    redirect_to company_performance_path(@company, @performance)
   end
 
 
@@ -34,8 +34,8 @@ class PerformancesController < ApplicationController
 
   private
 
-    def load_user
-      @user = User.find(params[:user_id])
+    def load_company
+      @company = Company.find(params[:company_id])
     end
 
     def load_performance

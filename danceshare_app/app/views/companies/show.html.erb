@@ -1,0 +1,17 @@
+<h2><%= @company.name %> Profile</h2>
+
+<img src="<%= @company.photo_url %> " />
+
+<br/>
+
+<%= link_to "Performances", company_performances_path(@company) %>
+<br/>
+<%= link_to "Add Performance", new_company_performance_path(@company) %>
+
+<br/>
+
+<% if current_user == @company.admin_id %>
+  <%= link_to "Edit Profile", edit_company_path(@company) %>
+  <br/><br/><br/>
+  <%= link_to "Delete Profile", user_path(@user), method: "delete" %>
+<% end %>

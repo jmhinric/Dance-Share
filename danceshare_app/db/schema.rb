@@ -11,14 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140216204156) do
+ActiveRecord::Schema.define(version: 20140217030133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "concerts", force: true do |t|
-    t.integer "venue_id"
-    t.integer "performance_id"
+  create_table "artists", force: true do |t|
+    t.integer "user_id"
+    t.integer "company_id"
+  end
+
+  create_table "companies", force: true do |t|
+    t.string  "name"
+    t.integer "admin_id"
+    t.text    "photo_url"
   end
 
   create_table "performances", force: true do |t|
@@ -29,11 +35,7 @@ ActiveRecord::Schema.define(version: 20140216204156) do
     t.time    "time"
     t.string  "pretty_date"
     t.string  "pretty_time"
-  end
-
-  create_table "performances_venues", force: true do |t|
-    t.integer "performance_id"
-    t.integer "venue_id"
+    t.integer "company_id"
   end
 
   create_table "reviews", force: true do |t|
@@ -56,6 +58,7 @@ ActiveRecord::Schema.define(version: 20140216204156) do
     t.text     "photo_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_admin",        default: false
   end
 
   create_table "venues", force: true do |t|
