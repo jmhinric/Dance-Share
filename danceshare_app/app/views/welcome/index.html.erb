@@ -1,6 +1,8 @@
 <h1>Welcome to Dance Share NYC!</h1>
 
-<%= link_to "Join Dance Share", new_user_path %>
+<% unless logged_in? %>
+  <%= link_to "Join Dance Share", new_user_path %>
+<% end %>
 
 <h2>Recent Performances:</h2>
 <ul>
@@ -11,7 +13,7 @@
       <li><%= performance.pretty_date %></li>
     </ul>
     <% if logged_in? %>
-      <p><%= link_to "Review this Performance", new_performance_review_path(performance) %></p>
+      <p><strong><%= link_to "Review this Performance", new_performance_review_path(performance) %></strong></p>
     <% end %>
 <% end %>
 </ul>

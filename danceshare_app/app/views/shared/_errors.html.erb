@@ -1,8 +1,8 @@
-<% unless user.errors.messages.empty? %>
+<% unless entity.errors.messages.empty? %>
   <div id="errors"/>
     <h3>Errors</h3>
     <ul>
-      <% user.errors.messages.each do |field, error| %>
+      <% entity.errors.messages.each do |field, error| %>
         <li>
           <em><%= "#{field.capitalize}: #{error.first}" %></em>
         </li>

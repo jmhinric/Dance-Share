@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :load_user, only: [:show, :edit, :update, :destroy, :reviews_index]
+  before_action :load_user, only: [:show, :edit, :update, :destroy]
 
   before_action :authenticate, :authorize, only: [:edit, :update, :destroy]
 
@@ -39,10 +39,7 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def reviews_index
-  end
-
-
+  
   private
 
     def load_user

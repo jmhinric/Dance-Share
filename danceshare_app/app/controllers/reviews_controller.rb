@@ -1,9 +1,18 @@
 class ReviewsController < ApplicationController
 
+  before_action :load_review, only: [:show, :edit, :update]
   before_action :load_user
-  before_action :load_performance
-  # before_action :is_admin?, only: [:new, :create, :edit]
-  before_action :logged_in?
+  before_action :load_performance, only: [:new, :create, :edit, :update]
+
+  before_action :authenticate
+  before_action :authorize, only: [:new, :create, :edit, :update]
+
+  def index
+  end
+
+  def show
+    @company = @review.performance.company
+  end
 
   def new
     @review = Review.new
@@ -16,14 +25,31 @@ class ReviewsController < ApplicationController
     
     if @review.save
       @company = @performance.company
-      redirect_to company_performance_path(@company, @performance)
+      # redirect_to "/users/#{@user.id}/reviews/#{@review.id}"
+      render :show
     else
       render :new
     end
   end
 
+  def edit
+    @review = Review.find(params[:id])
+  end
+
+  def update
+    if @review.update(review_params)
+      redirect_to "/users/#{@review.user.id}/reviews/#{@review.id}"
+    else
+      render :edit
+    end
+  end
+
 
   private
+
+    def load_review
+      @review = Review.find(params[:id])
+    end
 
     def load_user
       @user = current_user
