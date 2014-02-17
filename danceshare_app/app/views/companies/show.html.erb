@@ -10,8 +10,6 @@
 
 <br/>
 
-<% if current_user == @company.admin_id %>
+<% if current_user == User.find(@company.admin_id) %>
   <%= link_to "Edit Profile", edit_company_path(@company) %>
-  <br/><br/><br/>
-  <%= link_to "Delete Profile", user_path(@user), method: "delete" %>
 <% end %>

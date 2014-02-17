@@ -1,8 +1,9 @@
 class CompaniesController < ApplicationController
 
   before_action :load_user, only: [:create]
-  before_action :load_company, only: [:show]
-  before_action :authenticate, only: [:new, :create]
+  before_action :load_company, only: [:show, :edit, :update]
+  before_action :authenticate, only: [:new, :create, :edit, :update]
+  before_action :admin_authorize, only: [:edit, :update]
 
   def show
   end
@@ -20,6 +21,16 @@ class CompaniesController < ApplicationController
     redirect_to company_path(@company)
   end
 
+  def edit
+  end
+
+  def update
+    if @company.update(company_params)
+      redirect_to company_path(@company)  
+    else
+      render :edit
+    end
+  end
 
 
   private
