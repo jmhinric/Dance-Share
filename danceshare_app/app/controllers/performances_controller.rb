@@ -3,7 +3,7 @@ class PerformancesController < ApplicationController
   before_action :load_company, only: [:index, :show, :new, :create]
   before_action :load_performance, only: [:show, :update, :destroy]
   before_action :authenticate, only: []
-  before_action :authorize, only: [:new, :create]
+  before_action :admin_authorize, only: [:new, :create]
 
   def index
     @performances = @company.performances
@@ -64,7 +64,7 @@ class PerformancesController < ApplicationController
 
       yelp = JSON(yelp_search)
 
-      binding.pry
+      # binding.pry
       return create_venue(yelp)
     end
 
@@ -81,20 +81,6 @@ class PerformancesController < ApplicationController
         yelp_id: yelp["businesses"][0]["id"],
         review_count: yelp["businesses"][0]["review_count"]
         ) 
-    end
-
-    def authenticate
-      unless logged_in?
-        redirect_to login_path
-      end
-    end
-
-    def authorize
-      if current_user != User.find(@company.admin_id) && !logged_in?
-        redirect_to login_path
-      elsif current_user != User.find(@company.admin_id)
-        redirect_to root_path
-      end
     end
 
 end

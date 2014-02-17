@@ -36,10 +36,4 @@ class CompaniesController < ApplicationController
     @user = current_user
   end
 
-  def authenticate
-    unless logged_in?
-      redirect_to login_path
-    end
-  end
-
 end

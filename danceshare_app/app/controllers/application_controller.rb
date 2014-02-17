@@ -12,7 +12,29 @@ class ApplicationController < ActionController::Base
     current_user.present?
   end
 
-  helper_method :current_user, :logged_in?
+  def authenticate
+    unless logged_in?
+      redirect_to login_path
+    end
+  end
+
+  def authorize
+    if current_user != @user && !logged_in?
+      redirect_to login_path
+    elsif current_user != @user
+      redirect_to root_path
+    end
+  end
+
+  def admin_authorize
+    if current_user != User.find(@company.admin_id) && !logged_in?
+      redirect_to login_path
+    elsif current_user != User.find(@company.admin_id)
+      redirect_to root_path
+    end
+  end
+
+  helper_method :current_user, :logged_in?, :authenticate, :authorize, :admin_authorize
 
 
 

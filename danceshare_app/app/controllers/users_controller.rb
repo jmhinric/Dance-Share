@@ -53,18 +53,4 @@ class UsersController < ApplicationController
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :gender, :dob, :photo_url, :created_at, :updated_at)
     end
 
-    def authenticate
-      unless logged_in?
-        redirect_to login_path
-      end
-    end
-
-    def authorize
-      if current_user != @user && !logged_in?
-        redirect_to login_path
-      elsif current_user != @user
-        redirect_to root_path
-      end
-    end
-
 end
