@@ -5,7 +5,9 @@
     <li><a href="<%= company_performance_path(@company, performance) %>"><%= performance.title %></a></li>
     <ul>
       <li><%= performance.venue.name %></li>
-      <li><%= performance.date.strftime("%A, %B %e, %Y") %></li>
+      <li><%= performance.pretty_date %></li>
     </ul>
 <% end %>
 </ul>
+
+<%= link_to "Company Profile", company_path(@company) %>

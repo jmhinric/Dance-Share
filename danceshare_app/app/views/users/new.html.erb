@@ -1,5 +1,5 @@
 <h1>Join the Dance Share Community!</h1>
 
-<%= render "errors" %>
+<%= render partial: "shared/errors", locals: {user: @user} %>
 
-<%= render "signup_form" %>
+<%= render "user_info_form" %>
