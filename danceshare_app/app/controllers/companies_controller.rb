@@ -2,7 +2,7 @@ class CompaniesController < ApplicationController
 
   before_action :load_user, only: [:create]
   before_action :load_company, only: [:show]
-  before_action :logged_in?
+  before_action :authenticate, only: [:new, :create]
 
   def show
   end
@@ -34,6 +34,12 @@ class CompaniesController < ApplicationController
 
   def load_user
     @user = current_user
+  end
+
+  def authenticate
+    unless logged_in?
+      redirect_to login_path
+    end
   end
 
 end

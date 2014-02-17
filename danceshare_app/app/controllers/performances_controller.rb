@@ -2,6 +2,8 @@ class PerformancesController < ApplicationController
 
   before_action :load_company, only: [:index, :show, :new, :create]
   before_action :load_performance, only: [:show, :update, :destroy]
+  before_action :authenticate, only: []
+  before_action :authorize, only: [:new, :create]
 
   def index
     @performances = @company.performances
@@ -62,16 +64,37 @@ class PerformancesController < ApplicationController
 
       yelp = JSON(yelp_search)
 
-      # binding.pry
+      binding.pry
+      return create_venue(yelp)
+    end
+
+    def create_venue(yelp)
       return Venue.create(
         name: yelp["businesses"][0]["name"],
         display_address: yelp["businesses"][0]["location"]["display_address"].join("\n"),
+        city: yelp["businesses"][0]["location"]["city"],
+        state_code: yelp["businesses"][0]["location"]["state_code"],
+        postal_code: yelp["businesses"][0]["location"]["postal_code"],
         image_url: yelp["businesses"][0]["image_url"],
         url: yelp["businesses"][0]["url"],
         rating_image_url: yelp["businesses"][0]["rating_img_url"],
         yelp_id: yelp["businesses"][0]["id"],
         review_count: yelp["businesses"][0]["review_count"]
-        )
+        ) 
+    end
+
+    def authenticate
+      unless logged_in?
+        redirect_to login_path
+      end
+    end
+
+    def authorize
+      if current_user != User.find(@company.admin_id) && !logged_in?
+        redirect_to login_path
+      elsif current_user != User.find(@company.admin_id)
+        redirect_to root_path
+      end
     end
 
 end
