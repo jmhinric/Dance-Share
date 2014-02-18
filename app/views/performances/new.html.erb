@@ -1,18 +1,44 @@
 <h1>Create a Performance:</h1>
 
-<h3>Venue:</h3>
-
-<p>Please select your venue from the list:</p>
-<%=
+<br/>
+<h2>Venue:</h2>
 
 <form action="/companies/<%= @company.id %>/performances" method="POST" />
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+  
+  <p>Is your Venue on this list? If not, select 'None'</p>
+  <select name="venue">
+    <option value="nil" selected="selected">None</option>
+    <% @venues.each do |venue| %>
+      <option value="<%= venue.id %>" name="venue">
+        <%= venue.name %>, 
+        <% unless venue.cross_streets.nil? %>
+          <%= venue.cross_streets %>, 
+        <% end %>
+        <%= venue.address %>
+        </option>  
+    <% end %>
+    
+    <!-- <option value="2">D. Thomas</option> -->
+    <!-- <option value="3">M. Clark</option> -->
+  </select>
 
+  <p><strong>If your Venue was not on the list:</strong></p>
   <label>
     Please enter the name of an NYC theater:
     <input type="text" name="venue_name" placeholder="Venue name" />
+  </label>
+  
+  <label>
+    <h2>Date:</h2>
+    <input type="date" name="date" />
+  </label><br/>
+
+  <label>
+    <h2>Time:</h2>
+    <input type="time" name="time" />
   </label><br/>
   
-  <button>Search for Venue</button>
+  <br/>
+  <button>Add Performance</button>
 </form>
-<%= render "form" %>

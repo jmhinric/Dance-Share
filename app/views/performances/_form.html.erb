@@ -1,20 +1,21 @@
 <form action="/companies/<%= @company.id %>/performances" method="POST" />
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
 
-<!--   <label>
+  <label>
     Enter the name of a theater in NYC:
     <input type="text" name="venue_name" placeholder="Venue name" />
-  </label><br/>
+  </label><br/>  
 
- -->  <label>
-    Date
+  <label>
+    <h2>Date:</h2>
     <input type="date" name="date" />
   </label><br/>
 
   <label>
-    Time
+    <h2>Time:</h2>
     <input type="time" name="time" />
   </label><br/>
-
+  
+  <br/>
   <button>Add Performance</button>
 </form>

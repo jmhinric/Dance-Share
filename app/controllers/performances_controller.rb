@@ -19,8 +19,13 @@ class PerformancesController < ApplicationController
   end
 
   def create
-    yelp_data = yelp_call(params[:venue_name])
-    @venue = create_venue(yelp_data)
+    # binding.pry
+    if params[:venue].nil?
+      yelp_data = yelp_call(params[:venue_name])
+      @venue = create_venue(yelp_data)
+    else
+      @venue = Venue.find(params[:venue].to_i)
+    end
 
     @performance = Performance.create(
       title: "#{@company.name}", 

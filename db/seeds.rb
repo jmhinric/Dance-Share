@@ -31,6 +31,8 @@ def create_venue(yelp)
   return Venue.create(
     name: yelp["businesses"][0]["name"],
     display_address: yelp["businesses"][0]["location"]["display_address"].join("\n"),
+    cross_streets: yelp["businesses"][0]["location"]["cross_streets"],
+    address: yelp["businesses"][0]["location"]["address"].first,
     city: yelp["businesses"][0]["location"]["city"],
     state_code: yelp["businesses"][0]["location"]["state_code"],
     postal_code: yelp["businesses"][0]["location"]["postal_code"],
@@ -109,7 +111,7 @@ tim_company2 = Company.create(
 kara_p1 = Performance.create(
   title: kara_company.name,
   date: "2014-02-01",
-  time: "2000-01-01 20:00:00",
+  time: "20:00:00",
   company_id: kara_company.id,
   venue_id: joyce.id)
   kara_p1.pretty_date = kara_p1.date.strftime("%A, %B %e, %Y")
@@ -119,7 +121,7 @@ kara_p1 = Performance.create(
 kara_p2 = Performance.create(
   title: kara_company.name,
   date: "2014-02-17",
-  time: "2000-01-01 20:00:00",
+  time: "20:00:00",
   company_id: kara_company.id,
   venue_id: ailey.id)
   kara_p2.pretty_date = kara_p2.date.strftime("%A, %B %e, %Y")
@@ -129,7 +131,7 @@ kara_p2 = Performance.create(
 kara_p3 = Performance.create(
   title: kara_company.name,
   date: "2014-02-20",
-  time: "2000-01-01 20:00:00",
+  time: "20:00:00",
   company_id: kara_company.id,
   venue_id: ps122.id)
   kara_p3.pretty_date = kara_p3.date.strftime("%A, %B %e, %Y")
@@ -139,7 +141,7 @@ kara_p3 = Performance.create(
 kara_p4 = Performance.create(
   title: kara_company.name,
   date: "2014-04-01",
-  time: "2000-01-01 20:00:00",
+  time: "20:00:00",
   company_id: kara_company.id,
   venue_id: lincoln_center.id)
   kara_p4.pretty_date = kara_p4.date.strftime("%A, %B %e, %Y")
@@ -149,7 +151,7 @@ kara_p4 = Performance.create(
 tim1_p1 = Performance.create(
   title: tim_company1.name,
   date: "2014-02-02",
-  time: "2000-01-01 20:00:00",
+  time: "20:00:00",
   company_id: tim_company1.id,
   venue_id: joyce.id)
   tim1_p1.pretty_date = tim1_p1.date.strftime("%A, %B %e, %Y")
@@ -159,7 +161,7 @@ tim1_p1 = Performance.create(
 tim1_p2 = Performance.create(
   title: tim_company1.name,
   date: "2014-02-16",
-  time: "2000-01-01 20:00:00",
+  time: "20:00:00",
   company_id: tim_company1.id,
   venue_id: ailey.id)
   tim1_p2.pretty_date = tim1_p2.date.strftime("%A, %B %e, %Y")
@@ -169,7 +171,7 @@ tim1_p2 = Performance.create(
 tim1_p3 = Performance.create(
   title: tim_company1.name,
   date: "2014-02-21",
-  time: "2000-01-01 20:00:00",
+  time: "20:00:00",
   company_id: tim_company1.id,
   venue_id: ps122.id)
   tim1_p3.pretty_date = tim1_p3.date.strftime("%A, %B %e, %Y")
@@ -179,7 +181,7 @@ tim1_p3 = Performance.create(
 tim1_p4 = Performance.create(
   title: tim_company1.name,
   date: "2014-05-01",
-  time: "2000-01-01 20:00:00",
+  time: "20:00:00",
   company_id: tim_company1.id,
   venue_id: lincoln_center.id)
   tim1_p4.pretty_date = tim1_p4.date.strftime("%A, %B %e, %Y")
@@ -190,7 +192,7 @@ tim1_p4 = Performance.create(
 tim2_p1 = Performance.create(
   title: tim_company2.name,
   date: "2014-02-01",
-  time: "2000-01-01 20:00:00",
+  time: "20:00:00",
   company_id: tim_company2.id,
   venue_id: ailey.id)
   tim2_p1.pretty_date = tim2_p1.date.strftime("%A, %B %e, %Y")
@@ -200,7 +202,7 @@ tim2_p1 = Performance.create(
 tim2_p2 = Performance.create(
   title: tim_company2.name,
   date: "2014-02-15",
-  time: "2000-01-01 20:00:00",
+  time: "20:00:00",
   company_id: tim_company2.id,
   venue_id: ps122.id)
   tim2_p2.pretty_date = tim2_p2.date.strftime("%A, %B %e, %Y")
@@ -210,7 +212,7 @@ tim2_p2 = Performance.create(
 tim2_p3 = Performance.create(
   title: tim_company2.name,
   date: "2014-02-24",
-  time: "2000-01-01 20:00:00",
+  time: "20:00:00",
   company_id: tim_company2.id,
   venue_id: lincoln_center.id)
   tim2_p3.pretty_date = tim2_p3.date.strftime("%A, %B %e, %Y")
@@ -220,7 +222,7 @@ tim2_p3 = Performance.create(
 tim2_p4 = Performance.create(
   title: tim_company2.name,
   date: "2014-06-01",
-  time: "2000-01-01 20:00:00",
+  time: "20:00:00",
   company_id: tim_company2.id,
   venue_id: joyce.id)
   tim2_p4.pretty_date = tim2_p4.date.strftime("%A, %B %e, %Y")
