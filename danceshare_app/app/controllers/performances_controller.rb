@@ -62,7 +62,7 @@ class PerformancesController < ApplicationController
       consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
       access_token = OAuth::AccessToken.new(consumer, token, token_secret)
 
-      path = "/v2/search?term=#{search_theater}+theater+performing+arts&location=new+york"
+      path = "/v2/search?term=#{search_theater}+theater+performing+arts&location=new+york&limit=5"
       
       yelp_search = access_token.get(path).body
 
@@ -85,6 +85,15 @@ class PerformancesController < ApplicationController
         yelp_id: yelp["businesses"][0]["id"],
         review_count: yelp["businesses"][0]["review_count"]
         ) 
+    end
+
+    def yelp_venue_info(yelp)
+      yelp.each do |biz|
+        
+      end
+
+      {}
+
     end
 
 end

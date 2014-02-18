@@ -2,14 +2,17 @@
 
 <h3>Venue:</h3>
 
-<!-- <form action="/companies/<%= @company.id %>/performances" method="POST" />
+<p>Please select your venue from the list:</p>
+<%=
+
+<form action="/companies/<%= @company.id %>/performances" method="POST" />
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
 
   <label>
     Please enter the name of an NYC theater:
     <input type="text" name="venue_name" placeholder="Venue name" />
   </label><br/>
- -->
-
-
+  
+  <button>Search for Venue</button>
+</form>
 <%= render "form" %>
