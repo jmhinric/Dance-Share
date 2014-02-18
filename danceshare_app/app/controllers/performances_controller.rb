@@ -15,6 +15,7 @@ class PerformancesController < ApplicationController
 
   def new
     @venue = Venue.new
+    @venues = Venue.all
   end
 
   def create
