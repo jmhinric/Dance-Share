@@ -12,9 +12,7 @@
       <li><%= performance.venue.name %></li>
       <li><%= performance.pretty_date %></li>
     </ul>
-    <% if logged_in? %>
-      <p><strong><%= link_to "Review this Performance", new_performance_review_path(performance) %></strong></p>
-    <% end %>
+    <p><strong><%= link_to "Review this Performance", new_performance_review_path(performance) %></strong></p>
 <% end %>
 </ul>
 

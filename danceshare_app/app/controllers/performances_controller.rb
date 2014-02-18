@@ -58,7 +58,7 @@ class PerformancesController < ApplicationController
       consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
       access_token = OAuth::AccessToken.new(consumer, token, token_secret)
 
-      path = "/v2/search?term=#{search_theater}+performing+arts&location=new+york"
+      path = "/v2/search?term=#{search_theater}+theater+performing+arts&location=new+york"
       
       yelp_search = access_token.get(path).body
 
