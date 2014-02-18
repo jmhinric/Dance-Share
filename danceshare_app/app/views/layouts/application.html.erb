@@ -18,6 +18,11 @@
       <% else %>
         <p><%= link_to "Please Log In!","/login" %></p>
       <% end %>
+
+      <% unless logged_in? %>
+        <%= link_to "Register for Dance Share", new_user_path %>
+      <% end %>
+
     <nav>
   </header>
 
