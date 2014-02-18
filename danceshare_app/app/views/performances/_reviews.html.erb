@@ -3,8 +3,12 @@
 <% @performance.reviews.each do |review| %>
   <p>
     <em><%= review.title %></em><br/> 
-    By: <%= review.user.first_name %>
-    <%= review.user.last_name %><br/>
+    By: <%= review.user.first_name %> 
+    <%= review.user.last_name %> 
+    <% if current_user == review.user %>
+      <%= link_to "Edit this review", edit_user_review_path(current_user, review) %>
+    <% end %>
+    <br/>
     <%= @performance.pretty_date %>
   </p>
   <p>Rating: <%= review.rating %>/5</p>

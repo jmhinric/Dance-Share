@@ -4,7 +4,7 @@
 <br/>
 <%= link_to "Edit Review", edit_performance_review_path(@review.performance, @review) %>
 <br/>
-<%= link_to "Clark's Reviews", "/users/#{@user.id}/reviews" %>
+<%= link_to "#{current_user.first_name}'s Reviews", user_reviews_path(@user) %>
 <br/>
 <%= link_to "View all Reviews of this Performance", 
     company_performance_path(@review.performance.company, @review.performance) %>

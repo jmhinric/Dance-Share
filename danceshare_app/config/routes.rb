@@ -20,7 +20,7 @@ DanceshareApp::Application.routes.draw do
   # get "/users/:user_id/reviews/:id", to: "reviews#show"
 
   resources :users do
-    resources :reviews, only: [:index, :show]
+    resources :reviews, only: [:index, :show, :edit]
   end
 
 end
