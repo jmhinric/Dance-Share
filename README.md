@@ -31,5 +31,5 @@ by John Hinrichs
 
 Full documentation of the process of making Dance Share can be found on [John's Pivotal Tracker](https://www.pivotaltracker.com/s/projects/1015682)
 
-#####
-Dance Share was developed as a project for General Assembly's 12-week Web Development Immersive program.
+
+**Dance Share was developed as a project for General Assembly's 12-week Web Development Immersive program.**

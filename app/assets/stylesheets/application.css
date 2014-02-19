@@ -11,10 +11,28 @@
  *= require_self
  *= require_tree .
  */
+body {
+  background: url("theater_audience_high_res.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+a {
+  color: blue;
+}
 
 form {
   border: 1px solid black;
   padding: 20px;
   margin: 20px;
   border-radius: 30px;
+}
+
+nav li {
+  display: inline;
+  padding: 0px 10px;
+}
+
+h1, h2, h3 {
+  padding: 10px 50px;
 }

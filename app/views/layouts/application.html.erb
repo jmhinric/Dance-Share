@@ -10,19 +10,20 @@
 
   <header>
     <nav>
-      <%= link_to "Home", root_path %>
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
       
-      <% if logged_in? %>
-        <p><%= link_to "#{current_user.first_name}'s Profile", user_path(current_user) %></p>
-        <p><%= link_to "Log Out", "/session", method: "delete" %></p>  
-      <% else %>
-        <p><%= link_to "Please Log In!","/login" %></p>
-      <% end %>
+        <% if logged_in? %>
+          <li><%= link_to "#{current_user.first_name}'s Profile", user_path(current_user) %></li>
+          <li><%= link_to "Log Out", "/session", method: "delete" %></li>  
+        <% else %>
+          <li><%= link_to "Please Log In!","/login" %></li>
+        <% end %>
 
-      <% unless logged_in? %>
-        <%= link_to "Register for Dance Share", new_user_path %>
-      <% end %>
-
+        <% unless logged_in? %>
+          <li><%= link_to "Register for Dance Share", new_user_path %></li>
+        <% end %>
+      </ul>
     <nav>
   </header>
 
