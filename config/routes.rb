@@ -23,4 +23,6 @@ DanceshareApp::Application.routes.draw do
     resources :reviews, only: [:index, :show, :edit]
   end
 
+  resources :venues, only: [:new, :create]
+
 end

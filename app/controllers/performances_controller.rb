@@ -19,7 +19,6 @@ class PerformancesController < ApplicationController
   end
 
   def create
-    # binding.pry
     if params[:venue].nil?
       yelp_data = yelp_call(params[:venue_name])
       @venue = create_venue(yelp_data)
@@ -93,12 +92,13 @@ class PerformancesController < ApplicationController
     end
 
     def yelp_venue_info(yelp)
-      yelp.each do |biz|
-        
+      yelp.map do |biz|
+        {
+          image_url:["businesses"]["image_url"],
+          name: biz["businesses"]["name"],
+          display_address: yelp["businesses"][0]["location"]["display_address"].join("\n")
+        }
       end
-
-      {}
-
     end
 
 end
