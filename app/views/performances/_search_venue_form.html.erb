@@ -1,0 +1,19 @@
+<form action="/companies/<%= @company.id %>/venues/new" method="GET" />  
+  
+  <label>
+    Please enter the name of an NYC theater:
+    <input type="text" name="venue_name" placeholder="Venue Name" />
+  </label>
+  
+  <button>Search for Venue</button>
+</form>
+
+
+
+<%= form_for @company, url: new_company_venue_path(@company), method: :get do |f| %>
+  
+  <label>Please enter the name of an NYC theater:</label>
+  <%= f.text_field :venue_name, :placeholder => "Venue Name" %>
+  
+  <%= f.submit "Search for Venue" %>
+<% end %>

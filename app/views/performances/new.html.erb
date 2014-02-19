@@ -1,22 +1,9 @@
 <h1>Create a Performance:</h1>
-
 <br/>
 <h2>Venue:</h2>
 
-<form action="/companies/<%= @company.id %>/performances" method="POST" />
-  <%= render "shared/performance_venues" %>
-  <button>Add Performance</button>
-</form>
-
+<%= render "performance_venues" %>
 
 <h2><strong>Otherwise:</strong></h2>
 
-
-<form action="/venues/new" method="GET" />  
-  <label>
-    Please enter the name of an NYC theater:
-    <input type="text" name="venue_name" placeholder="Venue name" />
-  </label>
-    <input type="hidden" name="company_id" value="<%=@company.id%>" />
-  <button>Search for Venue</button>
-</form>
+<%= render "search_venue_form" %>

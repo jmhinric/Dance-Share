@@ -19,12 +19,7 @@ class PerformancesController < ApplicationController
   end
 
   def create
-    if params[:selected_venue].nil?
-      yelp_data = yelp_call(params[:venue_name])
-      @venue = create_venue(yelp_data)
-    else
-      @venue = Venue.find(params[:selected_venue].to_i)
-    end
+    @venue = Venue.find(params[:selected_venue].to_i)
 
     @performance = Performance.create(
       title: "#{@company.name}", 
@@ -40,8 +35,6 @@ class PerformancesController < ApplicationController
   end
 
 
-
-
   private
 
     def load_company
@@ -50,57 +43,6 @@ class PerformancesController < ApplicationController
 
     def load_performance
       @performance = Performance.find(params[:id])
-    end
-
-    def yelp_call(theater)
-
-      search_theater = theater.gsub(" ", "+")
-
-      consumer_key = YELP_CONSUMER_KEY
-      consumer_secret = "#{YELP_CONSUMER_SECRET}"
-      token = "#{YELP_TOKEN}"
-      token_secret = "#{YELP_TOKEN_SECRET}"
-
-      api_host = 'api.yelp.com'
-
-      consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
-      access_token = OAuth::AccessToken.new(consumer, token, token_secret)
-
-      path = "/v2/search?term=#{search_theater}+theater+performing+arts&location=new+york&limit=5"
-      
-      yelp_search = access_token.get(path).body
-
-      return JSON(yelp_search)
-
-      # binding.pry
-      # return create_venue(yelp)
-    end
-
-    def create_venue(yelp)
-      return Venue.create(
-        name: yelp["businesses"][0]["name"],
-        display_address: yelp["businesses"][0]["location"]["display_address"].join("\n"),
-        cross_streets: yelp["businesses"][0]["location"]["cross_streets"],
-        address: yelp["businesses"][0]["location"]["address"].first,
-        city: yelp["businesses"][0]["location"]["city"],
-        state_code: yelp["businesses"][0]["location"]["state_code"],
-        postal_code: yelp["businesses"][0]["location"]["postal_code"],
-        image_url: yelp["businesses"][0]["image_url"],
-        url: yelp["businesses"][0]["url"],
-        rating_image_url: yelp["businesses"][0]["rating_img_url"],
-        yelp_id: yelp["businesses"][0]["id"],
-        review_count: yelp["businesses"][0]["review_count"]
-        ) 
-    end
-
-    def yelp_venue_info(yelp)
-      yelp.map do |biz|
-        {
-          image_url:["businesses"]["image_url"],
-          name: biz["businesses"]["name"],
-          display_address: yelp["businesses"][0]["location"]["display_address"].join("\n")
-        }
-      end
     end
 
 end

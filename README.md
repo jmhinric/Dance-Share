@@ -18,15 +18,11 @@ by John Hinrichs
 ### User Stories:
 
 * User should be able to sign up for an account
-* User should be able to sign in and out
-* User should be able to edit or delete their account
-* User should only be able to edit and delete their OWN account
 * User should be able to create a Performance with Venue, date, and time
 * User should be able to view recent and upcoming Performances
 * User should be able to Review a Performance
-* User should be able to have a Company
+* User should be able to create a Company for which they are an admin
 * Only Companies should be able to create Performances
-* Only Company admin should be able to edit their Company profile
 * Company should be able to verify the Venue they entered when adding a Performance
 
 Full documentation of the process of making Dance Share can be found on [John's Pivotal Tracker](https://www.pivotaltracker.com/s/projects/1015682)
