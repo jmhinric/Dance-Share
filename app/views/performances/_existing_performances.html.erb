@@ -1,0 +1,34 @@
+<form action="/companies/<%= @company.id %>/performances" method="POST" />
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+  
+  <p>Please select your Venue if listed below:</p>
+
+  <% @venues.each do |venue| %>
+    <label>
+      <input type="radio" name="selected_venue" value=<%= venue.id %> />
+      <img src="<%=venue.image_url%>" />
+      <br/><%= venue.name %><br/>
+      <% venue.display_address.split("\n").each do |line| %>
+        <%= line %><br/>
+      <% end %>
+      <br/>
+    </label>  
+  <% end %>
+  <label>
+    <input type="radio" name="selected_venue" />
+    None
+  </label>
+  
+  <label>
+    <h2>Date:</h2>
+    <input type="date" name="date" />
+  </label><br/>
+
+  <label>
+    <h2>Time:</h2>
+    <input type="time" name="time" />
+  </label><br/>
+  
+  <br/>
+  <button>Add Performance</button>
+</form>

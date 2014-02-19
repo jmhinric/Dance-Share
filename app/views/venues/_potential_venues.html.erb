@@ -1,0 +1,28 @@
+<form action="/venues" method="POST" />
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+  <input type="hidden" name="search_query" value="<%= @venues.first[:search_query] %>" />
+  <input type="hidden" name="company_id" value="<%= @company.id %>" />
+
+
+  <p>Please select your Venue if listed below:</p>
+
+  <% @venues.each do |venue| %>
+    <label>
+      <input type="radio" name="venue_name" value="<%= venue[:name] %>" />
+      <img src="<%=venue[:image_url]%>" />
+      <br/><%= venue[:name] %><br/>
+      <% venue[:display_address].split("\n").each do |line| %>
+        <%= line %><br/>
+      <% end %>
+      <br/>
+    </label>  
+  <% end %>
+  <label>
+    <input type="radio" name="selected_venue" />
+    None
+  </label>
+  
+  <br/>
+  <br/>
+  <button>Submit</button>
+</form>

@@ -4,47 +4,19 @@
 <h2>Venue:</h2>
 
 <form action="/companies/<%= @company.id %>/performances" method="POST" />
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-  
-  <p>Please select your Venue if listed below:</p>
-
-  <% @venues.each do |venue| %>
-    <label>
-      <input type="radio" name="selected_venue" />
-      <img src="<%=venue.image_url%>" />
-      <br/><%= venue.name %><br/>
-      <% venue.display_address.split("\n").each do |line| %>
-        <%= line %><br/>
-      <% end %>
-      <br/>
-    </label>  
-  <% end %>
-  <label>
-    <input type="radio" name="selected_venue" />
-    None
-  </label>
-  
-  <label>
-    <h2>Date:</h2>
-    <input type="date" name="date" />
-  </label><br/>
-
-  <label>
-    <h2>Time:</h2>
-    <input type="time" name="time" />
-  </label><br/>
-  
-  <br/>
+  <%= render "shared/performance_venues" %>
   <button>Add Performance</button>
 </form>
 
+
 <h2><strong>Otherwise:</strong></h2>
 
-<form action="<%= new_venue_path %>" method="GET" />
-  
+
+<form action="/venues/new" method="GET" />  
   <label>
     Please enter the name of an NYC theater:
     <input type="text" name="venue_name" placeholder="Venue name" />
   </label>
+    <input type="hidden" name="company_id" value="<%=@company.id%>" />
   <button>Search for Venue</button>
 </form>

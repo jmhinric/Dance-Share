@@ -1,6 +1,7 @@
 module YelpHelper
   def self.ask_for_theaters(theater)
-    YelpHelper::api_call_theaters(theater)["businesses"].map do |venue|
+  
+    YelpHelper::api_call_theaters(theater)["businesses"].map do |venue|  
       {
         name:             venue["name"],
         display_address:  venue["location"]["display_address"].join("\n"),
@@ -11,7 +12,8 @@ module YelpHelper
         url:              venue["url"],
         rating_image_url: venue["rating_img_url"],
         yelp_id:          venue["id"],
-        review_count:     venue["review_count"]
+        review_count:     venue["review_count"],
+        search_query:     theater
       }
     end
   end

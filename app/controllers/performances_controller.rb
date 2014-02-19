@@ -19,11 +19,11 @@ class PerformancesController < ApplicationController
   end
 
   def create
-    if params[:venue].nil?
+    if params[:selected_venue].nil?
       yelp_data = yelp_call(params[:venue_name])
       @venue = create_venue(yelp_data)
     else
-      @venue = Venue.find(params[:venue].to_i)
+      @venue = Venue.find(params[:selected_venue].to_i)
     end
 
     @performance = Performance.create(
@@ -80,6 +80,8 @@ class PerformancesController < ApplicationController
       return Venue.create(
         name: yelp["businesses"][0]["name"],
         display_address: yelp["businesses"][0]["location"]["display_address"].join("\n"),
+        cross_streets: yelp["businesses"][0]["location"]["cross_streets"],
+        address: yelp["businesses"][0]["location"]["address"].first,
         city: yelp["businesses"][0]["location"]["city"],
         state_code: yelp["businesses"][0]["location"]["state_code"],
         postal_code: yelp["businesses"][0]["location"]["postal_code"],
