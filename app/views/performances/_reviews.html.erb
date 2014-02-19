@@ -6,7 +6,7 @@
     By: <%= review.user.first_name %> 
     <%= review.user.last_name %> 
     <% if current_user == review.user %>
-      <%= link_to "Edit this review", edit_user_review_path(current_user, review) %>
+      <%= link_to "Edit this review", edit_performance_review_path(@performance, review) %>
     <% end %>
     <br/>
     <%= @performance.pretty_date %>
