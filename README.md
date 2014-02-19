@@ -25,7 +25,9 @@ by John Hinrichs
 * Only Companies should be able to create Performances
 * Company should be able to verify the Venue they entered when adding a Performance
 
+### Documentation:
 Full documentation of the process of making Dance Share can be found on [John's Pivotal Tracker](https://www.pivotaltracker.com/s/projects/1015682)
 
+[View my ERD for this project](evernote:///view/63487737/s367/fbbd7ef8-c0f6-4b71-90ac-3f287cccd36f/fbbd7ef8-c0f6-4b71-90ac-3f287cccd36f/)
 
 **Dance Share was developed as a project for General Assembly's 12-week Web Development Immersive program.**
