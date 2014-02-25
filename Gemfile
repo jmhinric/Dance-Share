@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+# gem 'annotate'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
@@ -35,6 +36,8 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.1.2'
 
+gem 'httparty'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -44,12 +47,22 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'pry-rails', group: [:development, :test]
+# gem 'pry-rails', group: [:development, :test]
 
 gem 'oauth', '0.4.7'
 
 gem 'json'
 
 gem 'rails_12factor', group: :production
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+end
 
 ruby '2.1.0'

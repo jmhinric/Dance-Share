@@ -1,9 +1,16 @@
 <h1>Create a Performance:</h1>
-<br/>
+
 <h2>Venue:</h2>
 
 <%= render "performance_venues" %>
 
-<h2><strong>Otherwise:</strong></h2>
+<h2><strong>Otherwise, please search:</strong></h2>
 
-<%= render "search_venue_form" %>
+<%= form_for @company, url: new_company_venue_path(@company), method: :get do |f| %>
+  
+  <%= f.text_field :venue_name, :placeholder => "Venue Name" %>
+  
+  <%= f.submit "Search for Venue" %>
+<% end %>
+
+<%# render "shared/search_venue_form" %>

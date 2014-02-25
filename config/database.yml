@@ -10,3 +10,9 @@ production:
   database: danceshare_production
   pool: 5
   
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: danceshare_test
+  pool: 5
+  

@@ -1,5 +1,33 @@
 <h1>Venue:</h1>
 
-<h2>Please select your Venue if listed below:</h2>
+<h2>Click on a picture to create a venue:</h2>
 
-<%= render "potential_venues" %>
+<% if @venues.present? %>
+  
+  <% @venues.each do |venue| %>    
+    <label>
+      <%= link_to image_tag("#{venue[:image_url]}"), company_venues_path(@company, venue), method: :post %>
+      <br/><%= venue[:name] %><br/>
+      <% venue[:display_address].split("\n").each do |line| %>
+        <%= line %><br/>
+      <% end %>
+      <br/>
+    </label>  
+  <% end %>
+
+  <p>Don't see your venue?  Search again! </p>
+
+<% else %>
+  <h3>None found!  Please search again!</h3>
+<% end %>
+
+
+<!-- Always render the search form: -->
+<%= form_for @company, url: new_company_venue_path(@company), method: :get do |f| %>
+  <%= f.text_field :venue_name, :placeholder => "Venue Name" %>
+  <%= f.submit "Search for Venue" %>
+<% end %>
+
+<%# render "shared/search_venue_form" %>
+
+<%# render "potential_venues" %>
