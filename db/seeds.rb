@@ -93,20 +93,23 @@ tim.save
 kara_company = Company.create(
   name: "Kryptonians",
   photo_url: "http://static.comicvine.com/uploads/scale_small/1/15297/682277-new_krypton.jpg",
-  admin_id: kara.id
+    user_id: kara.id
   )
+kara.companies << kara_company
 
 tim_company1 = Company.create(
   name: "Red Birds",
   photo_url: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ3Wd5GGJ-65EILHD12sgLVEF14dM4RawNY6IBDYH_8VUkdTpFDPg",
-  admin_id: tim.id
+  user_id: tim.id
   )
+tim.companies << tim_company1
 
 tim_company2 = Company.create(
   name: "Renegades",
   photo_url: "http://www.tuvie.com/wp-content/uploads/suzuki-crosscage-hybrid-motorcycle-concept1.jpg",
-  admin_id: tim.id
+  user_id: tim.id
   )
+tim.companies << tim_company2
 
 kara_p1 = Performance.create(
   title: kara_company.name,

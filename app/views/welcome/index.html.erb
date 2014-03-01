@@ -1,25 +1,48 @@
-<h1>Welcome to Dance Share NYC!</h1>
+<main id="homepage">
+  <section id="home-recent">
+    <h2 class="section-recent">Recent</h2>
+    <div class="three-shows">
+      <% @recent_performances.each do |performance| %>
+          <div class="home-show">
+            <ul class="home-action-links">
+              <li class="home-link"><%= link_to "Read", company_performance_path(performance.company, performance) %></li>
+              <li class="home-link"><%= link_to "Write", new_performance_review_path(performance) %></li>
+            </ul>
+            
+            <img class="home-company-photo" src="<%=performance.company.photo_url %>" />
 
-<h2>Recent Performances:</h2>
-<ul>
-<% @recent_performances.each do |performance| %>
-    <li><a href="<%= company_performance_path(performance.company, performance) %>"><%= performance.title %></a></li>
-    <ul>
-      <li><%= performance.venue.name %></li>
-      <li><%= performance.pretty_date %></li>
-    </ul>
-    <p><strong><%= link_to "Review this Performance", new_performance_review_path(performance) %></strong></p>
-<% end %>
-</ul>
+            <a class="home-company-name" href="<%= company_path(performance.company) %>"><%= performance.title %></a>
+
+            <ul class="home-show-info">
+              <li class="home-show-info"><%= performance.venue.name %></li>
+              <li class="home-show-info"><%= performance.pretty_date %></li>
+            </ul>
+          </div>
+      <% end %>
+    </div>
+  </section>
 
 
-<h2>Upcoming Performances:</h2>
-<ul>
-<% @upcoming_performances.each do |performance| %>
-    <li><a href="<%= company_performance_path(performance.company, performance) %>"><%= performance.title %></a></li>
-    <ul>
-      <li><%= performance.venue.name %></li>
-      <li><%= performance.pretty_date %>, <%= performance.pretty_time %></li>
-    </ul>
-<% end %>
-</ul>
+  <section id="home-upcoming">
+    <h2 class="section-upcoming">Upcoming</h2>
+    <div class="3-shows">
+      <% @upcoming_performances.each do |performance| %>
+          <div class="home-show">
+            <div class="home-company-photo">
+            </div>
+
+            <a class="home-company-name" href="<%= company_path(performance.company) %>"><%= performance.title %></a>
+
+            <ul class="home-show-info">
+              <li class="home-show-info"><%= performance.venue.name %></li>
+              <li class="home-show-info"><%= performance.pretty_date %></li>
+            </ul>
+          </div>
+      <% end %>
+    </div>
+  </section>
+
+  <div id="clear-float">
+  </div>
+</main>
+

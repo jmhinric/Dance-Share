@@ -8,4 +8,9 @@ FactoryGirl.define do
     gender "male"
     dob Date.today
   end
+
+  # trait :admin do
+  #   admin true
+  # end
 end
+

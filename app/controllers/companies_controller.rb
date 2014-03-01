@@ -11,13 +11,15 @@ class CompaniesController < ApplicationController
   def new
     @company = Company.new
   end
-
+# TODO Figure out the foreign key of company
   def create
     @company = Company.create(company_params)
-    @company.admin_id = current_user.id
+    @company.admin = current_user
+    # @company.admin_id = current_user.id
     @company.save
-    @user.is_admin = true
-    @user.save
+    # @user.is_admin = true
+    # @user.save
+    current_user.companies << @company
     redirect_to company_path(@company)
   end
 

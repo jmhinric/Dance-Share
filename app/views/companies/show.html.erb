@@ -10,6 +10,6 @@
 
 <br/>
 
-<% if current_user == User.find(@company.admin_id) %>
+<% if current_user == @company.user %>
   <%= link_to "Edit Profile", edit_company_path(@company) %>
 <% end %>

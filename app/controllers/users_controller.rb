@@ -5,8 +5,7 @@ class UsersController < ApplicationController
   before_action :authenticate, :authorize, only: [:edit, :update, :destroy]
 
   def show
-    @companies = Company.where(admin_id: current_user.id)
-    # binding.pry
+    @companies = @user.companies
   end
 
   def new

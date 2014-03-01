@@ -7,7 +7,7 @@
 #  piece_id   :integer
 #
 
-class Rep_Piece < ActiveRecord::Base
+class RepPiece < ActiveRecord::Base
   belongs_to :company
   belongs_to :piece
 end

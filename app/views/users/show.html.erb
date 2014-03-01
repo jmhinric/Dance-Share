@@ -9,7 +9,7 @@
   <li>Gender: <%= @user.gender %></li>
   <li>Birthday: <%= @user.dob.strftime("%B %e, %Y") %></li>
   <li><%= link_to "Reviews", user_reviews_path(@user) %></li>
-  <%= render "admin_companies" if @user.is_admin %>
+  <%= render "admin_companies" if @user.companies.present? %>
 </ul>
 
 <br/>
