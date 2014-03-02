@@ -6,7 +6,7 @@
   <p><%= @run.venue.name %></p>
 
   <% if @run.performances.empty? %>
-    <%= form_for Performance.new do |f| %>
+    <%= form_for [@run, Performance.new], url: "/runs/#{@run.id}/performances" do |f| %>
       <%= f.label :date %>
       <%= f.date_field :date %>
 
@@ -16,7 +16,7 @@
       <%= f.submit "Save Run" %>
     <% end %>
   <% else %>
-    <%= link_to "Add a Performance", new_company_performance_path(@run.company) %>
+    <%= link_to "Add a Performance", "runs/#{@run.id}/performances/new" %>
   <% end %>
 
 </main>

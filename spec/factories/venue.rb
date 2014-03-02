@@ -2,8 +2,9 @@ FactoryGirl.define do
   factory :venue do
     name { Faker::Company.name }
     yelp_id { |n| n }
+    image_url "http://twitter.com"
     rating_image_url "http://google.com"
-    url "http://google.com"
+    url "http://facebook.com"
     display_address { Faker::Address.street_address }
     review_count 5
   end

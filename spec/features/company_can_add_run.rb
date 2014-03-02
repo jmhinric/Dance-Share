@@ -5,8 +5,8 @@ describe "a company should be able to create a run" do
   
   # let!(:company) { Company.create!(name: "This One Company", user: user) }
   let(:company) { FactoryGirl.create(:company) }
-  # let!(:venue) { FactoryGirl.create(:venue) }
-  let!(:run) { FactoryGirl.build(:run) }
+  let!(:venue) { FactoryGirl.create(:venue) }
+  # let!(:run) { FactoryGirl.build(:run) }
   
   before(:each) do
     user.companies << company
@@ -17,13 +17,14 @@ describe "a company should be able to create a run" do
 
   it "lets a company create a run" do
     click_link "Add a Run of Performances"
-    choose run.venue.name
     save_and_open_page
-    fill_in "Title:", with: run.title
+    choose venue
+    fill_in "Title", with: "Example Title"
     click_button "Create Performance Run"
 
-    expect(page).to have_content run.title
-    expect(page).to have_content run.venue.name
+    # save_and_open_page
+    expect(page).to have_content "Example Title"
+    expect(page).to have_content venue.name
 
     fill_in "Date", with: "04/02/2014"
     fill_in "Time", with: "08:00 PM"

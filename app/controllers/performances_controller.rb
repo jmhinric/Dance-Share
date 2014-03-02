@@ -19,19 +19,19 @@ class PerformancesController < ApplicationController
   end
 
   def create
-    @venue = Venue.find(params[:selected_venue].to_i)
-
+    # @venue = Venue.find(params[:selected_venue].to_i)
+    @run = Run.find(params[:id])
     @performance = Performance.create(
-      title: "#{@company.name}", 
+      # title: "#{@company.name}", 
       date: params[:date],
       time: params[:time],
       pretty_date: params[:date].to_date.strftime("%A, %B %e, %Y"),
       pretty_time: params[:time].to_datetime.strftime("%l:%M %p")
       )
       
-    @venue.performances << @performance  
-    @company.performances << @performance
-    redirect_to company_performance_path(@company, @performance)
+    # @venue.performances << @performance  
+    # @company.performances << @performance
+    redirect_to company_run_path(@run.company, @run)
   end
 
 

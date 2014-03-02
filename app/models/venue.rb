@@ -3,4 +3,13 @@ class Venue < ActiveRecord::Base
 
   validates :name, :yelp_id, :rating_image_url, :url, :display_address, :review_count, presence: true
   validates :yelp_id, uniqueness: true
+
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+    else
+      find(:all)
+    end
+  end
+
 end

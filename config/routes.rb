@@ -8,6 +8,10 @@ DanceshareApp::Application.routes.draw do
     resources :performances, except: [:destroy]
   end
 
+  resources :runs, only: [:index, :new, :create]
+  # get "/runs/:id/performances/new", to: "performances#new"
+  # post "/runs/:id/performances", to: "performances#create"
+
   resources :venues, only: [:new, :create]
 
   resources :performances, only: [] do

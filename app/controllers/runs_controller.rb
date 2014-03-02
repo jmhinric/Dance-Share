@@ -3,27 +3,33 @@ class RunsController < ApplicationController
   before_action :load_company, only: [:new, :create, :show]
 
   def new
-    
-    @venues = Venue.all
+    @run = Run.new
+    # @venues = Venue.all
+    @venues = Venue.search(params[:search])
   end
 
   def create
-    @venue = Venue.find(params[:selected_venue].to_i)
-    @run = Run.create(title: params[:title], venue: @venue)
+    binding.pry
+    @venue = Venue.find(params["venue_id"].to_i)
+    @run = Run.create(title: params["run"]["title"], venue: @venue)
     @venue.runs << @run
     @company.runs << @run
-    
-    redirect_to company_run_path(@company, @run)
+    redirect_to company_run_path @company, @run
   end
 
   def show
+    @run = Run.find(params[:id])
   end
 
 
   private
 
   def load_company
-    @company = Company.find(params[:company_id])
+    if params["company_id"]
+      @company = Company.find(params["company_id"])
+    else
+      @company = Company.find(params[:company_id])
+    end
   end
 
 end
