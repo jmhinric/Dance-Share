@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dance Share</title>
+  <link data-turbolinks-track="true" href="/assets/application.css" media="all" rel="stylesheet" />
+  <script data-turbolinks-track="true" src="/assets/application.js"></script>
+  
+</head>
+<body>
+
+  <header>
+    <div id="header-title">
+      <h1><a href="/">Dance Share</a></h1>
+    </div>
+
+    <div id="header-search">
+      <input type="text" size="50" placeholder="Search by Company, Dancer, or Piece"/>
+      <button>Search</button>
+    </div>
+
+    <nav>
+      <ul>
+          <li><a href="/users/41">Jon&#39;s Profile</a></li>
+          <li><a data-method="delete" href="/session" rel="nofollow">Log Out</a></li>  
+      </ul>
+    </nav>
+
+  </header>
+
+  <h1>Add a Run of Performances:</h1>
+<form action="/companies/10/runs" method="POST" />
+  <input type="hidden" name="authenticity_token" value="cowPixntMyUeAb2X4b+fN8SCnlbEzIIkCecbmpCA5/E=" />
+
+  <h2>Please enter a title for your show:</h2>
+  <p>(Ex: Joyce September 2014)</p>
+  <input type="text" name="title" />
+
+  <h2>Please select your venue:</h2>
+
+    <label>
+      <input type="radio" name="selected_venue" value=7 />
+      <img src="" />
+      <br/>Berge Inc<br/>
+        039 Wallace Inlet<br/>
+      <br/>
+    </label>  
+
+  <h2>
+    <strong>Don't see your venue? Please search:</strong>
+  </h2>
+
+  <form accept-charset="UTF-8" action="/companies/10/venues/new" class="edit_company" id="edit_company_10" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+    
+    <input id="company_venue_name" name="company[venue_name]" placeholder="Venue Name" type="text" />
+    
+    <input name="commit" type="submit" value="Search for Venue" />
+</form>
+
+  <button>Create Performance Run</button>
+</form>
+  
+
+
+
+  
+
+  <footer>
+    &copy Dance Share 2014
+  </footer>
+  
+
+</body>
+</html>

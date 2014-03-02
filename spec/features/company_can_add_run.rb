@@ -1,42 +1,48 @@
 require 'spec_helper'
 
-describe "a company should be able to add a run" do
-  # let(:user) { FactoryGirl.create(:user) }
-  # admin.companies << 
+describe "a company should be able to create a run" do
+  let(:user) { FactoryGirl.create(:user) }
+  
   # let!(:company) { Company.create!(name: "This One Company", user: user) }
   let(:company) { FactoryGirl.create(:company) }
+  # let!(:venue) { FactoryGirl.create(:venue) }
+  let!(:run) { FactoryGirl.build(:run) }
+  
+  before(:each) do
+    user.companies << company
+    login(user)
+    visit user_path(user)
+    click_link company.name
+  end
 
   it "lets a company create a run" do
-    login(company.user)
-    visit user_path(company.user)
+    click_link "Add a Run of Performances"
+    choose run.venue.name
     save_and_open_page
-    click_link company.name
-    click_link "Add Run"
-    choose venue.name
-    fill_in "Title", with: company.name
-    fill_in "Date", with: "04/01/2014"
-    fill_in "Time", with: "07:00 PM"
-    click_button "Add Performance"
+    fill_in "Title:", with: run.title
+    click_button "Create Performance Run"
 
-    expect(page).to have_content "Run"
-    expect(page).to have_content venue.name
-    expect(page).to have_content company.name
-    expect(page).to have_content "7:00"
+    expect(page).to have_content run.title
+    expect(page).to have_content run.venue.name
 
     fill_in "Date", with: "04/02/2014"
     fill_in "Time", with: "08:00 PM"
     click_button "Save Run"
 
-    expect(page).to have_content "Run"
-    expect(page).to have_content venue.name
-    expect(page).to have_content company.name
+    expect(page).to have_content "April 2, 2014"
     expect(page).to have_content "8:00"
-
   end
 
-  it "lets a company add multiple performances to a run" do
+  # it "lets a company add multiple performances to a run" do    
 
-  end
+  #   fill_in "Date", with: "04/02/2014"
+  #   fill_in "Time", with: "08:00 PM"
+  #   click_button "Save Run"
+
+  #   expect(page).to have_content "Run"
+  #   expect(page).to have_content venue.name
+  #   expect(page).to have_content company.name
+  # end
 
   def login(user)
     visit login_path

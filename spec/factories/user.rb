@@ -9,8 +9,8 @@ FactoryGirl.define do
     dob Date.today
   end
 
-  # trait :admin do
-  #   admin true
-  # end
+  trait :admin do
+    admin true
+  end
 end
 

@@ -11,7 +11,7 @@ class CompaniesController < ApplicationController
   def new
     @company = Company.new
   end
-# TODO Figure out the foreign key of company
+
   def create
     @company = Company.create(company_params)
     @company.admin = current_user

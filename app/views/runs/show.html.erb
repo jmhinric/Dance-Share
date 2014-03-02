@@ -1,0 +1,22 @@
+<main>
+  <h1><%= @run.company.name %></h1>
+
+  <h2><%= @run.title %></h2>
+
+  <p><%= @run.venue.name %></p>
+
+  <% if @run.performances.empty? %>
+    <%= form_for Performance.new do |f| %>
+      <%= f.label :date %>
+      <%= f.date_field :date %>
+
+      <%= f.label :time %>
+      <%= f.time_field :time %>
+
+      <%= f.submit "Save Run" %>
+    <% end %>
+  <% else %>
+    <%= link_to "Add a Performance", new_company_performance_path(@run.company) %>
+  <% end %>
+
+</main>

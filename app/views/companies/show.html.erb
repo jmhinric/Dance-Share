@@ -8,8 +8,10 @@
 <br/>
 <%= link_to "Add Performance", new_company_performance_path(@company) %>
 
+<%= link_to "Add a Run of Performances", new_company_run_path(@company) %>
+
 <br/>
 
-<% if current_user == @company.user %>
+<% if current_user == @company.admin %>
   <%= link_to "Edit Profile", edit_company_path(@company) %>
 <% end %>
