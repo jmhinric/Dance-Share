@@ -11,5 +11,3 @@ FactoryGirl.define do
     review_count 5
   end
 end
-
-# validates :name, :yelp_id, :rating_image_url, :url, :display_address, :review_count, presence: true
