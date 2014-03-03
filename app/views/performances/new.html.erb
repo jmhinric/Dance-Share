@@ -1,16 +1,11 @@
-<h1>Create a Performance:</h1>
+<h1>Add a Performance:</h1>
 
-<h2>Venue:</h2>
+<%= form_for [@run, Performance.new], url: "/runs/#{@run.id}/performances" do |f| %>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
 
-<%= render "performance_venues" %>
+    <%= f.label :time %>
+    <%= f.time_field :time %>
 
-<h2><strong>Otherwise, please search:</strong></h2>
-
-<%= form_for @company, url: new_company_venue_path(@company), method: :get do |f| %>
-  
-  <%= f.text_field :venue_name, :placeholder => "Venue Name" %>
-  
-  <%= f.submit "Search for Venue" %>
-<% end %>
-
-<%# render "shared/search_venue_form" %>
+    <%= f.submit "Save Run" %>
+  <% end %>

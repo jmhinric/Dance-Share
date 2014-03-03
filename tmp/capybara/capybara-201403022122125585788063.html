@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dance Share</title>
+  <link data-turbolinks-track="true" href="/assets/application.css" media="all" rel="stylesheet" />
+  <script data-turbolinks-track="true" src="/assets/application.js"></script>
+  
+</head>
+<body>
+
+  <header>
+    <div id="header-title">
+      <h1><a href="/">Dance Share</a></h1>
+    </div>
+
+    <div id="header-search">
+      <input type="text" size="50" placeholder="Search by Company, Dancer, or Piece"/>
+      <button>Search</button>
+    </div>
+
+    <nav>
+      <ul>
+          <li><a href="/users/197">Chelsie&#39;s Profile</a></li>
+          <li><a data-method="delete" href="/session" rel="nofollow">Log Out</a></li>  
+      </ul>
+    </nav>
+
+  </header>
+
+  <h1>Add a Run of Performances:</h1>
+
+  <form accept-charset="UTF-8" action="/runs/new" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+    <h3><label for="Find_your_Venue:">Find your venue:</label></h3>
+    <input id="search" name="search" type="text" />
+    <input id="company_id" name="company_id" type="hidden" value="104" />
+
+    <input type="submit" value="Search Venues" />
+</form>
+<form accept-charset="UTF-8" action="/companies/104/runs" class="new_run" id="new_run" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+  <h3><label for="run_Title of Run:">Title of run:</label></h3>
+  <input id="run_title" name="run[title]" type="text" />
+  <br/>
+
+  
+
+  <h3><label for="run_Select Venue:">Select venue:</label></h3>
+
+    <input type="radio" id="radio_venue" name="venue_id" value=72 />
+
+    <img alt="Twitter" src="http://twitter.com" />
+    Moen-Purdy
+    
+      53744 Jacynthe Stream
+  <br/>
+  <input name="commit" type="submit" value="Create Performance Run" />
+</form>
+
+<h2>
+  <strong>Don't see your venue? Please search:</strong>
+</h2>
+
+<form accept-charset="UTF-8" action="/venues/new" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+  <input id="venue_name" name="venue_name" placeholder="Venue Name" type="text" />
+  <input id="company_id" name="company_id" type="hidden" value="104" />
+
+  <input name="commit" type="submit" value="Search for Venue" />
+</form>
+
+  
+
+  <footer>
+    &copy Dance Share 2014
+  </footer>
+  
+
+</body>
+</html>

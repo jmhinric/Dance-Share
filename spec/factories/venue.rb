@@ -1,7 +1,9 @@
 FactoryGirl.define do
   factory :venue do
     name { Faker::Company.name }
-    yelp_id { |n| n }
+    sequence :yelp_id do |n| 
+      n 
+    end
     image_url "http://twitter.com"
     rating_image_url "http://google.com"
     url "http://facebook.com"

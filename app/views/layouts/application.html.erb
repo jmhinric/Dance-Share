@@ -7,37 +7,37 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="wrapper" >
+    <header>
+      <div id="header-title">
+        <h1><%= link_to "Dance Share", root_path %></h1>
+      </div>
 
-  <header>
-    <div id="header-title">
-      <h1><%= link_to "Dance Share", root_path %></h1>
-    </div>
+      <div id="header-search">
+        <input type="text" size="50" placeholder="Search by Company, Dancer, or Piece"/>
+        <button>Search</button>
+      </div>
 
-    <div id="header-search">
-      <input type="text" size="50" placeholder="Search by Company, Dancer, or Piece"/>
-      <button>Search</button>
-    </div>
+      <nav>
+        <ul>
+          <% if logged_in? %>
+            <li><%= link_to "#{current_user.first_name}'s Profile", user_path(current_user) %></li>
+            <li><%= link_to "Log Out", "/session", method: "delete" %></li>  
+          <% else %>
+            <li><%= link_to "Join Dance Share!", new_user_path %></li>
+            <li><%= link_to "Log In","/login" %></li>
+          <% end %>
+        </ul>
+      </nav>
 
-    <nav>
-      <ul>
-        <% if logged_in? %>
-          <li><%= link_to "#{current_user.first_name}'s Profile", user_path(current_user) %></li>
-          <li><%= link_to "Log Out", "/session", method: "delete" %></li>  
-        <% else %>
-          <li><%= link_to "Join Dance Share!", new_user_path %></li>
-          <li><%= link_to "Log In","/login" %></li>
-        <% end %>
-      </ul>
-    </nav>
+    </header>
 
-  </header>
+    <%= yield %>
 
-  <%= yield %>
-
-  <footer>
-    &copy Dance Share 2014
-  </footer>
+    <footer>
+      &copy Dance Share 2014
+    </footer>
   
-
+  </div>
 </body>
 </html>

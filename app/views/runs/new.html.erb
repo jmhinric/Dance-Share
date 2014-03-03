@@ -1,7 +1,7 @@
 <h1>Add a Run of Performances:</h1>
 
-<h2>Find your Venue:</h2>
   <%= form_tag new_run_path, method: 'get' do %>
+    <h3><%= label_tag "Find your Venue:" %></h3>
     <%= text_field_tag :search, params[:search] %>
     <%= hidden_field_tag "company_id", "#{@company.id}" %>
 
@@ -9,22 +9,25 @@
   <% end %>
 
 <%= form_for [@company, @run] do |f| %>
-  <%= f.label :title %>
+  <h3><%= f.label :title %></h3>
   <%= f.text_field :title %>
+  <br/>
 
   
 
-  <% @venues.each do |venue| %>  
-    <%= f.label :venue %>
-    <input type="radio" id="radio_venue_id" name="venue_id" value=<%=venue.id%> />
+  <h3><%= f.label "Select Venue:" %></h3>
 
+  <% @venues.each do |venue| %>  
+    <label><%= venue.name %><input type="radio" id="radio_venue" name="venue_id" value=<%=venue.id%> /></label>
     <%# f.radio_button("venue", "id", "venue_id}") %>
     <%= image_tag venue.image_url %>
-    <%= venue.name %>
+    
+    
     <% venue.display_address.split("\n").each do |line| %>
       <%= line %>
     <% end %>
   <% end %>
+  <br/>
   <%= f.submit "Create Performance Run" %>
 <% end %>
 

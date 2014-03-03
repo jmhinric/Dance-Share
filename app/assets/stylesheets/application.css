@@ -141,6 +141,7 @@ div.three-shows, li {
 body {
   /*background: rgb(254, 234, 222);*/
   background: rgb(217, 211, 193);
+  height: 100%;
   /*background: url("background.png");*/
   /*background-repeat: repeat;*/
   /*background: url("theater_audience_high_res.jpg");*/
@@ -148,23 +149,32 @@ body {
   background-position: center;*/
 }
 
-#clear-float {
+div#wrapper {
+  position: relative;
+  min-height: 100%;
+}
+
+div#clear-float {
   clear: both;
 }
 
 footer {
-  border: 1px solid black;
-  width: 170px;
-  margin: 0 auto;
+  /*width: 170px;
+  margin: 0 auto;*/
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 80px;
 }
 
 a {
   color: blue;
 }
 
-form {
+/*form {
   border: 1px solid black;
   padding: 20px;
   margin: 20px;
   border-radius: 30px;
 }
+*/

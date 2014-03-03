@@ -18,6 +18,7 @@ class RunsController < ApplicationController
 
   def show
     @run = Run.find(params[:id])
+    # @performances = @run.performances
   end
 
 

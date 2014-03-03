@@ -14,6 +14,7 @@ by John Hinrichs
 * PostgreSQL Database
 * Authentication & Authorization from scratch using [bcrypt-ruby](http://bcrypt-ruby.rubyforge.org/)
 * [Yelp API](http://www.yelp.com/developers/getting_started) with the [OAuth gem](http://oauth.rubyforge.org/) to structure and standardize venue information.
+* PgSearch gem to use PostgreSQL's full-text search capabilities
 
 ### User Stories:
 

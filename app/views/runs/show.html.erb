@@ -2,10 +2,19 @@
   <h1><%= @run.company.name %></h1>
 
   <h2><%= @run.title %></h2>
+  <img src="<%= @run.venue.image_url%>" /><br/>
+  <span><%= @run.venue.name %></span><br/>
+  <% @run.venue.display_address.split("\n").each do |line| %>
+    <span><%= line %></span><br/>
+  <% end %>
 
-  <p><%= @run.venue.name %></p>
+  <ul>
+    <% @run.performances.order(:date).order(:time).each do |performance| %>
+      <li><%= performance.pretty_date %>, <%= performance.pretty_time %></li><br/>
+    <% end %>
+  </ul>
+  <br/>
 
-  <% if @run.performances.empty? %>
     <%= form_for [@run, Performance.new], url: "/runs/#{@run.id}/performances" do |f| %>
       <%= f.label :date %>
       <%= f.date_field :date %>
@@ -13,10 +22,7 @@
       <%= f.label :time %>
       <%= f.time_field :time %>
 
-      <%= f.submit "Save Run" %>
+      <%= f.submit "Add Performance" %>
     <% end %>
-  <% else %>
-    <%= link_to "Add a Performance", "runs/#{@run.id}/performances/new" %>
-  <% end %>
 
 </main>

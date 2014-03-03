@@ -60,7 +60,7 @@ hal = User.new(
   gender: "male",
   dob: "1976-01-01",
   photo_url: "http://static.comicvine.com/uploads/scale_small/6/66303/1673684-green_lantern_62.jpg",
-  is_admin: false
+  # is_admin: false
   )
 hal.save
 
@@ -73,7 +73,7 @@ kara = User.new(
   gender: "female",
   dob: "1985-07-01",
   photo_url: "http://static.comicvine.com/uploads/scale_small/0/4/34569-5263-38612-1-supergirl.jpg",
-  is_admin: true
+  # is_admin: true
   )
 kara.save
 
@@ -86,7 +86,7 @@ tim = User.new(
   gender: "male",
   dob: "1983-10-01",
   photo_url: "http://static.comicvine.com/uploads/scale_small/0/40/311801-4975-123392-1-robin.jpg",
-  is_admin: true
+  # is_admin: true
   )
 tim.save
 

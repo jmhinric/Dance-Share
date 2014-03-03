@@ -2,21 +2,27 @@
   <section id="home-recent">
     <h2 class="section-recent">Recent</h2>
     <div class="three-shows">
-      <% @recent_performances.each do |performance| %>
+      <% @recent_runs.each do |run| %>
           <div class="home-show">
             <ul class="home-action-links">
-              <li class="home-link"><%= link_to "Read", company_performance_path(performance.company, performance) %></li>
-              <li class="home-link"><%= link_to "Write", new_performance_review_path(performance) %></li>
+              <li class="home-link"><%= link_to "Read Reviews", company_run_path(run.company, run) %></li>
+              <li class="home-link"><%= link_to "Write a Review", company_run_path(run.company, run) %></li>
             </ul>
             
-            <img class="home-company-photo" src="<%=performance.company.photo_url %>" />
+            <img class="home-company-photo" src="<%=run.company.photo_url %>" />
+            <div class="home-show-info">
+              <a class="home-company-name" href="<%= company_path(run.company) %>"><%= run.company.name %></a>
 
-            <a class="home-company-name" href="<%= company_path(performance.company) %>"><%= performance.title %></a>
+              <ul>
+                <li class="list-show-info">
+                  <%= run.venue.name %>
+                </li>
+                <li class="list-show-info">
+                  <%= run.performances.order(:date).first.date.strftime("%A, %B %e, %Y") %> - <%= run.performances.order(:date).last.date.strftime("%A, %B %e, %Y") %>
+                </li>
+              </ul>
 
-            <ul class="home-show-info">
-              <li class="home-show-info"><%= performance.venue.name %></li>
-              <li class="home-show-info"><%= performance.pretty_date %></li>
-            </ul>
+            </div>
           </div>
       <% end %>
     </div>
@@ -25,18 +31,28 @@
 
   <section id="home-upcoming">
     <h2 class="section-upcoming">Upcoming</h2>
-    <div class="3-shows">
-      <% @upcoming_performances.each do |performance| %>
+    <div class="three-shows">
+      <% @upcoming_runs.each do |run| %>
           <div class="home-show">
-            <div class="home-company-photo">
-            </div>
-
-            <a class="home-company-name" href="<%= company_path(performance.company) %>"><%= performance.title %></a>
-
-            <ul class="home-show-info">
-              <li class="home-show-info"><%= performance.venue.name %></li>
-              <li class="home-show-info"><%= performance.pretty_date %></li>
+            <ul class="home-action-links">
+              <li class="home-link"><%= link_to "Read Reviews", company_run_path(run.company, run) %></li>
+              <li class="home-link"><%= link_to "Write a Review", company_run_path(run.company, run) %></li>
             </ul>
+            
+            <img class="home-company-photo" src="<%=run.company.photo_url %>" />
+            <div class="home-show-info">
+              <a class="home-company-name" href="<%= company_path(run.company) %>"><%= run.company.name %></a>
+
+              <ul>
+                <li class="list-show-info">
+                  <%= run.venue.name %>
+                </li>
+                <li class="list-show-info">
+                  <%= run.performances.order(:date).first.date.strftime("%A, %B %e, %Y") %> - <%= run.performances.order(:date).last.date.strftime("%A, %B %e, %Y") %>
+                </li>
+              </ul>
+
+            </div>
           </div>
       <% end %>
     </div>
