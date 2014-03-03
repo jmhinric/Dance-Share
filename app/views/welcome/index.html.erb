@@ -1,8 +1,11 @@
 <main id="homepage">
   <section id="home-recent">
-    <h2 class="section-recent">Recent</h2>
+    <h2 class="section-recent">
+      Recent
+    </h2>
     <div class="three-shows">
-      <% @recent_runs.each do |run| %>
+      <% if @recent_runs.present? %>
+        <% @recent_runs.each do |run| %>
           <div class="home-show">
             <ul class="home-action-links">
               <li class="home-link"><%= link_to "Read Reviews", company_run_path(run.company, run) %></li>
@@ -24,15 +27,19 @@
 
             </div>
           </div>
+        <% end %>
       <% end %>
     </div>
   </section>
 
 
   <section id="home-upcoming">
-    <h2 class="section-upcoming">Upcoming</h2>
+    <h2 class="section-upcoming">
+      Upcoming
+    </h2>
     <div class="three-shows">
-      <% @upcoming_runs.each do |run| %>
+      <% if @upcoming_runs.present? %>
+        <% @upcoming_runs.each do |run| %>
           <div class="home-show">
             <ul class="home-action-links">
               <li class="home-link"><%= link_to "Read Reviews", company_run_path(run.company, run) %></li>
@@ -54,11 +61,13 @@
 
             </div>
           </div>
+        <% end %>
       <% end %>
     </div>
   </section>
 
   <div id="clear-float">
   </div>
+
 </main>
 

@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'login_helper'
 
 describe "a user should be able to log in" do
   let(:user) { FactoryGirl.create(:user) }
@@ -11,5 +12,26 @@ describe "a user should be able to log in" do
     click_button "Log in"
 
     expect(page).to have_content user.first_name
+  end
+
+  it "lets a user view their profile" do
+    login(user)
+    expect(page).to have_content user.first_name
+  end
+
+  it "lets a user edit their profile" do
+    login(user)
+    click_link "Edit Profile"
+    expect(page).to have_content "Edit #{user.first_name}'s Profile"
+
+    fill_in "First name", with: "Josie"
+    click_button "Update User"
+    expect(page).to have_content "Josie"
+  end
+
+  it "lets a user delete their profile" do
+    login(user)
+    click_link "Delete Profile"
+    expect(page).to have_content "Profile successfully deleted!"
   end
 end
