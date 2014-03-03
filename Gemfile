@@ -53,6 +53,8 @@ gem 'oauth', '0.4.7'
 
 gem 'json'
 
+gem 'pg_search'
+
 gem 'rails_12factor', group: :production
 
 group :development, :test do

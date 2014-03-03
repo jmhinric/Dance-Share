@@ -5,11 +5,10 @@ class RunsController < ApplicationController
   def new
     @run = Run.new
     # @venues = Venue.all
-    @venues = Venue.search(params[:search])
+    @venues = Venue.text_search(params[:search])
   end
 
   def create
-    binding.pry
     @venue = Venue.find(params["venue_id"].to_i)
     @run = Run.create(title: params["run"]["title"], venue: @venue)
     @venue.runs << @run
