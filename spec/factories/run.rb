@@ -59,6 +59,5 @@ FactoryGirl.define do
         create_list(:upcoming_month_performance, evaluator.performances_count, run: run)
       end
     end
-
   end
 end

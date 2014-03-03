@@ -7,10 +7,12 @@ FactoryGirl.define do
     password_confirmation "password"
     gender "male"
     dob Date.today
-  end
 
-  trait :admin do
-    admin true
+    # factory :admin_user do
+    #   after(:create) do |user|
+    #     create(:admin_company, user: user)
+    #   end
+    # end
   end
 end
 

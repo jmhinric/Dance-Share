@@ -27,9 +27,9 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_authorize
-    if current_user != User.find(@company.admin_id) && !logged_in?
+    if current_user != User.find(@company.admin) && !logged_in?
       redirect_to login_path
-    elsif current_user != User.find(@company.admin_id)
+    elsif current_user != User.find(@company.admin)
       redirect_to root_path
     end
   end

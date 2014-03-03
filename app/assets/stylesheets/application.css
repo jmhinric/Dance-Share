@@ -161,9 +161,10 @@ div#clear-float {
 footer {
   /*width: 170px;
   margin: 0 auto;*/
-  width: 100%;
-  position: absolute;
+  /*width: 100%;*/
+  position: fixed;
   bottom: 0;
+  right: 0;
   height: 80px;
 }
 

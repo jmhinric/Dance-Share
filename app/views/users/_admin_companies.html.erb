@@ -1,6 +1,6 @@
 <li>Companies I Manage:
   <ul>
-    <% @companies.each do |company| %>
+    <% @user.companies.each do |company| %>
       <li><%= link_to "#{company.name}", company_path(company) %></li>
     <% end %>
   </ul>
