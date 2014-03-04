@@ -10,7 +10,10 @@
 
   <ul>
     <% @run.performances.order(:date).order(:time).each do |performance| %>
-      <li><%= performance.pretty_date %>, <%= performance.pretty_time %></li><br/>
+      <li>
+        <%= performance.pretty_date %>, 
+        <%= performance.pretty_time %> | <%= link_to "Write a Review!", new_performance_review(performance) %>
+      </li><br/>
     <% end %>
   </ul>
   <br/>
@@ -24,5 +27,15 @@
 
       <%= f.submit "Add Performance" %>
     <% end %>
+  
+  <% @run.performances.each do |performance| %>
+    <strong>
+      Reviews of <%= performance.pretty_date %> performance:
+    </strong>
+    <% performance.reviews.each do |review| %>
+      <%= render partial: "performance_review", locals: {review: @review} %>
+    <% end %>
+  <% end %>
+
 
 </main>

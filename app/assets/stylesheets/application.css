@@ -100,13 +100,11 @@ nav li {
 }
 
 .section-recent {
-  border: 1px solid black;
   width: 85px;
   margin: 0 auto;
 }
 
 .section-upcoming {
-  border: 1px solid grey;
   width: 120px;
   margin: 0 auto;
 }

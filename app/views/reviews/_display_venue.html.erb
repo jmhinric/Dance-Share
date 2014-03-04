@@ -1,0 +1,5 @@
+<img src="<%= @run.venue.image_url%>" />
+<span><%= @run.venue.name %></span>
+  <% @run.venue.display_address.split("\n").each do |line| %>
+    <span><%= line %></span><br/>
+  <% end %>

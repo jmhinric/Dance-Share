@@ -3,10 +3,8 @@ require 'spec_helper'
 describe "a company should be able to create a run" do
   let(:user) { FactoryGirl.create(:user) }
   
-  # let!(:company) { Company.create!(name: "This One Company", user: user) }
   let(:company) { FactoryGirl.create(:company) }
   let!(:venue) { FactoryGirl.create(:venue) }
-  # let!(:run) { FactoryGirl.build(:run) }
   
   before(:each) do
     user.companies << company
@@ -18,11 +16,9 @@ describe "a company should be able to create a run" do
   it "lets a company create a run" do
     click_link "Add a Run of Performances"
     fill_in "Title", with: "Example Title"
-    # save_and_open_page
     select "#{venue.name}"
     click_button "Create Performance Run"
 
-    # save_and_open_page
     expect(page).to have_content "Example Title"
     # expect(page).to have_content venue.name
 
