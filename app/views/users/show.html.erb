@@ -1,22 +1,22 @@
-<div class="user-show-wrapper">
-  <div class="user-show-heading">
+<div class="user-profile-wrapper">
+  <div class="user-profile-heading">
     <!-- Call to gravatar_for helper -->
       <%= gravatar_for @user %>
-    <div class="user-show-info">
+    <div class="user-profile-info">
       <h3>
         <%= @user.first_name %> 
         <%= @user.last_name %>
       </h3>
       <p>
         <%= @user.email %> 
-        <span class="user-show-edit">
+        <span class="user-profile-edit">
           (<%= link_to "edit", edit_user_path(@user) if current_user == @user %>)
         </span>
       </p>
     </div>
   </div>
 
-  <%# render "admin_companies" if @user.companies.present? %>
+  <%= render "admin_companies" if @user.companies.present? %>
 
   <%# link_to "Create a Dance Company", new_company_path %>
 
@@ -29,14 +29,14 @@
 
 
 
-  <div class="user-show-reviews">
+  <div class="user-profile-reviews">
     
     <h2>My Reviews</h2>
 
     <% @user.reviews.each do |review| %>
 
       <%# render partial: "review", locals: {review: review} %>
-      <div class="user-show-review">
+      <div class="user-profile-review">
 
         <article>
           <h3>
@@ -48,7 +48,7 @@
           </p>
           <span class="review-rating">
             <% review.rating.times do %>
-              <%= image_tag "star_icon.png", size: "12x12", alt: "star" %>
+              <%= image_tag "star_icon_custom.png", size: "12x12", alt: "star" %>
             <% end %>
             <% (5 - review.rating).times do %>
               <%= image_tag "gray_empty_star_icon.png", size: "9x9" %>

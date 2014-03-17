@@ -4,7 +4,7 @@
 <% @performances.each do |performance| %>
     <li><a href="<%= company_performance_path(@company, performance) %>"><%= performance.title %></a></li>
     <ul>
-      <li><%= performance.venue.name %></li>
+      <li><%# performance.venue.name %></li>
       <li><%= performance.pretty_date %></li>
     </ul>
 <% end %>

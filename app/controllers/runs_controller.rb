@@ -1,6 +1,6 @@
 class RunsController < ApplicationController
 
-  before_action :load_company, only: [:new, :create, :show]
+  before_action :load_company, only: [:index, :new, :create, :show]
 
   def new
     @run = Run.new

@@ -1,0 +1,364 @@
+@import url(http://fonts.googleapis.com/css?family=Lato);
+
+
+/*COLORS: http://color.hailpixel.com/#1F1F22,A598AA,D9D3C1,37566D,1A2E46,9A593A,5740BF,*/
+/*=======================================================================================*/
+/*GENERAL:*/
+
+input[type=text], textarea {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #DDDDDD;
+}
+
+input[type=text]:focus, textarea:focus {
+  box-shadow: 0 0 5px #A598AA;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 2px solid #A598AA;
+}
+
+a {
+  text-decoration: none;
+  /*color: #633DFF;*/
+  color: #4049FF;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: rgb(217, 211, 193);
+  height: 100%;
+  /*background: rgb(254, 234, 222);*/
+  /*background: url("background.png");*/
+  /*background-repeat: repeat;*/
+  /*background: url("theater_audience_high_res.jpg");*/
+  /*background-size: cover;
+  background-position: center;*/
+}
+
+h1, h2, h3, h4, h5, h6 {
+  /*color: #9A593A;*/
+  color: #37566D;
+}
+
+/*==========================================================*/
+/*HEADER*/
+
+
+
+
+header {
+  background: rgb(26, 46, 70);
+  width: 100%;
+  /*height: 67px;*/
+  font-family: 'Lato', sans-serif;
+  position: relative;
+}
+
+header a {
+  /*color: rgb(217, 211, 193);*/
+  color: white;
+  text-decoration: none;
+}
+
+header a:hover {
+  color: #D9D3C1;
+}
+
+div#header-title {
+  /*padding-top: 8px;*/
+  margin-top: -11px;
+  padding-left: 50px;
+  /*float: left;*/
+  /*font-size: 2em;*/
+  display: inline-block;
+  /*vertical-align: middle;*/
+}
+
+div#header-search {
+  display: inline-block;
+  margin-top: 22px;
+  margin-left: 15%;
+  color: black;
+}
+
+#header-search button {
+  border-radius: 4px;
+  background-color: #A598AA;
+  color: white;
+}
+
+header nav {
+  display: inline-block;
+  float: right;
+  margin-top: 9px;
+  padding-right: 60px;
+  /*vertical-align: middle;*/
+}
+
+nav li {
+  display: inline;
+  padding: 0px 10px;
+}
+
+/*=============================================================*/
+/*END HEADER*/
+
+
+
+/*===============================================================*/
+
+/*HOMEPAGE*/
+
+.home-mission h2 {
+  width: 520px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.home-mission {
+  margin-top: 150px;
+  margin-bottom: 50px;
+}
+
+#main {
+  border: 1px solid red;
+  width: 50%;
+  float: left;
+  margin-left: 150px;
+  display: inline-block;
+}
+
+/*#home-sidebar {
+  border: 1px solid blue;
+  width: 20%;
+  float: right;
+  margin-right: 150px;
+  display: inline-block; 
+}*/
+
+.section#home-recent, .section#home-upcoming {
+  border: 2px solid red;
+}
+
+.section-recent {
+  width: 85px;
+  margin: 0 auto;
+}
+
+.section-upcoming {
+  width: 120px;
+  margin: 0 auto;
+}
+
+.home-show {
+  display: inline-block;
+}
+
+div.three-shows, ul {
+  display: block;
+}
+
+div.three-shows, li {
+  text-decoration: none;
+  display: inline;
+}
+
+.home-company-photo {
+  height: 200px;
+  width: 325px;  
+}
+
+.home-company-name {
+  display: block;
+}
+
+.home-show-info {
+  display: block;
+}
+
+
+
+div#wrapper {
+  position: relative;
+  min-height: 100%;
+}
+
+div#clear-float {
+  clear: both;
+}
+
+footer {
+  /*width: 170px;
+  margin: 0 auto;*/
+  /*width: 100%;*/
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 80px;
+}
+
+a {
+  color: blue;
+}
+
+
+/*=============================================================*/
+/*END HOMEPAGE*/
+
+
+
+/*===============================================================*/
+
+/*USER PAGES*/
+
+/*SHOW*/
+
+.user-profile-heading {
+  margin: 40px 0 0 50px;
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.gravatar {
+  display: inline-block;
+  border-radius: 8px;
+}
+
+.user-profile-info {
+  width: 500px;
+  display: inline-block;
+  margin-top: 13px;
+  margin-left: 25px;
+  vertical-align: top;
+  
+  h3 {
+    display: block;
+    margin-top: 0px;
+  }
+
+  p {
+    display: block;
+    margin-top: -16px;
+  }
+}
+
+.user-profile-edit {
+  display: inline;
+  margin-left: 5px;
+}
+
+.user-profile-reviews {
+  /*border: 1px solid red;*/
+  width: 66%;
+  display: inline-block;
+  margin-left: 50px;
+
+  h2 {
+    /*border: 1px solid green;*/
+    width: 150px;
+    margin-top: 50px;
+  }
+}
+
+.user-profile-review {
+  border-bottom: 2px solid #1F1F22;
+  padding-bottom: 10px;
+  
+  h3 {
+    margin-top: 30px;
+  }
+
+  .review-rating {
+    /*margin-top: 0;*/
+    display: inline-block;
+  }
+
+  .review-title {
+    display: inline-block;
+    width: 66%;
+  }
+}
+
+.edit-review {
+  font-size: .8em;
+}
+
+
+
+
+/*============================================================================================*/
+
+/*COMPANIES*/
+
+/*============================================================================================*/
+
+/*SHOW*/
+
+.company-profile-heading {
+  margin-left: 50px;
+  display: inline-block;
+
+  h2 {
+    margin-top: 65px;
+    display: inline-block;
+  }
+
+  span {
+    display: inline-block;
+    padding-left: 10px;
+  }
+}
+
+.runs {
+  margin-left: 50px;
+  /*display: inline-block;*/
+  
+  h2 {
+    font-size: 2em;
+    display: inline-block;
+  }
+
+  .add-run {
+    display: inline-block;
+    padding-left: 10px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

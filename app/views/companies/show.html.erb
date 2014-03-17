@@ -1,16 +1,21 @@
-<h2><%= @company.name %> Profile</h2>
+<div class="company-profile-heading">
+  <h2><%= @company.name %></h2>
+  <span class="company-profile-edit">
+    (<%= link_to "edit", edit_company_path(@company) if current_user == @company.admin %>)
+  </span>
+</div>
 
-<img src="<%= @company.photo_url %> " />
+<%# @company.photo_url %>
 
-<br/>
+<section class="runs">
+  <h2>Runs</h2>
 
-<%= link_to "Runs", company_runs_path(@company) %>
-<br/>
+  <span class="add-run">
+    <%= link_to "Add a Run", new_company_run_path(@company) %>
+  </span>
 
-<%= link_to "Add a Run of Performances", new_company_run_path(@company) %>
+  <% @company.runs.each do |run| %>
+    
+  <% end %>
 
-<br/>
-
-<% if current_user == @company.admin %>
-  <%= link_to "Edit Profile", edit_company_path(@company) %>
-<% end %>
+</section>

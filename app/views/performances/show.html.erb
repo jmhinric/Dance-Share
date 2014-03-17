@@ -1,18 +1,17 @@
-<h1><%= @performance[:title] %> Performance</h1>
-<h2><%= @performance.pretty_date %>, <%= @performance.pretty_time %></h2>
-<a href="<%= @venue.url %>"><h3><%= @venue.name %></h3></a>
 
-<img src="<%= @venue.image_url %>" />
+<h2><%= @performance.pretty_date %>, <%= @performance.pretty_time %></h2>
+
+<img src="<%# @venue.image_url %>" />
 
 <p>
-  <% @venue.display_address.split("\n").each do |line| %>
-    <%= line %><br/>
-  <% end %>
+  <%# @venue.display_address.split("\n").each do |line| %>
+    <%# line %><br/>
+  <%# end %>
 </p>
 
 <img src="http://s3-media4.ak.yelpcdn.com/assets/2/www/img/9d213bfb766e/logo/logo_tiny.png" />
-<img src="<%= @venue.rating_image_url %>" />
-<p>(based on <%= @venue.review_count %> ratings of <%= @venue.name %>)</p>
+<img src="<%# @venue.rating_image_url %>" />
+<p>(based on <%# @venue.review_count %> ratings of <%# @venue.name %>)</p>
 
 <%= render "reviews" %>
   
