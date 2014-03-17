@@ -1,27 +1,72 @@
-<h2><%= @user.first_name %> <%= @user.last_name %>'s Profile</h2>
+<div class="user-show-wrapper">
+  <div class="user-show-heading">
+    <!-- Call to gravatar_for helper -->
+      <%= gravatar_for @user %>
+    <div class="user-show-info">
+      <h3>
+        <%= @user.first_name %> 
+        <%= @user.last_name %>
+      </h3>
+      <p>
+        <%= @user.email %> 
+        <span class="user-show-edit">
+          (<%= link_to "edit", edit_user_path(@user) if current_user == @user %>)
+        </span>
+      </p>
+    </div>
+  </div>
 
-<img src="<%= @user.photo_url %> " />
+  <%# render "admin_companies" if @user.companies.present? %>
 
-<br/>
+  <%# link_to "Create a Dance Company", new_company_path %>
 
-<ul>
-  <li>Email: <%= @user.email %></li>
-  <li>Gender: <%= @user.gender %></li>
-  <li>Birthday: <%= @user.dob.strftime("%B %e, %Y") %></li>
-  <li><%= link_to "Reviews", user_reviews_path(@user) %></li>
-  <%= render "admin_companies" if @user.companies.present? %>
-</ul>
 
-<br/>
-
-<%= link_to "Create a Dance Company", new_company_path %>
+  <% if flash[:notice] %>
+    <div class="notice">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
 
 
 
-<br/>
+  <div class="user-show-reviews">
+    
+    <h2>My Reviews</h2>
 
-<% if current_user == @user %>
-  <%= link_to "Edit Profile", edit_user_path(@user) %>
-  <br/><br/><br/>
-  <%= link_to "Delete Profile", user_path(@user), method: "delete" %>
-<% end %>
+    <% @user.reviews.each do |review| %>
+
+      <%# render partial: "review", locals: {review: review} %>
+      <div class="user-show-review">
+
+        <article>
+          <h3>
+            <%= review.performance.title %>
+          </h3>
+          <p>
+            <%= review.performance.pretty_date %>
+            <%# review.performance.run.venue.name %>
+          </p>
+          <span class="review-rating">
+            <% review.rating.times do %>
+              <%= image_tag "star_icon.png", size: "12x12", alt: "star" %>
+            <% end %>
+            <% (5 - review.rating).times do %>
+              <%= image_tag "gray_empty_star_icon.png", size: "9x9" %>
+            <% end %>
+          </span>
+          <span class="review-title">
+            <em><%= review.title %></em>
+          </span>
+          <p><%= review.review_text %></p>
+        </article>
+
+        <span class="edit-review">
+          <%= link_to "Edit Review", edit_performance_review_path(review.performance, review) %>
+        </span>
+
+      </div>
+
+    <% end %>
+
+  </div>
+</div>

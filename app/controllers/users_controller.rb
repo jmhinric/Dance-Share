@@ -26,11 +26,21 @@ class UsersController < ApplicationController
   end
 
   def update
+
+    #make the change to the user suggested by the form...
+    
+
     if @user.update(user_params)
+      # @user.update(user_params)
       redirect_to user_path(@user)
+    # if @user.update(user_params)
+    #   redirect_to user_path(@user)
     else
-      # flash[:error] = "blah"
+      @user = load_user
+      flash[:notice] = "blah"
+      #binding.pry
       render :edit
+      # redirect_to edit_user_path(@user)
     end
   end
 

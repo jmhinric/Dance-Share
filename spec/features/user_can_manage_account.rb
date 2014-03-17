@@ -57,10 +57,15 @@ describe "users need authorization" do
   let(:user) { FactoryGirl.create(:user) }
   let(:non_user) { FactoryGirl.create(:user) }
 
-  it "needs authorization to edit the profile" do
+  it "needs authorization to visit the edit profile page" do
     login(non_user)
     visit edit_user_path(user)
-    save_and_open_page
     expect(page).to have_content "Authorization failed"
+  end
+
+  it "needs authorization for the update action" do
+    before { patch user_path(user) }
+    login(non_user)
+    specify { expect(response).to have_content "Authorization failed" }
   end
 end

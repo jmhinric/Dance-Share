@@ -3,3 +3,5 @@
 <%= render partial: "shared/errors", locals: {entity: @user} %>
 
 <%= render "user_info_form" %>
+
+<%= link_to "Delete Profile", user_path(@user), method: "delete" %>

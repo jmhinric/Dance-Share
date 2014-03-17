@@ -1,20 +1,28 @@
-<h1>Please Log In:</h1>
+<main class="page-wrapper">
+  <h1>Please Log In:</h1>
 
-<% unless @login_error.nil? %>
-  <div id="errors">
-    <h3>Login Unsuccessful!</h3>
-    <ul>
-      <li><em><%= @login_error %></em></li>
-    </ul>
-  </div>
-<% end %>
+  <% unless @login_error.nil? %>
+    <div id="errors">
+      <h3>Login Unsuccessful!</h3>
+      <ul>
+        <li><em><%= @login_error %></em></li>
+      </ul>
+    </div>
+  <% end %>
 
-<%= form_tag "/session" do %>
-  <%= label_tag :email %>
-  <%= email_field_tag :email %><br/>
+  <% if flash[:error] %>
+    <div class="error">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
 
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-  
-  <%= submit_tag "Log in" %>
-<% end %>
+  <%= form_tag "/session" do %>
+    <%= label_tag :email %>
+    <%= email_field_tag :email %><br/>
+
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+    
+    <%= submit_tag "Log in" %>
+  <% end %>
+</main>

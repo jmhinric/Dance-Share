@@ -65,4 +65,10 @@ describe "splash page shows runs" do
       # end
     end
   end
+
+  it "displays performances that are mid-run" do
+
+    
+
+  end
 end

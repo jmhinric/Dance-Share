@@ -21,6 +21,9 @@
 /*==========================================================*/
 /*HEADER*/
 
+body {
+  font-family: 'Lato', sans-serif;
+}
 
 header {
   background: rgb(26, 46, 70);
@@ -43,7 +46,7 @@ header a:hover {
 div#header-title {
   /*padding-top: 8px;*/
   margin-top: -11px;
-  padding-left: 75px;
+  padding-left: 50px;
   /*float: left;*/
   /*font-size: 2em;*/
   display: inline-block;
@@ -78,6 +81,11 @@ nav li {
 /*===============================================================*/
 
 /*HOMEPAGE*/
+
+h2 {
+  /*color: #9A593A;*/
+  color: #37566D;
+}
 
 #main {
   border: 1px solid red;
@@ -170,10 +178,90 @@ a {
   color: blue;
 }
 
-/*form {
-  border: 1px solid black;
-  padding: 20px;
-  margin: 20px;
-  border-radius: 30px;
+
+/*=============================================================*/
+/*END HOMEPAGE*/
+
+
+
+/*===============================================================*/
+
+/*USER PAGES*/
+
+.user-show-heading {
+  margin: 40px 0 0 50px;
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
 }
-*/
+
+.gravatar {
+  display: inline-block;
+  border-radius: 8px;
+}
+
+.user-show-info {
+  width: 500px;
+  display: inline-block;
+  margin-top: 13px;
+  margin-left: 25px;
+  vertical-align: top;
+}
+.user-show-info h3 {
+  display: block;
+  margin-top: 0px;
+}
+
+.user-show-info p {
+  display: block;
+  margin-top: -16px;
+}
+
+.user-show-edit {
+  display: inline;
+}
+
+.user-show-reviews {
+  /*border: 1px solid red;*/
+  width: 66%;
+  display: inline-block;
+  margin-left: 50px;
+}
+
+.user-show-reviews h2 {
+  /*border: 1px solid green;*/
+  width: 150px;
+  margin-top: 50px;
+}
+
+.user-show-review h3 {
+  margin-top: 30px;
+}
+
+.review-rating {
+  display: inline-block;
+}
+
+.review-title {
+  display: inline-block;
+  width: 66%;
+}
+
+.user-show-review {
+  border-bottom: 2px solid #1F1F22;
+  padding-bottom: 10px;
+}
+
+.edit-review {
+  font-size: .8em;
+}
+
+
+
+
+
+
+
+
+
+

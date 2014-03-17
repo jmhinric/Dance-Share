@@ -398,6 +398,18 @@
         5,
         null
       ],
+      "/Users/johnhinrichs/dev/danceshare/app/models/user.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null
+      ],
       "/Users/johnhinrichs/dev/danceshare/app/controllers/welcome_controller.rb": [
         1,
         null,
@@ -479,18 +491,6 @@
         null,
         null
       ],
-      "/Users/johnhinrichs/dev/danceshare/app/models/user.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        null
-      ],
       "/Users/johnhinrichs/dev/danceshare/app/controllers/session_controller.rb": [
         1,
         null,
@@ -504,10 +504,12 @@
         6,
         0,
         0,
+        0,
         6,
         6,
         6,
         null,
+        0,
         0,
         0,
         null,
@@ -551,8 +553,11 @@
         1,
         1,
         1,
+        1,
         null,
         null,
+        null,
+        0,
         0,
         null,
         null,
@@ -605,6 +610,6 @@
         null
       ]
     },
-    "timestamp": 1393905847
+    "timestamp": 1394419561
   }
 }
