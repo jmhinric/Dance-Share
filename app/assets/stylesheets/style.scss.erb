@@ -5,7 +5,10 @@
 /*=======================================================================================*/
 /*GENERAL:*/
 
-input[type=text], textarea {
+input[type=text], 
+input[type=email],
+input[type=password],
+textarea {
   -webkit-transition: all 0.30s ease-in-out;
   -moz-transition: all 0.30s ease-in-out;
   -ms-transition: all 0.30s ease-in-out;
@@ -14,13 +17,44 @@ input[type=text], textarea {
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
   border: 1px solid #DDDDDD;
+
+  /*border: 5px solid white; */
+    -webkit-box-shadow: 
+      inset 0 0 8px  #A598AA,
+            0 0 16px #A598AA; 
+    -moz-box-shadow: 
+      inset 0 0 8px  #A598AA,
+            0 0 16px #A598AA; 
+    box-shadow: 
+      inset 0 0 8px  #A598AA,
+            0 0 16px #A598AA; 
+    padding: 10px;
+    /*background: rgba(255,255,255,0.5);*/
+    margin: 0 0 10px 0;
 }
 
-input[type=text]:focus, textarea:focus {
+input[type=text]:focus, 
+input[type=email]:focus, 
+input[type=password]:focus, 
+textarea:focus {
   box-shadow: 0 0 5px #A598AA;
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
   border: 2px solid #A598AA;
+
+  /*border: 5px solid white; */
+    -webkit-box-shadow: 
+      inset 0 0 8px  #A598AA,
+            0 0 16px #A598AA; 
+    -moz-box-shadow: 
+      inset 0 0 8px  #A598AA,
+            0 0 16px #A598AA; 
+    box-shadow: 
+      inset 0 0 8px  #A598AA,
+            0 0 16px #A598AA; 
+    padding: 10px;
+    /*background: rgba(255,255,255,0.5);*/
+    margin: 0 0 10px 0;
 }
 
 a {
@@ -45,10 +79,17 @@ body {
   background-position: center;*/
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, label {
   /*color: #9A593A;*/
   color: #37566D;
 }
+
+button {
+  border-radius: 4px;
+  background-color: #A598AA;
+  color: white;
+}
+
 
 /*==========================================================*/
 /*HEADER*/
@@ -74,7 +115,7 @@ header a:hover {
   color: #D9D3C1;
 }
 
-div#header-title {
+#header-title {
   /*padding-top: 8px;*/
   margin-top: -11px;
   padding-left: 50px;
@@ -84,14 +125,15 @@ div#header-title {
   /*vertical-align: middle;*/
 }
 
-div#header-search {
+#header-search {
   display: inline-block;
   margin-top: 22px;
-  margin-left: 15%;
-  color: black;
+  margin-left: 16%;
+  color: #37566D;
 }
 
 #header-search button {
+  margin-left: 6px;
   border-radius: 4px;
   background-color: #A598AA;
   color: white;
@@ -295,6 +337,59 @@ a {
   font-size: .8em;
 }
 
+
+/*============================================================================================*/
+
+/*USER NEW*/
+
+/*============================================================================================*/
+
+
+.signup {
+
+  h1 {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  form {
+    width: 600px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+  }
+
+  label {
+    display: block;
+    font-size: 1.3em;
+  }
+
+
+  input {
+    display: block;
+    margin-top: 4px;
+    padding: 7px 3px;
+    font-size: 1.1em;
+    width: 100%;
+  }
+
+  input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, textarea:focus {
+    padding: 7px 0;
+    font-size: 1.1em;
+  }
+
+  input.button {
+    width: 75px;
+  }
+
+  input[type=submit] {
+    border-radius: 10px;
+    background-color: #A598AA;
+    color: white;
+    width: 150px;
+    margin: 0 auto;
+  }
+  
+}
 
 
 
