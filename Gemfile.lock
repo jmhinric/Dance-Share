@@ -183,6 +183,7 @@ DEPENDENCIES
   jquery-rails
   json
   launchy
+  multi_json
   oauth (= 0.4.7)
   pg
   pg_search

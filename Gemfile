@@ -55,7 +55,7 @@ gem 'json'
 
 gem 'pg_search'
 
-gem 'multi_json' '~> 1.9.0'
+gem 'multi_json'
 
 gem 'rails_12factor', group: :production
 
