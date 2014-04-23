@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @company = @review.performance.company
+    @company = @review.performance.run.company
   end
 
   def new
@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
     @performance.reviews << @review
     
     if @review.save
-      @company = @performance.company
+      # @company = @run.company
       # redirect_to "/users/#{@user.id}/reviews/#{@review.id}"
       render :show
     else

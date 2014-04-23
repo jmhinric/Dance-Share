@@ -1,6 +1,10 @@
 DanceshareApp::Application.routes.draw do
 
   root "welcome#index"
+
+  get "/login", to: "session#new"
+  post "/session", to: "session#create"
+  delete "/session", to: "session#destroy"
   
   resources :companies, except: [:index] do
     # resources :venues, only: [:new, :create]
@@ -20,10 +24,6 @@ DanceshareApp::Application.routes.draw do
     resources :reviews, except: [:destroy] do
     end
   end
-
-  get "/login", to: "session#new"
-  post "/session", to: "session#create"
-  delete "/session", to: "session#destroy"
 
   resources :users do
     resources :reviews, only: [:index, :show, :edit]

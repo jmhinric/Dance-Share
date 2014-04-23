@@ -12,7 +12,7 @@
     <% @run.performances.order(:date).order(:time).each do |performance| %>
       <li>
         <%= performance.pretty_date %>, 
-        <%= performance.pretty_time %> | <%= link_to "Write a Review!", new_performance_review(performance) %>
+        <%= performance.pretty_time %> | <%= link_to "Write a Review!", new_performance_review_path(performance) %>
       </li><br/>
     <% end %>
   </ul>
