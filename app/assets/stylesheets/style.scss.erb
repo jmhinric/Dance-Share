@@ -8,6 +8,8 @@
 input[type=text], 
 input[type=email],
 input[type=password],
+input[type=date],
+input[type=url],
 textarea {
   -webkit-transition: all 0.10s ease-in-out;
   -moz-transition: all 0.10s ease-in-out;
@@ -35,7 +37,9 @@ textarea {
 
 input[type=text]:focus, 
 input[type=email]:focus, 
-input[type=password]:focus, 
+input[type=password]:focus,
+input[type=date]:focus,
+input[type=url]:focus,
 textarea:focus {
   box-shadow: 0 0 3px #A598AA;
   padding: 3px 0px 3px 3px;
@@ -411,6 +415,55 @@ a {
   
 }
 
+/*EDIT*/
+/*==============================================*/
+
+.edit {
+  margin: 0 auto;
+  text-align: center;
+}
+
+h2.edit {
+  display: inline-block;
+  padding-top: 30px;
+}
+
+form.edit-form {
+  padding-top: 30px;
+}
+
+form.user-form label {
+  display: inline-block;
+  text-align: right;
+  width: 150px;
+  padding-right: 8px;
+}
+
+.delete-user {
+  padding-left: 15px;
+}
+
+
+/*LOGIN*/
+
+/*===================================================*/
+
+main.login {
+  h1 {
+    text-align: center;
+  }
+
+  .login-form {
+    margin: 0 auto;
+    width: 500px;
+  }
+
+  form.login-form {
+    text-align: center;
+
+  }
+}
+
 
 
 /*============================================================================================*/
@@ -454,38 +507,9 @@ a {
 
 /*================================================================================*/
 
-/*LOGIN*/
-
-
-/*========================================================================*/
-
-/*NEW*/
-
-main.login {
-  h1 {
-    text-align: center;
-  }
-
-  .login {
-    margin: 0 auto;
-    width: 500px;
-  }
-
-  form.login-form {
-    text-align: center;
-
-  }
 
 
 
-}
-
-form.login-form label {
-    display: inline-block;
-    text-align: right;
-    width: 150px;
-    padding-right: 8px;
-  }
 
 
 

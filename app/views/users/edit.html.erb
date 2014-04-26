@@ -1,7 +1,10 @@
-<h1>Edit <%= @user.first_name %>'s Profile</h1>
+<main>
+  <div class="edit">
+    <h2 class="edit">Edit <%= @user.first_name %>'s Profile</h2>
+    <%= link_to "(Delete Profile)", user_path(@user), method: "delete", class: "delete-user" %>
 
-<%= render partial: "shared/errors", locals: {entity: @user} %>
+    <%= render partial: "shared/errors", locals: {entity: @user} %>
 
-<%= render "user_info_form" %>
-
-<%= link_to "Delete Profile", user_path(@user), method: "delete" %>
+    <%= render "user_info_form" %>
+  </div>
+</main>

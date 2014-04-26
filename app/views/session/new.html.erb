@@ -10,8 +10,8 @@
     </div>
   <% end %>
 
-  <div class="login">
-    <%= form_tag "/session", class: "login-form" do %>
+  <div class="login-form">
+    <%= form_tag "/session", class: "user-form" do %>
       <%= label_tag :email %>
       <%= email_field_tag :email %><br/>
 

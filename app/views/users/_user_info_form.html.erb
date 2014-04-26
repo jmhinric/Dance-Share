@@ -1,4 +1,4 @@
-<%= form_for @user do |f| %>
+<%= form_for @user, :html => {class: "user-form edit-form"} do |f| %>
   <%= f.label :first_name %>
   <%= f.text_field :first_name %><br/>
 
@@ -24,8 +24,5 @@
   <%= f.label :dob %>
   <%= f.date_field :dob %><br/>
 
-  <%= f.label :photo_url %>
-  <%= f.url_field :photo_url %><br/>  
-  
   <%= f.submit %>
 <% end %>

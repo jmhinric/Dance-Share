@@ -6,6 +6,11 @@ DanceshareApp::Application.routes.draw do
   post "/session", to: "session#create"
   delete "/session", to: "session#destroy"
   
+  resources :users do
+    # Delete resources :reviews
+    resources :reviews, only: [:index, :show, :edit]
+  end
+
   resources :companies, except: [:index] do
     # resources :venues, only: [:new, :create]
     resources :runs, except: [:destroy]
@@ -25,8 +30,6 @@ DanceshareApp::Application.routes.draw do
     end
   end
 
-  resources :users do
-    resources :reviews, only: [:index, :show, :edit]
-  end
+
 
 end

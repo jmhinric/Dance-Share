@@ -47,6 +47,9 @@ class ReviewsController < ApplicationController
 
   private
 
+    # TODO Need an authorize method here for update and destroy
+    # to check if current_user == @review.user
+
     def load_review
       @review = Review.find(params[:id])
     end
