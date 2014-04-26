@@ -8,20 +8,23 @@
   </section>
 
   <section class="companies">
-    
+    <h2>Companies:</h2>
+    <% @companies.each do |company| %>
+      <%= link_to company.name, company_path(company), html: {class: "company-link"} %> | 
+    <% end %>
   </section>
 
 
-  <section id="home-recent">
+  <section class="home-recent">
     <h2 class="section-recent">
-      Recent
+      Recent Performances:
     </h2>
     <div class="three-shows">
       <% if @recent_runs.present? %>
         <% @recent_runs.each do |run| %>
           <div class="home-show">
             <ul class="home-action-links">
-              <li class="home-link"><%= link_to "Read Reviews", company_run_path(run.company, run) %></li>
+              <li class="home-link"><%= link_to "Read Reviews", company_run_path(run.company, run) %></li> | 
               <li class="home-link"><%= link_to "Write a Review", company_run_path(run.company, run) %></li>
             </ul>
             
@@ -46,9 +49,9 @@
   </section>
 
 
-  <section id="home-upcoming">
-    <h2 class="section-upcoming">
-      Upcoming
+  <section class="home-upcoming">
+    <h2>
+      Upcoming Performances:
     </h2>
     <div class="three-shows">
       <% if @upcoming_runs.present? %>

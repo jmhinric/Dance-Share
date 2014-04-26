@@ -1,7 +1,7 @@
 <div class="company-profile-heading">
-  <h2><%= @company.name %></h2>
+  <h1><%= @company.name %></h1>
   <span class="company-profile-edit">
-    (<%= link_to "edit", edit_company_path(@company) if current_user == @company.admin %>)
+    <%= link_to "edit", edit_company_path(@company) if current_user == @company.admin %>
   </span>
 </div>
 

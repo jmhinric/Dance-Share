@@ -163,11 +163,15 @@ header a:hover {
 }
 
 header nav {
+  /*margin-top: 9px;*/
+}
+
+header nav ul {
   display: inline-block;
+  width: 220px;
   float: right;
-  margin-top: 9px;
-  padding-right: 60px;
-  /*vertical-align: middle;*/
+  /*margin-top: -48px;*/
+  margin-right: 10px;
 }
 
 nav li {
@@ -192,7 +196,7 @@ nav li {
 }
 
 .home-mission {
-  margin-top: 150px;
+  margin-top: 50px;
   margin-bottom: 50px;
 }
 
@@ -202,6 +206,15 @@ nav li {
   float: left;
   margin-left: 150px;
   display: inline-block;
+}
+
+.companies {
+  text-align: center;
+}
+
+.company-link {
+  display: block;
+  text-align: center;
 }
 
 /*#home-sidebar {
@@ -216,22 +229,38 @@ nav li {
   border: 2px solid red;
 }
 
-.section-recent {
-  width: 85px;
+.home-recent h2 {
+  width: 265px;
   margin: 0 auto;
+  margin-top: 30px;
 }
 
-.section-upcoming {
-  width: 120px;
+.home-upcoming h2 {
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.three-shows {
+  display: inline-block;
   margin: 0 auto;
 }
 
 .home-show {
-  display: inline-block;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+li.list-show-info {
+  display: block;
+  text-align: center;
 }
 
 div.three-shows, ul {
   display: block;
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 div.three-shows, li {
@@ -239,13 +268,18 @@ div.three-shows, li {
   display: inline;
 }
 
-.home-company-photo {
+img.home-company-photo {
   height: 200px;
   width: 325px;  
+  margin: 0 auto;
 }
 
-.home-company-name {
+a.home-company-name {
   display: block;
+  width: 500px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 20px;
 }
 
 .home-show-info {
@@ -481,12 +515,10 @@ main.login {
 /*SHOW*/
 
 .company-profile-heading {
-  margin-left: 50px;
-  display: inline-block;
 
-  h2 {
+  h1 {
+    text-align: center;
     margin-top: 65px;
-    display: inline-block;
   }
 
   span {
@@ -496,18 +528,7 @@ main.login {
 }
 
 .runs {
-  margin-left: 50px;
-  /*display: inline-block;*/
-  
-  h2 {
-    font-size: 2em;
-    display: inline-block;
-  }
-
-  .add-run {
-    display: inline-block;
-    padding-left: 10px;
-  }
+  text-align: center;
 }
 
 
