@@ -13,9 +13,15 @@
         <h1><%= link_to "DanceShare", root_path %></h1>
       </div>
 
-      <div id="header-search">
-        <input type="text" size="50" placeholder="Search by Company, Dancer, or Piece"/>
-        <button>Search</button>
+      <div class="header-search">
+        <%= form_for @company do |f| %>
+        
+        <% end %>
+          
+        <form>
+          <input type="text" size="50" placeholder="Search by Company, Dancer, or Piece"/>
+          <button>Search</button>
+        </form>
       </div>
 
       <nav>
