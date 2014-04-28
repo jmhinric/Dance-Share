@@ -26,21 +26,13 @@ class UsersController < ApplicationController
   end
 
   def update
-
     #make the change to the user suggested by the form...
-    
-
     if @user.update(user_params)
-      # @user.update(user_params)
       redirect_to user_path(@user)
-    # if @user.update(user_params)
-    #   redirect_to user_path(@user)
     else
       @user = load_user
       flash[:notice] = "blah"
-      #binding.pry
       render :edit
-      # redirect_to edit_user_path(@user)
     end
   end
 
@@ -53,12 +45,12 @@ class UsersController < ApplicationController
   
   private
 
-    def load_user
-      @user = User.find(params[:id])
-    end
+  def load_user
+    @user = User.find(params[:id])
+  end
 
-    def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :gender, :dob, :photo_url, :created_at, :updated_at)
-    end
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :gender, :dob, :photo_url, :created_at, :updated_at)
+  end
 
 end

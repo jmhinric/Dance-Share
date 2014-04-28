@@ -14,14 +14,21 @@
       </div>
 
       <div class="header-search">
-        <%= form_for @company do |f| %>
-        
-        <% end %>
-          
-        <form>
+        <%# form_for Company.new do |f| %>
+          <%# f.text_field :name %>
+          <%# f.submit "Search" %>
+        <%# end %>
+         
+
+        <%= form_tag companies_path, {class: 'search-home', method: :get} do %>
+          <%= text_field_tag :search, params[:search], size: 30 %>
+          <%= submit_tag "Search", name: nil %>
+        <% end %>  
+
+        <!-- <form>
           <input type="text" size="50" placeholder="Search by Company, Dancer, or Piece"/>
           <button>Search</button>
-        </form>
+        </form> -->
       </div>
 
       <nav>
@@ -51,5 +58,6 @@
     </footer>
   
   </div>
+    <%= javascript_include_tag "home"%>
 </body>
 </html>

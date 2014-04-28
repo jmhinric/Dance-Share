@@ -1,5 +1,7 @@
 DanceshareApp::Application.routes.draw do
 
+  resources :search_suggestions
+
   root "welcome#index"
 
   get "/login", to: "session#new"
