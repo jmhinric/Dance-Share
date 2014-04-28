@@ -20,15 +20,11 @@
         <%# end %>
          
 
-        <%= form_tag companies_path, {class: 'search-home', method: :get} do %>
+        <%= form_tag 'companies/search', {class: 'search-home', method: :get} do %>
           <%= text_field_tag :search, params[:search], size: 30 %>
           <%= submit_tag "Search", name: nil %>
         <% end %>  
 
-        <!-- <form>
-          <input type="text" size="50" placeholder="Search by Company, Dancer, or Piece"/>
-          <button>Search</button>
-        </form> -->
       </div>
 
       <nav>
@@ -46,8 +42,10 @@
     </header>
 
     <% if flash[:notice] %>
-      <div class="notice">
-        <%= flash[:notice] %>
+      <div class="errors">
+        <span class="error">
+          <%= flash[:notice] %>
+        </span>
       </div>
     <% end %>
 

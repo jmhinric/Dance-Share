@@ -1,6 +1,5 @@
 class SearchSuggestionsController < ApplicationController
   def index
-    # render json: %w[this that]
     render json: SearchSuggestion.terms_for(params[:term])
   end
 

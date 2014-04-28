@@ -6,6 +6,16 @@ class CompaniesController < ApplicationController
   before_action :admin_authorize, only: [:edit, :update]
 
   def show
+    if @company.nil?
+      flash[:notice] = "Sorry, that company doesn't exist."
+      redirect_to root_path
+    end
+
+  end
+
+  def search
+    @company = Company.find_by(name: params[:search])
+    redirect_to company_path @company
   end
 
   def new
@@ -15,7 +25,6 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.create(company_params)
     @company.admin = current_user
-    # @company.admin_id = current_user.id
     @company.save
     # @user.is_admin = true
     # @user.save
@@ -42,7 +51,12 @@ class CompaniesController < ApplicationController
   end
 
   def load_company
-    @company = Company.find(params[:id])
+    if params[:search]
+      @company = Company.find_by(name: params[:search])
+    else
+      @company = Company.find(params[:id])
+    end
+
   end
 
   def load_user
