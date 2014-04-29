@@ -1,0 +1,192 @@
+/*SHOW*/
+
+.user-profile-heading {
+  margin: 40px 0 0 50px;
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+
+  .user-profile-info {
+    width: 500px;
+    display: inline-block;
+    margin-top: 13px;
+    margin-left: 25px;
+    vertical-align: top;
+    
+    h3 {
+      display: block;
+      margin-top: 0px;
+    }
+
+    p {
+      display: block;
+      margin-top: -16px;
+    }
+
+    .user-profile-edit {
+      display: inline;
+      margin-left: 5px;
+    }
+  }
+}
+
+.gravatar {
+  display: inline-block;
+  border-radius: 8px;
+}
+
+.user-companies {
+  h3, a {
+    margin: 0;
+    text-align: left;
+  }
+
+  margin-left: 50px;
+}
+
+
+.user-profile-reviews {
+  width: 66%;
+  display: inline-block;
+  margin-left: 50px;
+
+  h2 {
+    width: 150px;
+    margin-top: 50px;
+  }
+}
+
+.user-profile-review {
+  border-bottom: 2px solid #1F1F22;
+  padding-bottom: 10px;
+  
+  h3 {
+    margin-top: 30px;
+  }
+
+  .review-rating {
+    /*margin-top: 0;*/
+    display: inline-block;
+  }
+
+  .review-title {
+    display: inline-block;
+    width: 66%;
+  }
+}
+
+.edit-review {
+  font-size: .8em;
+}
+
+
+/*============================================================================================*/
+
+/*USER NEW*/
+
+/*============================================================================================*/
+
+
+.signup {
+
+  h1 {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  form {
+    width: 600px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+  }
+
+  label {
+    display: block;
+    font-size: 1.3em;
+  }
+
+
+  input {
+    display: block;
+    margin-top: 4px;
+    padding: 7px 3px;
+    font-size: 1.1em;
+    width: 100%;
+    border: 1px solid grey;
+    border-radius: 5px;
+  }
+
+  input:focus {
+    padding: 7px 0;
+    font-size: 1.1em;
+  }
+
+  /*input.button {
+    width: 75px;
+  }*/
+
+  input[type=submit] {
+    border-radius: 10px;
+    background-color: #A598AA;
+    color: white;
+    width: 150px;
+    margin: 0 auto;
+  }
+  
+}
+
+/*USER EDIT*/
+/*==============================================*/
+
+.edit {
+  margin: 0 auto;
+  text-align: center;
+}
+
+h2.edit {
+  /*display: inline-block;*/
+  padding-top: 30px;
+}
+
+form.user-form {
+  padding-top: 30px;
+  /*border: 1px solid red;*/
+}
+
+form.user-form label {
+  display: inline-block;
+  text-align: right;
+  width: 150px;
+  padding-right: 8px;
+  /*border: 1px solid blue;*/
+}
+
+.delete-user {
+  padding-left: 15px;
+}
+
+input[type=radio] {
+  /*display: block;*/
+}
+
+
+/*LOGIN*/
+
+/*===================================================*/
+
+main.login {
+  h1 {
+    text-align: center;
+  }
+
+  .login-form {
+    margin: 0 auto;
+    width: 500px;
+  }
+
+  form.login-form {
+    text-align: center;
+
+  }
+}

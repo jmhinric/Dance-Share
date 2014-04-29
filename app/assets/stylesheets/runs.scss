@@ -1,0 +1,38 @@
+/*RUNS SHOW*/
+
+.run-show-info {
+  text-align: center;
+}
+
+
+.add-performance {
+  padding-top: 15px;
+
+  .new-performance {
+    padding-top: 10px;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.hide-button-text {
+  content: "Hide";
+}
+
+.performance-reviews {
+  
+  padding-top: 35px;
+  margin: 0 auto;
+
+  .performance-review-heading {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .perf-review {
+    text-align: center;
+  }
+}

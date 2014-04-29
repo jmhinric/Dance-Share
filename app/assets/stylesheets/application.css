@@ -10,6 +10,12 @@
  *
  *= require jquery.ui.all
  *= normalize
+ *= style.scss.erb
+ *= users
+ *= companies
+ *= runs
+ *= reviews
+ *= search_suggestions
  *= require_self
  *= require_tree .
  */
