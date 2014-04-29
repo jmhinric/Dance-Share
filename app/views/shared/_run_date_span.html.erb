@@ -1,0 +1,10 @@
+<ul>
+  <li class="list-show-info">
+    <%= run.venue.name %>
+  </li>
+  <li class="list-show-info">
+    <% unless run.performances.empty? %>
+      <%= run.performances.order(:date).first.date.strftime("%A, %B %e, %Y") %> - <%= run.performances.order(:date).last.date.strftime("%A, %B %e, %Y") %>
+    <% end %>
+  </li>
+</ul>

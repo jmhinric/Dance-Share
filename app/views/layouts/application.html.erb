@@ -14,17 +14,10 @@
       </div>
 
       <div class="header-search">
-        <%# form_for Company.new do |f| %>
-          <%# f.text_field :name %>
-          <%# f.submit "Search" %>
-        <%# end %>
-         
-
-        <%= form_tag 'companies/search', {class: 'search-home', method: :get} do %>
+        <%= form_tag '/companies/search', {class: 'search-home', method: :get} do %>
           <%= text_field_tag :search, params[:search], size: 30 %>
           <%= submit_tag "Search", name: nil %>
         <% end %>  
-
       </div>
 
       <nav>

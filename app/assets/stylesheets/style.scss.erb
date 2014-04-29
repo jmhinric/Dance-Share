@@ -79,12 +79,12 @@ body {
   /*background: rgb(254, 234, 222);*/
   /*background: url("background.png");*/
   /*background-repeat: repeat;*/
-  /*background: url("theater_audience_high_res.jpg");*/
-  /*background-size: cover;
+  /*background: url("theater_audience_high_res.jpg");
+  background-size: cover;
   background-position: center;*/
 }
 
-h1, h2, h3, h4, h5, h6, label {
+h1, h2, h3, h4, h5, h6, label, h1 a, h3 a{
   /*color: #9A593A;*/
   color: #37566D;
 }
@@ -101,11 +101,16 @@ input[type=submit] {
     color: white;
     width: 150px;
     margin: 0 auto;
-  }
+}
+
+ul {
+  -webkit-padding-start: 0;
+}
 
 .errors {
   text-align: center;
   padding-bottom: 20px;
+  margin-top: 15px;
 
   .error {
     color: firebrick;
@@ -445,7 +450,7 @@ a {
   
 }
 
-/*EDIT*/
+/*USER EDIT*/
 /*==============================================*/
 
 .edit {
@@ -508,9 +513,10 @@ main.login {
 
 /*============================================================================================*/
 
-/*SHOW*/
+/*COMPANY SHOW*/
 
 .company-profile-heading {
+  text-align: center;
 
   h1 {
     text-align: center;
@@ -525,26 +531,84 @@ main.login {
 
 .runs {
   text-align: center;
+  
+  h2 {
+    margin-bottom: 5px;
+  }
+  .add-run {
+    display: block;
+    text-align: center;
+  }
+
+  .run {
+    text-align: center;
+  }
+}
+
+
+
+/*================================================================================*/
+
+/*RUNS*/
+
+/*=================================================================================*/
+
+/*RUNS SHOW*/
+
+.run-show-info {
+  text-align: center;
+}
+
+
+.add-performance {
+  padding-top: 15px;
+
+  .new-performance {
+    padding-top: 10px;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.hide-button-text {
+  content: "Hide";
+}
+
+.performance-reviews {
+  
+  padding-top: 35px;
+  margin: 0 auto;
+
+  .performance-review-heading {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .perf-review {
+    text-align: center;
+  }
 }
 
 
 /*================================================================================*/
 
+/*REVIEWS*/
 
+/*=================================================================================*/
 
+/*REVIEWS NEW*/
 
+.new-perf-review {
+  text-align: center;
+  display: block;
 
-
-
-
-
-
-
-
-
-
-
-
+  .new-review {
+    margin: 0 auto;
+  }
+}
 
 
 

@@ -7,11 +7,6 @@ class SearchSuggestion < ActiveRecord::Base
   def self.index_companies
     Company.find_each do |company|
       index_term(company.name)
-      index_term(company.name.downcase)
-      company.name.split.each do |t|
-        index_term(t)
-        index_term(t.downcase)
-      end
     end
   end
 

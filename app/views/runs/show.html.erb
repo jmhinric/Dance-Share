@@ -1,41 +1,52 @@
 <main>
-  <h1><%= @run.company.name %></h1>
+  <div class="run-show-info">
+    <h1><%= link_to "#{@run.company.name}", company_path(@run.company) %></h1>
 
-  <h2><%= @run.title %></h2>
-  <img src="<%= @run.venue.image_url%>" /><br/>
-  <span><%= @run.venue.name %></span><br/>
-  <% @run.venue.display_address.split("\n").each do |line| %>
-    <span><%= line %></span><br/>
-  <% end %>
-
-  <ul>
-    <% @run.performances.order(:date).order(:time).each do |performance| %>
-      <li>
-        <%= performance.pretty_date %>, 
-        <%= performance.pretty_time %> | <%= link_to "Write a Review!", new_performance_review_path(performance) %>
-      </li><br/>
+    <h2><%= @run.title %></h2>
+    <img src="<%= @run.venue.image_url%>" /><br/>
+    <span><%= @run.venue.name %></span><br/>
+    <% @run.venue.display_address.split("\n").each do |line| %>
+      <span><%= line %></span><br/>
     <% end %>
-  </ul>
+
+    <ul>
+      <% @run.performances.order(:date).order(:time).each do |performance| %>
+        <li>
+          <%= performance.pretty_date %>, 
+          <%= performance.pretty_time %> | <%= link_to "Write a Review!", new_performance_review_path(performance) %>
+        </li><br/>
+      <% end %>
+    </ul>
+    <% if current_user == @company.admin %>
+      <div class="add-performance">
+        <button>Add Performance</button>
+        <%= form_for [@run, Performance.new], url: "/runs/#{@run.id}/performances", html: {class: "new-performance hidden"} do |f| %>
+          <%= f.label :date %>
+          <%= f.date_field :date %>
+
+          <%= f.label :time %>
+          <%= f.time_field :time %>
+
+          <%= f.submit "Add Performance" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
   <br/>
 
-    <%= form_for [@run, Performance.new], url: "/runs/#{@run.id}/performances" do |f| %>
-      <%= f.label :date %>
-      <%= f.date_field :date %>
-
-      <%= f.label :time %>
-      <%= f.time_field :time %>
-
-      <%= f.submit "Add Performance" %>
-    <% end %>
   
-  <% @run.performances.each do |performance| %>
-    <strong>
-      Reviews of <%= performance.pretty_date %> performance:
-    </strong>
-    <% performance.reviews.each do |review| %>
-      <%= render partial: "performance_review", locals: {review: @review} %>
-    <% end %>
-  <% end %>
+  <div class="performance-reviews">
+    <% @run.performances.order('date').each do |performance| %>
+      <% if performance.reviews.present? %>
+        <span class="performance-review-heading">
+          Reviews for <%= performance.pretty_date %>:
+        </span>
 
+        <% performance.reviews.each do |review| %>
+          <%= render partial: "performance_review", locals: {review: review} %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
 
 </main>

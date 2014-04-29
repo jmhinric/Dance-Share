@@ -10,7 +10,6 @@ class CompaniesController < ApplicationController
       flash[:notice] = "Sorry, that company doesn't exist."
       redirect_to root_path
     end
-
   end
 
   def search
