@@ -16,29 +16,10 @@
 
 
   <section class="home-recent">
-    <h2 class="section-recent">
+    <h2>
       Recent Performances:
     </h2>
-    <div class="three-shows">
-      <% if @recent_runs.present? %>
-        <% @recent_runs.each do |run| %>
-          <div class="home-show">
-            <ul class="home-action-links">
-              <li class="home-link"><%= link_to "Reviews", company_run_path(run.company, run) %></li> | 
-              <li class="home-link"><%= link_to "Write a Review", company_run_path(run.company, run) %></li>
-            </ul>
-            
-            <img class="home-company-photo" src="<%=run.company.photo_url %>" />
-            <div class="home-show-info">
-              <a class="home-company-name" href="<%= company_path(run.company) %>"><%= run.company.name %></a>
-
-              <%= render partial: "shared/run_date_span", locals: { run: run } %>
-              
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+    <%= render partial: "home_performances", locals: {runs: @recent_runs } %>
   </section>
 
 
@@ -46,33 +27,7 @@
     <h2>
       Upcoming Performances:
     </h2>
-    <div class="three-shows">
-      <% if @upcoming_runs.present? %>
-        <% @upcoming_runs.each do |run| %>
-          <div class="home-show">
-            <ul class="home-action-links">
-              <li class="home-link"><%= link_to "Reviews", company_run_path(run.company, run) %></li>
-              <li class="home-link"><%= link_to "Write a Review", company_run_path(run.company, run) %></li>
-            </ul>
-            
-            <img class="home-company-photo" src="<%=run.company.photo_url %>" />
-            <div class="home-show-info">
-              <a class="home-company-name" href="<%= company_path(run.company) %>"><%= run.company.name %></a>
-
-              <ul>
-                <li class="list-show-info">
-                  <%= run.venue.name %>
-                </li>
-                <li class="list-show-info">
-                  <%= run.performances.order(:date).first.date.strftime("%A, %B %e, %Y") %> - <%= run.performances.order(:date).last.date.strftime("%A, %B %e, %Y") %>
-                </li>
-              </ul>
-
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+    <%= render partial: "home_performances", locals: {runs: @upcoming_runs } %>
   </section>
 
   <div id="clear-float">

@@ -1,0 +1,22 @@
+<div class="three-shows">
+  <% if runs.present? %>
+    <% runs.each do |run| %>
+      <div class="home-show">
+        <div class="reviews-link">
+          <%= link_to "Reviews | Write a Review", company_run_path(run.company, run) %>
+        </div>
+        
+        <div class="home-company-photo">
+          <img src="<%= run.company.photo_url %>" />
+        </div>
+
+        <div class="home-show-info">
+          <a class="home-company-name" href="<%= company_path(run.company) %>"><%= run.company.name %></a>
+
+          <%= render partial: "shared/run_date_span", locals: { run: run } %>
+          
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
