@@ -6,14 +6,14 @@
   <% if @venues.present? %>
     <% @venues.each do |venue| %>
     
-      <label>
+      <div class="single-venue">
         <%= link_to image_tag("#{venue[:image_url]}"), venues_path(venue), method: :post %>
         <br/><%= venue[:name] %><br/>
         <% venue[:display_address].split("\n").each do |line| %>
           <%= line %><br/>
         <% end %>
         <br/>
-      </label> 
+      </div> 
     <% end %>
 
     <p>Don't see your venue?  Search again! </p>
@@ -25,13 +25,14 @@
 
 
   <!-- Always render the search form: -->
-  <%= form_tag("/venues/new", method: "get") do %>
-    <%= text_field_tag "venue_name", nil, placeholder: "Venue Name" %>
-    <%= hidden_field_tag "company_id", @company.id %>
+  <div class="new-venue-search">
+    <%= form_tag("/venues/new", method: "get") do %>
+      <%= text_field_tag "venue_name", nil, placeholder: "Venue Name" %>
+      <%= hidden_field_tag "company_id", @company.id %>
 
-    <%= submit_tag "Search for Venue" %>
-  <% end %>
-
+      <%= submit_tag "Search for Venue" %>
+    <% end %>
+  </div>
 
 
   <%# form_for @company, url: new_company_venue_path(@company), method: :get do |f| %>

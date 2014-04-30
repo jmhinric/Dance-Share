@@ -1,4 +1,7 @@
 @media (max-width: 1000px) {
+  
+  /*HEADER*/
+  /*=============================================*/
 
   #wrapper header nav input#search.ui-autocomplete-input {
     width: 250px;
@@ -12,11 +15,22 @@
     margin-right: 20px;
   }
 
+  /*VENUE NEW*/
+  /*================================================*/
+
+  main.new-venue {
+    width: 800px;
+  }
+
+
 }
 
 
 @media (max-width: 900px) {
   
+  /*HEADER*/
+  /*=============================================*/
+
   #wrapper header nav .header-title {
     font-size: .7em
   }
@@ -32,10 +46,20 @@
   #wrapper header nav .nav-links ul {
     margin-right: 10px;
   }
+
+  /*VENUE NEW*/
+  /*================================================*/
+
+  main.new-venue {
+    width: 700px;
+  }
 }
 
 @media (max-width: 700px) {
   
+  /*HEADER*/
+  /*=============================================*/
+
   #wrapper header nav .header-title {
     font-size: .7em;
     width: 150px;
@@ -53,12 +77,22 @@
   #wrapper header nav .nav-links ul {
     margin-right: 10px;
   }
+
+  /*VENUE NEW*/
+  /*================================================*/
+
+  main.new-venue {
+    width: 500px;
+  }
   
 }
 
 
 @media (max-width: 500px) {
   
+  /*HEADER*/
+  /*=============================================*/
+
   #wrapper header nav .header-title {
     font-size: .7em;
     width: 20%;
@@ -76,5 +110,28 @@
   #wrapper header nav .nav-links ul {
     margin-right: 10px;
   }
+
+  /*VENUE NEW*/
+  /*================================================*/
+
+  main.new-venue {
+    width: 300px;
+  }
   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,2 +1,26 @@
 /*NEW*/
 
+.new-venue {
+  text-align: center;
+  margin: 0 auto;
+  width: 960px;
+
+  .single-venue {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 15px;
+    margin-bottom: 20px;
+  }
+
+  .new-venue-search {
+
+    input[type=text] {
+      display: block;
+      margin: 0 auto;
+    }
+
+    input[type=submit] {
+      margin-top: 20px;
+    }
+  }
+}
