@@ -3,8 +3,12 @@
 .user-profile-heading {
   margin: 40px 0 0 50px;
   width: 50%;
-  display: inline-block;
   vertical-align: top;
+
+  .gravatar {
+    display: inline-block;
+    border-radius: 8px;
+  }
 
   .user-profile-info {
     width: 500px;
@@ -23,25 +27,31 @@
       margin-top: -16px;
     }
 
-    .user-profile-edit {
-      display: inline;
-      margin-left: 5px;
-    }
   }
 }
 
-.gravatar {
-  display: inline-block;
-  border-radius: 8px;
+.inline-link {
+  display: inline;
+  margin-left: 5px;
 }
 
 .user-companies {
-  h3, a {
+  padding-top: 70px;
+  margin-left: 50px;
+
+  h2, a {
     margin: 0;
     text-align: left;
   }
 
-  margin-left: 50px;
+  li {
+    display: inline-block;
+  }
+
+  .small {
+    font-size: 0.7em;
+    font-weight: normal;
+  }
 }
 
 
@@ -52,7 +62,6 @@
 
   h2 {
     width: 150px;
-    margin-top: 50px;
   }
 }
 
@@ -65,7 +74,6 @@
   }
 
   .review-rating {
-    /*margin-top: 0;*/
     display: inline-block;
   }
 
@@ -157,7 +165,7 @@ form.user-form {
 form.user-form label {
   display: inline-block;
   text-align: right;
-  width: 150px;
+  width: 80px;
   padding-right: 8px;
   /*border: 1px solid blue;*/
 }

@@ -1,4 +1,11 @@
 <div class="user-profile-wrapper">
+  
+  <% if flash[:notice] %>
+    <div class="errors error">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
   <div class="user-profile-heading">
     <!-- Call to gravatar_for helper -->
       <%= gravatar_for @user %>
@@ -9,7 +16,7 @@
       </h3>
       <p>
         <%= @user.email %> 
-        <span class="user-profile-edit">
+        <span class="inline-link">
           (<%= link_to "edit", edit_user_path(@user) if current_user == @user %>)
         </span>
       </p>
@@ -18,14 +25,6 @@
 
   <%= render "admin_companies" if @user.companies.present? %>
 
-  <%# link_to "Create a Dance Company", new_company_path %>
-
-
-  <% if flash[:notice] %>
-    <div class="notice">
-      <%= flash[:notice] %>
-    </div>
-  <% end %>
 
 
 
@@ -33,7 +32,7 @@
     
     <h2>My Reviews</h2>
 
-    <% @user.reviews.each do |review| %>
+    <% @user.reviews.order('created_at DESC').each do |review| %>
 
       <%# render partial: "review", locals: {review: review} %>
       <div class="user-profile-review">

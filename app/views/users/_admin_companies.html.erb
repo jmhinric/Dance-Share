@@ -1,10 +1,10 @@
 <div class="user-companies">
-  <h3>
-    My Companies
-    <ul>
-      <% @user.companies.each do |company| %>
-        <li><%= link_to "#{company.name}", company_path(company) %></li>
-      <% end %>
-    </ul>
-  </h3>
+  <h2>
+    My Companies <span class="inline-link small">(<%= link_to "create new", new_company_path %>)</span>
+  </h2>
+  <ul>
+    <% @user.companies.each do |company| %>
+      <li><%= link_to "#{company.name}", company_path(company) %></li>
+    <% end %>
+  </ul>
 </div>

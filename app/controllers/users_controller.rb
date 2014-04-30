@@ -28,10 +28,11 @@ class UsersController < ApplicationController
   def update
     #make the change to the user suggested by the form...
     if @user.update(user_params)
+      flash.discard(:notice)
       redirect_to user_path(@user)
     else
       @user = load_user
-      flash[:notice] = "blah"
+      flash[:notice] = "Sorry, invalid information..."
       render :edit
     end
   end
