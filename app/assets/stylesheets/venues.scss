@@ -14,8 +14,7 @@
 
   .new-venue-search {
 
-    input[type=text] {
-      display: block;
+    input[type=text], input[type=text]:focus {      display: block;
       margin: 0 auto;
     }
 

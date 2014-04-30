@@ -29,3 +29,19 @@
     text-align: center;
   }
 }
+
+/*NEW*/
+/*==================================================*/
+
+.new-company {
+  text-align: center;
+
+  input[type=text], input[type=text]:focus {
+    display: block;
+    margin: 0 auto;
+  }
+
+  input[type=submit] {
+      margin-top: 20px;
+    }
+}
