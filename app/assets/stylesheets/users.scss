@@ -191,10 +191,9 @@ main.login {
   .login-form {
     margin: 0 auto;
     width: 500px;
-  }
 
-  form.login-form {
-    text-align: center;
-
+    form {
+      text-align: center;
+    }
   }
 }

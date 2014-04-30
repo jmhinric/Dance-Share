@@ -1,5 +1,9 @@
-<h1>Edit <%= @company.name %>'s Profile</h1>
+<main class="new-or-edit-company">
+  <h1>
+    Edit <%= @company.name %>'s Profile
+  </h1>
 
-<%= render partial: "shared/errors", locals: {entity: @company} %>
+  <%= render partial: "shared/errors", locals: {entity: @company} %>
 
-<%= render "edit_form" %>
+  <%= render "edit_form" %>
+</main>
