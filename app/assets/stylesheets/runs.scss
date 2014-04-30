@@ -1,4 +1,4 @@
-/*RUNS SHOW*/
+/*SHOW*/
 
 .run-show-info {
   text-align: center;
@@ -36,3 +36,56 @@
     text-align: center;
   }
 }
+
+/*NEW*/
+/*================================================*/
+
+.new-run {
+    text-align: center;
+  h2 {
+  }
+}
+
+.venue-list {
+  margin-bottom: 20px;
+
+  .single-venue {
+    padding-left: 20px;
+    vertical-align: top;
+    display: inline-block;
+  }
+
+  label {
+    display: block;
+    margin-top: 25px;
+  }
+
+  img {
+    display: inline-block;
+    margin: 10px auto;
+  }
+
+  span {
+    display: block;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

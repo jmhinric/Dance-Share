@@ -122,63 +122,84 @@ ul {
 /*==========================================================*/
 /*HEADER*/
 
-
-
+#wrapper {
+  position: relative;
+  min-height: 100%;
+}
 
 header {
   background: rgb(26, 46, 70);
   width: 100%;
-  /*height: 67px;*/
   font-family: 'Lato', sans-serif;
   position: relative;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #D9D3C1;
+  }
+
+  nav {
+    display: block;
+
+    .header-title {
+      float: left;
+      width: 20%;
+      display: inline-block;
+
+      h1 a {
+        margin-left: 50px;
+      }
+    }
+
+    .header-search {
+      width: 57%;
+      display: inline-block;
+      color: #37566D;
+      margin-top: 20px;
+      
+      .header-search-wrap {      
+        margin: 0 auto;
+        width: 500px;
+
+        .search-home {
+          margin: 0 auto;
+
+          input[type=text] {
+            width: 350px;
+          }
+
+          input[type=submit] {
+            width: 90px;
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+
+    .nav-links {
+      width: 20%;
+      margin-top: 10px;
+      display: inline-block;
+      float: right;
+      
+      ul {
+        margin-right: 60px;
+
+        li {
+          float: right;
+          display: inline-block;
+          text-decoration: none;
+          padding: 0px 10px;
+        }
+      }
+    }
+  }
 }
 
-header a {
-  /*color: rgb(217, 211, 193);*/
-  color: white;
-  text-decoration: none;
-}
-
-header a:hover {
-  color: #D9D3C1;
-}
-
-#header-title {
-  /*padding-top: 8px;*/
-  margin-top: -11px;
-  padding-left: 50px;
-  /*float: left;*/
-  /*font-size: 2em;*/
-  display: inline-block;
-  /*vertical-align: middle;*/
-}
-
-.header-search {
-  display: inline-block;
-  margin-top: 22px;
-  margin-left: 16%;
-  color: #37566D;
-}
-
-.header-search button {
-  margin-left: 6px;
-  border-radius: 4px;
-  background-color: #A598AA;
-  color: white;
-}
-
-header nav ul {
-  display: inline-block;
-  width: 220px;
-  float: right;
-  margin-top: -48px;
-  margin-right: 10px;
-}
-
-nav li {
-  display: inline;
-  padding: 0px 10px;
-}
 
 /*=============================================================*/
 /*END HEADER*/
@@ -242,7 +263,7 @@ nav li {
   display: block;
   
   .home-show {
-    width: 1000px;
+    width: 800px;
     margin: 0 auto;
   
     .reviews-link {
@@ -286,11 +307,6 @@ nav li {
     margin: 0 auto;
     padding-top: 20px;  
   }
-}
-
-div#wrapper {
-  position: relative;
-  min-height: 100%;
 }
 
 div#clear-float {
