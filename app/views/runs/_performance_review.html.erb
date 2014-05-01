@@ -1,5 +1,8 @@
 <div class="perf-review">
-  <p><em><%= review.title %></em></p>
+  <p>
+    <em><%= review.title %></em>, by 
+    <%= link_to "#{review.user.first_name} #{review.user.last_name}", user_path(review.user) %>
+  </p>
   <p>Rating: <%= review.rating %>/5</p>
   <p><%= review.review_text %></p>
 </div>

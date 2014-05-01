@@ -14,23 +14,29 @@
         <%= @user.first_name %> 
         <%= @user.last_name %>
       </h3>
-      <p>
-        <%= @user.email %> 
-        <span class="inline-link">
-          (<%= link_to "edit", edit_user_path(@user) if current_user == @user %>)
-        </span>
-      </p>
+      <% if current_user == @user %>
+        <p>
+          <%= @user.email %> 
+          <span class="inline-link">
+            <%= link_to "(edit)", edit_user_path(@user) %>
+          </span>
+        </p>
+      <% end %>
     </div>
   </div>
 
-  <%= render "admin_companies" if @user.companies.present? %>
+  <%= render "admin_companies" if @user.companies.present? && current_user == @user %>
 
 
 
 
   <div class="user-profile-reviews">
     
-    <h2>My Reviews</h2>
+    <% if current_user == @user %>
+      <h2>My Reviews</h2>
+    <% else %>
+      <h2><%= @user.first_name %>'s Reviews</h2>
+    <% end %>
 
     <% @user.reviews.order('created_at DESC').each do |review| %>
 

@@ -6,52 +6,120 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-5.times do
-  FactoryGirl.create(:company)
+
+
+def yelp_call(theater)
+  search_theater = theater.gsub(" ", "+")
+
+  consumer_key = YELP_CONSUMER_KEY
+  consumer_secret = "#{YELP_CONSUMER_SECRET}"
+  token = "#{YELP_TOKEN}"
+  token_secret = "#{YELP_TOKEN_SECRET}"
+
+  api_host = 'api.yelp.com'
+
+  consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
+  access_token = OAuth::AccessToken.new(consumer, token, token_secret)
+
+  path = "/v2/search?term=#{search_theater}+theater+performing+arts&location=new+york"
+  
+  yelp_search = access_token.get(path).body
+
+  yelp = JSON(yelp_search)
+  return create_venue(yelp)
 end
 
-# def yelp_call(theater)
-#   search_theater = theater.gsub(" ", "+")
+def create_venue(yelp)
+  return Venue.create(
+    name: yelp["businesses"][0]["name"],
+    display_address: yelp["businesses"][0]["location"]["display_address"].join("\n"),
+    cross_streets: yelp["businesses"][0]["location"]["cross_streets"],
+    address: yelp["businesses"][0]["location"]["address"].first,
+    city: yelp["businesses"][0]["location"]["city"],
+    state_code: yelp["businesses"][0]["location"]["state_code"],
+    postal_code: yelp["businesses"][0]["location"]["postal_code"],
+    image_url: yelp["businesses"][0]["image_url"],
+    url: yelp["businesses"][0]["url"],
+    rating_image_url: yelp["businesses"][0]["rating_img_url"],
+    yelp_id: yelp["businesses"][0]["id"],
+    review_count: yelp["businesses"][0]["review_count"]
+    ) 
+end
 
-#   consumer_key = YELP_CONSUMER_KEY
-#   consumer_secret = "#{YELP_CONSUMER_SECRET}"
-#   token = "#{YELP_TOKEN}"
-#   token_secret = "#{YELP_TOKEN_SECRET}"
+joyce = yelp_call("Joyce Theater")
+ailey = yelp_call("Alvin Ailey American Dance Theater")
+ps122 = yelp_call("PS 122")
+lincoln_center = yelp_call("Lincoln Center")
+nyla = yelp_call("NYLA")
 
-#   api_host = 'api.yelp.com'
+venues = [joyce, ailey, ps122, lincoln_center, nyla]
+names = ["Manhattan Dance Company", "Queens Dance Group", "Brooklyn Dance Collective", "Bronx Dances", "Staten Island Dance Arts"]
+photos = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdWPgFQycWBCgH9ENTu18Dig5NtU5CwkM1ZoJmf1PCtMzdLll8","http://nyoobserver.files.wordpress.com/2011/11/7-train.jpg", "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSTP3_fmBHzZqiFuM0DS5taoh2Lyd4cZuHKljaWxVoiTbq_0uAe", "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTDg-J217P0xXTXGJ_4CqsIQ-hpxsETrp-IncG8ZqDmnsvgHBejPw", "http://thumbs.dreamstime.com/z/staten-island-ferry-new-york-20257332.jpg"]
 
-#   consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
-#   access_token = OAuth::AccessToken.new(consumer, token, token_secret)
+# CREATE 5 companies
+# =========================================
 
-#   path = "/v2/search?term=#{search_theater}+theater+performing+arts&location=new+york"
-  
-#   yelp_search = access_token.get(path).body
+[0,1,2,3,4].each do |num|
+  company = FactoryGirl.create(:company)
+  company.name = names[num]
+  company.photo_url = photos[num]
+  user = company.admin
+  user.companies << company
+  company.save
+end
 
-#   yelp = JSON(yelp_search)
-#   return create_venue(yelp)
-# end
+# CREATE 3 RUNS PER COMPANY
+# ======================================
 
-# def create_venue(yelp)
-#   return Venue.create(
-#     name: yelp["businesses"][0]["name"],
-#     display_address: yelp["businesses"][0]["location"]["display_address"].join("\n"),
-#     cross_streets: yelp["businesses"][0]["location"]["cross_streets"],
-#     address: yelp["businesses"][0]["location"]["address"].first,
-#     city: yelp["businesses"][0]["location"]["city"],
-#     state_code: yelp["businesses"][0]["location"]["state_code"],
-#     postal_code: yelp["businesses"][0]["location"]["postal_code"],
-#     image_url: yelp["businesses"][0]["image_url"],
-#     url: yelp["businesses"][0]["url"],
-#     rating_image_url: yelp["businesses"][0]["rating_img_url"],
-#     yelp_id: yelp["businesses"][0]["id"],
-#     review_count: yelp["businesses"][0]["review_count"]
-#     ) 
-# end
+Company.all.each do |co|
+  r_w = FactoryGirl.create(:recent_week_run)
+  r_m = FactoryGirl.create(:recent_month_run)
+  u_w = FactoryGirl.create(:upcoming_week_run)
+  u_m = FactoryGirl.create(:upcoming_month_run)
 
-# joyce = yelp_call("Joyce Theater")
-# ailey = yelp_call("Alvin Ailey American Dance Theater")
-# ps122 = yelp_call("PS 122")
-# lincoln_center = yelp_call("Lincoln Center")
+  r_w.company = co
+  r_m.company = co
+  u_w.company = co
+  u_m.company = co
+
+  co.runs << r_w
+  co.runs << r_m
+  co.runs << u_w
+  co.runs << u_m
+
+  r_w.venue = venues.sample
+  r_m.venue = venues.sample
+  u_w.venue = venues.sample
+  u_m.venue = venues.sample
+
+  r_w.save
+  r_m.save
+  u_w.save
+  u_m.save
+end
+
+# CREATE 3 REVIEWS PER USER PER RUN
+# ======================================
+
+
+Run.all.each do |run|
+  if run.performances.order('date').first.date <= Time.now
+    User.destroy_all("id > '5'")
+    User.all.each do |user|
+      perf = run.performances.sample
+      review = FactoryGirl.create(:review)
+      review.user = user
+      user.reviews << review
+      perf.reviews << review
+      review.save
+    end
+  end
+end
+
+Company.destroy_all("id > '5'")
+Venue.destroy_all("id > '5'")
+Run.destroy_all("id > '20'")
+User.destroy_all("id > '5'")
 
 
 

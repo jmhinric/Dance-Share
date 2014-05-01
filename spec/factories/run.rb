@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :run do
-    title { Faker::Lorem.sentence(word_count = 3) }
+    title { Faker::Lorem.words(count=3).each {|w| w.capitalize!}.join(" ") }
     association :venue
     association :company
 
@@ -10,7 +10,7 @@ FactoryGirl.define do
       end
 
       ignore do
-        performances_count 2
+        performances_count 3
       end
 
       after(:create) do |run, evaluator|
@@ -24,7 +24,7 @@ FactoryGirl.define do
       end
 
       ignore do
-        performances_count 2
+        performances_count 3
       end
 
       after(:create) do |run, evaluator|
@@ -38,7 +38,7 @@ FactoryGirl.define do
       end
 
       ignore do
-        performances_count 2
+        performances_count 3
       end
 
       after(:create) do |run, evaluator|
@@ -52,7 +52,7 @@ FactoryGirl.define do
       end
 
       ignore do
-        performances_count 2
+        performances_count 3
       end
 
       after(:create) do |run, evaluator|

@@ -5,14 +5,18 @@
   </span>
 </div>
 
-<%# @company.photo_url %>
+<div class="show-company-photo">
+  <img src="<%= @company.photo_url %>" />
+</div>
 
 <section class="runs">
   <h2>Runs</h2>
   
-  <span class="add-run">
-    <%= link_to "Add a Run", new_company_run_path(@company) %>
-  </span>
+  <% if current_user == @company.admin %>
+    <span class="add-run">
+      <%= link_to "Add a Run", new_company_run_path(@company) %>
+    </span>
+  <% end %>
 
   <% @company.runs.each do |run| %>
     <div class="indiv-run">

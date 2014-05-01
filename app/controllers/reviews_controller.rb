@@ -26,8 +26,10 @@ class ReviewsController < ApplicationController
     if @review.save
       # @company = @run.company
       # redirect_to "/users/#{@user.id}/reviews/#{@review.id}"
-      render :show
+      flash.discard(:notice)
+      redirect_to user_path @user
     else
+      flash[:notice] = "All fields are required"
       render :new
     end
   end

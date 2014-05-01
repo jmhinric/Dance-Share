@@ -2,6 +2,11 @@
 
 .run-show-info {
   text-align: center;
+
+  .venue-name {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
 }
 
 
@@ -30,10 +35,16 @@
     display: block;
     font-weight: bold;
     text-align: center;
+    padding-top: 25px;
+    color: firebrick;
   }
 
   .perf-review {
     text-align: center;
+    width: 85%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
   }
 }
 
