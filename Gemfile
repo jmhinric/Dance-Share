@@ -62,6 +62,7 @@ gem 'multi_json'
 gem 'rails_12factor', group: :production
 
 gem 'factory_girl_rails'
+gem 'ffaker'
 
 group :development, :test do
   gem 'pry-rails'
@@ -69,8 +70,8 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'launchy'
-  gem 'factory_girl_rails'
-  gem 'ffaker'
+  # gem 'factory_girl_rails'
+  # gem 'ffaker'
   gem 'simplecov'
 end
 
