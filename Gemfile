@@ -61,6 +61,8 @@ gem 'multi_json'
 
 gem 'rails_12factor', group: :production
 
+gem 'factory_girl_rails'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
