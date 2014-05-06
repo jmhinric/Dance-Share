@@ -14,12 +14,13 @@ DanceshareApp::Application.routes.draw do
     resources :runs, except: [:index]
     # resources :performances, except: [:destroy]
   end
-  
+
   get "/companies/search", to: "companies#search"
 
-  # resources :runs, only: [:index, :new, :create] do
-  #   resources :performances, only: [:new, :create]
-  # end
+  resources :runs, only: [:index, :new, :create] do
+    resources :performances, only: [:new, :create]
+  end
+  
   # get "/runs/:id/performances/new", to: "performances#new"
   # post "/runs/:id/performances", to: "performances#create"
 
