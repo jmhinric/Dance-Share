@@ -24,8 +24,6 @@ class ReviewsController < ApplicationController
     @performance.reviews << @review
     
     if @review.save
-      # @company = @run.company
-      # redirect_to "/users/#{@user.id}/reviews/#{@review.id}"
       flash.discard(:notice)
       redirect_to user_path @user
     else
@@ -40,8 +38,10 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      redirect_to "/users/#{@review.user.id}/reviews/#{@review.id}"
+      flash.discard(:notice)
+      redirect_to "/users/#{@review.user.id}"
     else
+      flash[:notice] = "All fields are required"
       render :edit
     end
   end
