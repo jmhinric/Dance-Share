@@ -4,7 +4,6 @@ class RunsController < ApplicationController
 
   def new
     @run = Run.new
-    # @venues = Venue.all
     @venues = Venue.text_search(params[:search])
   end
 
@@ -18,7 +17,6 @@ class RunsController < ApplicationController
 
   def show
     @run = Run.find(params[:id])
-    # @performances = @run.performances
   end
 
 
