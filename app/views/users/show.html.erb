@@ -45,7 +45,7 @@
 
         <article>
           <h3>
-            <%= review.performance.title %>
+            <%= link_to review.performance.run.title, company_run_path(review.performance.run.company, review.performance.run) %>
           </h3>
           <p>
             <%= review.performance.pretty_date %>

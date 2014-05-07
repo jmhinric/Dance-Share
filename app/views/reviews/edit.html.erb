@@ -1,5 +1,7 @@
-<h1>Edit Review</h1>
+<main class="edit-perf-review">
+  <h1>Edit Review</h1>
+  <h2><%= @performance.run.company.name %></h2>
 
-<%= render partial: "shared/errors", locals: {entity: @review} %>
-
-<%= render "review_form" %>
+  <h2><%= @performance.date.strftime("%A, %B %e, %Y") %>, <%= @performance.time.strftime("%l:%M %p") %></h2>
+  <%= render "review_form" %>
+</main>
