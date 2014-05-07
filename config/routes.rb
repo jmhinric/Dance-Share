@@ -1,6 +1,6 @@
 DanceshareApp::Application.routes.draw do
 
-  resources :search_suggestions
+  resources :search_suggestions, only: :index
 
   root "welcome#index"
 
@@ -17,8 +17,8 @@ DanceshareApp::Application.routes.draw do
 
   get "/companies/search", to: "companies#search"
 
-  resources :runs, only: [:index, :new, :create] do
-    resources :performances, only: [:new, :create]
+  resources :runs, only: [] do
+    resources :performances, only: [:new, :create, :update, :destroy]
   end
   
   # get "/runs/:id/performances/new", to: "performances#new"
