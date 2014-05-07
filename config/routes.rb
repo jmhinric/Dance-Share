@@ -21,12 +21,9 @@ DanceshareApp::Application.routes.draw do
     resources :performances, only: [:new, :create, :update, :destroy]
   end
   
-  # get "/runs/:id/performances/new", to: "performances#new"
-  # post "/runs/:id/performances", to: "performances#create"
-
   resources :venues, only: [:new, :create]
 
-  resources :performances do
+  resources :performances, only: [] do
     resources :reviews do
     end
   end
