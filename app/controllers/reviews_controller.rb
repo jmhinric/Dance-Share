@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
   before_action :load_user
   before_action :load_performance, only: [:new, :create, :edit, :update]
 
-  before_action :authenticate
+  before_action :authenticate, only: [:new, :create, :edit, :update]
   before_action :authorize, only: [:new, :create, :edit, :update]
 
   def index
