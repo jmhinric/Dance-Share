@@ -25,9 +25,7 @@
     </div>
   </div>
 
-  <%= render "admin_companies" if @user.companies.present? && current_user == @user %>
-
-
+  <%= render "admin_companies" %>
 
 
   <div class="user-profile-reviews">
@@ -37,12 +35,17 @@
     <% else %>
       <h2><%= @user.first_name %>'s Reviews</h2>
     <% end %>
+    
+    <% if @user.reviews.empty? %>
+      <span><em>No Reviews Yet</em></span>
+    <% end %>
 
     <% @user.reviews.order('created_at DESC').each do |review| %>
 
+      
       <%# render partial: "review", locals: {review: review} %>
       <div class="user-profile-review">
-
+      
         <article>
           <h3>
             <%= link_to review.performance.run.title, company_run_path(review.performance.run.company, review.performance.run) %>
