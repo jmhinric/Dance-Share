@@ -21,12 +21,12 @@ describe "user creates a dance company" do
     user.companies << company
     company.admin = user
     company.save
+
     login(user)
     click_link "#{user.first_name}'s Profile"
     click_link company.name
     expect(page).to have_content "#{company.name}"
 
-    save_and_open_page
     click_link "edit"
     fill_in :company_name, with: "New Company"
     click_button "Update Profile"
