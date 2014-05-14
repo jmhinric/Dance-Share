@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_secure_password
   
   has_many :reviews
+  has_many :review_votes
   has_many :artists
   has_many :companies, through: :artists
 end
