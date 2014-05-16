@@ -25,6 +25,7 @@ DanceshareApp::Application.routes.draw do
 
   resources :performances, only: [] do
     resources :reviews do
+      member { post :vote }
     end
   end
 

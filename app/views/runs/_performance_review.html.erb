@@ -15,4 +15,8 @@
     <%= link_to "#{review.user.first_name} #{review.user.last_name}", user_path(review.user) %>
   </p>
   <p><%= review.review_text %></p>
+
+  <button class="vote upvote">Vote Up</button>
+  <button class="vote downvote">Vote Down</button>
+
 </div>

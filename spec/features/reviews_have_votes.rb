@@ -12,7 +12,7 @@ describe "reviews" do
     click_link(run.title)
     expect(page).to have_content run.venue.name
     expect(page).to have_content "Reviews for"
-    click_link "Vote Up"
+    click_button "Vote Up"
 
     expect(page).to have_content "Voted Up"
   end
