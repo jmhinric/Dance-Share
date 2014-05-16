@@ -1,10 +1,4 @@
 <div class="user-profile-wrapper">
-  
-  <% if flash[:notice] %>
-    <div class="errors error">
-      <%= flash[:notice] %>
-    </div>
-  <% end %>
 
   <div class="user-profile-heading">
     <!-- Call to gravatar_for helper -->
@@ -68,9 +62,11 @@
           <p><%= review.review_text %></p>
         </article>
 
-        <span class="edit-review">
-          <%= link_to "Edit Review", edit_performance_review_path(review.performance, review) %>
-        </span>
+        <% if current_user == review.user %>
+          <span class="edit-review">
+            <%= link_to "Edit Review", edit_performance_review_path(review.performance, review) %>
+          </span>
+        <% end %>
 
       </div>
 

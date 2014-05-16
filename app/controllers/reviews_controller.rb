@@ -7,6 +7,8 @@ class ReviewsController < ApplicationController
   before_action :authenticate, only: [:new, :create, :edit, :update]
   before_action :authorize, only: [:new, :create, :edit, :update]
 
+  before_action :authorize_user_review, only: [:edit, :update, :destroy]
+
   def index
   end
 
@@ -55,8 +57,14 @@ class ReviewsController < ApplicationController
 
     # TODO Need an authorize method here for update and destroy
     # to check if current_user == @review.user
-    
+    def authorize_user_review
+      session[:return_to] ||= request.referer
+      if current_user != @review.user
+        flash[:notice] = "You didn't write that review"
+        redirect_to session.delete(:return_to)
+      end
 
+    end
 
     def load_review
       @review = Review.find(params[:id])
