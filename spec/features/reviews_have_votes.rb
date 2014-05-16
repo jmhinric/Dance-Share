@@ -12,7 +12,6 @@ describe "reviews" do
     click_link(run.title)
     expect(page).to have_content run.venue.name
     expect(page).to have_content "Reviews for"
-    # save_and_open_page
     click_link "Vote Up"
 
     expect(page).to have_content "Voted Up"

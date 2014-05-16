@@ -1,8 +1,18 @@
 <div class="perf-review">
   <p>
-    <em><%= review.title %></em>, by 
+    <em><%= review.title %></em>
+    <span class="review-rating run-rating">
+      <% review.rating.times do %>
+        <%= image_tag "star_icon_custom.png", size: "12x12", alt: "star" %>
+      <% end %>
+      <% (5 - review.rating).times do %>
+        <%= image_tag "gray_empty_star_icon.png", size: "9x9" %>
+      <% end %>
+  </span>
+  </p>
+  <p>
+    By 
     <%= link_to "#{review.user.first_name} #{review.user.last_name}", user_path(review.user) %>
   </p>
-  <p>Rating: <%= review.rating %>/5</p>
   <p><%= review.review_text %></p>
 </div>
