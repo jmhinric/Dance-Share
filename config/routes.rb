@@ -25,9 +25,10 @@ DanceshareApp::Application.routes.draw do
 
   resources :performances, only: [] do
     resources :reviews do
-      member { post :vote }
     end
   end
+
+  post "reviews/:id/review_votes", to: "review_votes#create"
 
 
 

@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-  before_action :load_review, only: [:show, :edit, :update, :vote]
+  before_action :load_review, only: [:show, :edit, :update]
   before_action :load_user
   before_action :load_performance, only: [:new, :create, :edit, :update]
 
@@ -46,10 +46,6 @@ class ReviewsController < ApplicationController
       flash[:notice] = "All fields are required"
       render :edit
     end
-  end
-
-  def vote
-    value = params[:vote] == "up" ? 1 : -1
   end
 
 
