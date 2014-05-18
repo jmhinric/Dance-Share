@@ -28,4 +28,21 @@ $(document).ready(function() {
     });
   });
 
+  $(".downvote").click(function(e) {
+    $.ajax({
+      dataType: "json",
+      type: "post",
+      url: "/reviews/" + parseInt(e.target.id) + "/review_votes",
+      data: { vote: "down" },
+      success: function(success) {
+        var bClass = "." + success["review"].id;
+        var divId = ".div-" + success["review"].id;
+        $(bClass).remove();
+        var p_tag = $("<p>");
+        p_tag.text("Voted Down | " + success["vote_count"]);
+        p_tag.appendTo(divId);
+      }
+    });
+  });
+
 });
