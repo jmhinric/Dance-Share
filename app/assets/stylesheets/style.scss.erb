@@ -1,4 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato);
+@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville);
+
+$libre: 'Libre Baskerville', serif;
 
 
 /*COLORS: http://color.hailpixel.com/#1F1F22,A598AA,D9D3C1,37566D,1A2E46,9A593A,5740BF,*/
@@ -16,11 +19,10 @@ textarea {
   -ms-transition: all 0.10s ease-in-out;
   -o-transition: all 0.10s ease-in-out;
   outline: none;
-  padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
+  padding: 3px 0 3px 3px;
+  margin: 5px 1px 3px 0;
   border: 1px solid #DDDDDD;
 
-  /*border: 5px solid white; */
     -webkit-box-shadow: 
       inset 0 0 4px  #A598AA,
             0 0 8px #A598AA; 
@@ -31,7 +33,6 @@ textarea {
       inset 0 0 4px  #A598AA,
             0 0 8px #A598AA; 
     padding: 10px;
-    /*background: rgba(255,255,255,0.5);*/
     margin: 0 0 10px 0;
 }
 
@@ -57,7 +58,6 @@ textarea:focus {
       inset 0 0 4px  #A598AA,
             0 0 8px #A598AA; 
     padding: 10px;
-    /*background: rgba(255,255,255,0.5);*/
     margin: 0 0 10px 0;
 }
 
@@ -67,25 +67,17 @@ a {
   color: #4049FF;
 }
 
-a:hover {
-  /*text-decoration: underline;*/
-  /*color: white;*/
-}
-
 body {
   font-family: 'Lato', sans-serif;
-  /*background: rgb(217, 211, 193);*/
-  height: 100%;
-  /*background: rgb(254, 234, 222);*/
-  background-repeat: repeat;
+  /*height: 100%;*/
+  /*background-repeat: repeat;*/
   /*background: url("theater_audience_high_res.jpg");*/
-  background: url("lauren.jpg");
-  background-size: cover;
-  background-position: center;
+  /*background: url("lauren.jpg") no-repeat center center fixed;*/
+  /*background-size: cover;*/
+  /*background-position: center;*/
 }
 
-h1, h2, h3, h4, h5, h6, label, h1 a, h3 a{
-  /*color: #9A593A;*/
+h1, h2, h3, h4, h5, h6, label, h1 a, h3 a {
   color: #37566D;
 }
 
@@ -211,6 +203,84 @@ header {
 
 /*HOMEPAGE*/
 
+main.page-wrapper {
+  padding-bottom: 50px;
+  display: inline-block;
+  width: 100%;
+
+  h2, h3 {
+    text-align: center;
+    font-style: italic;
+    /*font-family: $libre;*/
+    font-family: georgia, serif;
+  }
+
+  .videos-wrapper {
+    margin-left: 10px;
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+    
+    ul.home-video-set {
+      width: 480px;
+      margin: 0 auto;
+      list-style-type: none;
+
+      li {
+        display: inline-block;
+        margin: 15px 3px 0 3px;
+        width: 150px;
+        text-align: center;
+        vertical-align: top;
+        border: 1px solid grey;
+
+        .single-video {
+          position: relative;
+          top: 0;
+
+          iframe {
+            text-align: center;
+          }
+          
+          .video-author {
+            height: 35px;
+            margin: 4px;
+            border-bottom: 1px solid black;
+          }
+          
+          .video-title {
+            height: 120px;
+            margin: 4px;
+          }
+        }
+      }
+    }
+  }
+
+  .reviews-wrapper {
+    display: inline-block;
+    vertical-align: top;
+    width: 40%;
+  }
+
+  .sidebar-wrapper {
+    display: inline-block;
+    width: 13%;
+    vertical-align: top;
+    /*float: right;*/
+  }
+}
+
+/*.homepage-links {
+
+  .videos, .reviews {
+    display: inline-block;
+    padding-left: 50px;
+    padding-top: 50px;
+    height: 700px;
+  }
+}
+*/
 .home-mission {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -222,14 +292,6 @@ header {
     text-align: center;  
   }
 }
-
-/*#main {
-  border: 1px solid red;
-  width: 50%;
-  float: left;
-  margin-left: 150px;
-  display: inline-block;
-}*/
 
 .companies {
   text-align: center;
@@ -329,11 +391,18 @@ div#clear-float {
 }
 
 footer {
+  color: white;
+  background: rgb(26, 46, 70);
   width: 100%;
   bottom: 0;
   height: 50px;
   text-align: center;
-  padding-top: 60px;
+
+  span {
+    position: relative;
+    bottom: -15px;
+    font-size: .8em;
+  }
 }
 
 a {

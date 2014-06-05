@@ -1,17 +1,137 @@
 <main class="page-wrapper">
-  <section class="home-mission">
+  <section class="videos-wrapper">
+    <h2>Explore Videos</h2>
+    <ul class="home-video-set">
+      
+      <li>
+        <div class="single-video">
+          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          
+          <h5 class="video-author">
+            Francisco Graciano
+          </h5>
+          <h6 class="video-title">
+            Using Your Plie and something else you need to know to also as
+          </h6>
+        </div>
+      </li>
+
+      <li>
+        <div class="single-video">
+          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          
+          <h5 class="video-author">
+            Kate Jewett
+          </h5>
+          <h6 class="video-title">
+            Using Your Plie
+          </h6>
+        </div>
+      </li>
+
+      <li>
+        <div class="single-video">
+          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          
+          <h5 class="video-author">
+            Emma Rumplestil Desjardins
+          </h5>
+          <h6 class="video-title">
+            Using Your Plie and something else you need to know to also as
+          </h6>
+        </div>
+      </li>
+
+      <li>
+        <div class="single-video">
+          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          
+          <h5 class="video-author">
+            Francisco Graciano
+          </h5>
+          <h6 class="video-title">
+            Using Your Plie and something else you need to know to also as
+          </h6>
+        </div>
+      </li>
+
+      <li>
+        <div class="single-video">
+          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          
+          <h5 class="video-author">
+            Kate Jewett
+          </h5>
+          <h6 class="video-title">
+            Using Your Plie
+          </h6>
+        </div>
+      </li>
+
+      <li>
+        <div class="single-video">
+          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          
+          <h5 class="video-author">
+            Emma Rumplestil Desjardins
+          </h5>
+          <h6 class="video-title">
+            Using Your Plie and something else you need to know to also as
+          </h6>
+        </div>
+      </li>
+
+    </ul>
+  
+  </section>
+
+  <section class="reviews-wrapper">
+    <h2>Recent Reviews</h2>
+    <ul class="home-review-set">
+      
+      <% @reviews.each do |review| %>
+        <li>
+          <div class="single-review">
+            <%= review.title %>
+          </div>
+        </li>
+      <% end %>
+
+    </ul>
+  </section>
+
+  <section class="sidebar-wrapper">
+    <h3>Companies</h3>
+  </section>
+
+    <!-- <a href="#">
+      <h1 class="videos">
+        Explore Videos
+      </h1>
+    </a>
+    
+    <a href="#">
+      <h1 class="reviews">
+        Write a Review
+      </h1>
+    </a> -->
+
+    
+
+  <!-- <section class="home-mission">
     <h2>
       DanceShare exists to help the modern dance community articulate the value of our art.
     </h2>
     <h2>Write your opinion.</h2>
     <h2>Share your voice.</h2>
+
   </section>
 
   <section class="companies">
     <h2>Companies:</h2>
-    <% @companies.each do |company| %>
-      <%= link_to company.name, company_path(company), html: {class: "company-link"} %> | 
-    <% end %>
+    <%# @companies.each do |company| %>
+      <%# link_to company.name, company_path(company), html: {class: "company-link"} %> | 
+    <%# end %>
   </section>
 
 
@@ -19,7 +139,7 @@
     <h2>
       Recent Performances:
     </h2>
-    <%= render partial: "home_performances", locals: {runs: @recent_runs } %>
+    <%# render partial: "home_performances", locals: {runs: @recent_runs } %>
   </section>
 
 
@@ -27,8 +147,8 @@
     <h2>
       Upcoming Performances:
     </h2>
-    <%= render partial: "home_performances", locals: {runs: @upcoming_runs } %>
-  </section>
+    <%# render partial: "home_performances", locals: {runs: @upcoming_runs } %>
+  </section> -->
 
   <div id="clear-float">
   </div>

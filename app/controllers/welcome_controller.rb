@@ -2,6 +2,9 @@ class WelcomeController < ApplicationController
 
   def index
     @companies = Company.all
+    unless Review.all.empty?
+      @reviews = Review.where("id > #{Review.count - 5}").order(:created_at)
+    end
     unless Run.all.empty?
       @recent_runs = get_recent_runs(Run.all)
       @upcoming_runs = get_upcoming_runs(Run.all)

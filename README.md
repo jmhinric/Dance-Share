@@ -1,11 +1,11 @@
-# Dance Share
+# DanceShare
 by John Hinrichs
 
 ### GA WDI NYC Jan 14, Project 1
 
 ### Overview
 
-**Dance Share** is a Yelp-like application that allows users to write reviews for modern dance concerts. 
+**DanceShare** is a Yelp-like application that allows users to write reviews for modern dance concerts. 
 
 ### Technologies Used
 
@@ -30,6 +30,6 @@ Full documentation of the process of making Dance Share can be found on [John's 
 
 [View my ERD for this project](danceshare_erd.jpg)
 
-[View this project on Heroku](http://cryptic-coast-9128.herokuapp.com/)
+[View this project on Heroku](http://danceshare.herokuapp.com/)
 
-**Dance Share was developed as a project for General Assembly's 12-week Web Development Immersive program.**
+**DanceShare was developed as a project for General Assembly's 12-week Web Development Immersive program.**
