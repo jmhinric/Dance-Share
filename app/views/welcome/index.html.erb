@@ -19,7 +19,7 @@
       <li>
         <div class="single-video">
           <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          
+          <span class="full-title"><%= @title %></span>
           <h5 class="video-title">
             <%= truncate(@title, length: 40) %>
           </h5>
@@ -29,6 +29,135 @@
         </div>
       </li>
 
+      <li>
+        <div class="single-video">
+          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          <span class="full-title"><%= @title %></span>
+          <h5 class="video-title">
+            <%= truncate(@title, length: 40) %>
+          </h5>
+          <h6 class="video-author">
+            by Chelsea Lynn-Acree
+          </h6>
+        </div>
+      </li>
+
+      <li>
+        <div class="single-video">
+          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          <span class="full-title"><%= @title %></span>
+          <h5 class="video-title">
+            <%= truncate(@title, length: 40) %>
+          </h5>
+          <h6 class="video-author">
+            by Francisco Graciano
+          </h6>
+        </div>
+      </li>
+
+      <li>
+        <div class="single-video">
+          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          <span class="full-title"><%= @title %></span>
+          <h5 class="video-title">
+            <%= truncate(@title, length: 40) %>
+          </h5>
+          <h6 class="video-author">
+            by Francisco Graciano
+          </h6>
+        </div>
+      </li>
+
+      <li>
+        <div class="single-video">
+          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          <span class="full-title"><%= @title %></span>
+          <h5 class="video-title">
+            <%= truncate(@title, length: 40) %>
+          </h5>
+          <h6 class="video-author">
+            by Francisco Graciano
+          </h6>
+        </div>
+      </li>
+
+      <li>
+        <div class="single-video">
+          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          <span class="full-title"><%= @title %></span>
+          <h5 class="video-title">
+            <%= truncate(@title, length: 40) %>
+          </h5>
+          <h6 class="video-author">
+            by Francisco Graciano
+          </h6>
+        </div>
+      </li>
+
+      <li>
+        <div class="single-video">
+          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          <span class="full-title"><%= @title %></span>
+          <h5 class="video-title">
+            <%= truncate(@title, length: 40) %>
+          </h5>
+          <h6 class="video-author">
+            by Francisco Graciano
+          </h6>
+        </div>
+      </li>
+
+      <li>
+        <div class="single-video">
+          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          <span class="full-title"><%= @title %></span>
+          <h5 class="video-title">
+            <%= truncate(@title, length: 40) %>
+          </h5>
+          <h6 class="video-author">
+            by Francisco Graciano
+          </h6>
+        </div>
+      </li>
+
+      <li>
+        <div class="single-video">
+          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          <span class="full-title"><%= @title %></span>
+          <h5 class="video-title">
+            <%= truncate(@title, length: 40) %>
+          </h5>
+          <h6 class="video-author">
+            by Francisco Graciano
+          </h6>
+        </div>
+      </li>
+
+      <li>
+        <div class="single-video">
+          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          <span class="full-title"><%= @title %></span>
+          <h5 class="video-title">
+            <%= truncate(@title, length: 40) %>
+          </h5>
+          <h6 class="video-author">
+            by Francisco Graciano
+          </h6>
+        </div>
+      </li>
+
+      <li>
+        <div class="single-video">
+          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          <span class="full-title"><%= @title %></span>
+          <h5 class="video-title">
+            <%= truncate(@title, length: 40) %>
+          </h5>
+          <h6 class="video-author">
+            by Francisco Graciano
+          </h6>
+        </div>
+      </li>
     </ul>
   </section>
 
@@ -37,10 +166,35 @@
     <ul class="home-review-set">
       
       <% @reviews.each do |review| %>
-        <li>
-          <div class="single-review">
-            <%= review.title %>
+        <li class="home-review">
+          <span class="home-review-company">
+            <%= link_to review.performance.run.company.name, company_path(review.performance.run.company) %>
+            <span class="home-review-venue">
+              <%= review.performance.run.venue.name %>,  
+              <%= review.performance.pretty_date %>
+            </span>
+          </span>
+
+          <div class="home-review-info">
+            <em><%= review.title %></em>
+            <span class="home-review-rating">
+              <% review.rating.times do %>
+                <%= image_tag "star_icon_custom.png", size: "12x12", alt: "star" %>
+              <% end %>
+              <% (5 - review.rating).times do %>
+                <%= image_tag "gray_empty_star_icon.png", size: "9x9" %>
+              <% end %>
+            </span>
+
+            <span class="home-author">
+              By 
+              <%= link_to "#{review.user.first_name} #{review.user.last_name}", user_path(review.user) %>
+            </span>
           </div>
+
+          <span class="review-text">
+            <%= truncate(review.review_text, length:300) %>
+          </span>
         </li>
       <% end %>
 
@@ -49,6 +203,13 @@
 
   <section class="sidebar-wrapper">
     <h3>Companies</h3>
+      <ul>
+        <% @companies.each do |company| %>
+          <li>
+            <%= link_to company.name, company_path(company) %>
+          </li>
+        <% end %>
+      </ul>
   </section>
 
     <!-- <a href="#">

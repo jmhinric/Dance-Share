@@ -213,8 +213,6 @@ main.page-wrapper {
 
   h2, h3 {
     text-align: center;
-    font-style: italic;
-    /*font-family: $libre;*/
     font-family: georgia, serif;
   }
 
@@ -281,13 +279,57 @@ main.page-wrapper {
     display: inline-block;
     vertical-align: top;
     width: 40%;
+    
+    ul.home-review-set {
+      list-style-type: none;
+
+      .home-review {
+        background: rgba(96, 96, 96, .15);
+        padding: 10px;
+        margin-bottom: 20px;
+
+        .home-review-company {
+          display: block;
+          margin-bottom: 13px;
+
+          .home-review-venue {
+            display: block;
+            font-size: .8em;
+            color: dark-grey;
+          }
+        }
+        
+        .home-review-info {
+          margin-bottom: 6px;
+
+          .home-review-rating {
+            padding-left: 10px;
+          }
+
+          .home-author {
+            font-size: .8em;
+            padding-left: 10px;
+            display: inline-block;
+          }
+        }
+      }
+    }
   }
 
   .sidebar-wrapper {
     display: inline-block;
-    width: 13%;
+    width: 17%;
     vertical-align: top;
-    /*float: right;*/
+    float: right;
+
+    ul {
+      list-style-type: none;
+      margin-left: 10px;
+    }
+
+    h3 {
+      padding-right: 20px;
+    }
   }
 }
 
