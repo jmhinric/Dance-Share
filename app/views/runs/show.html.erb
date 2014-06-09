@@ -57,7 +57,9 @@
         </h3>
 
         <% performance.reviews.each do |review| %>
-          <%= render partial: "performance_review", locals: {review: review} %>
+          <div class="perf-review">
+            <%= render partial: "performance_review", locals: {review: review} %>
+          </div>
         <% end %>
       <% end %>
     <% end %>
