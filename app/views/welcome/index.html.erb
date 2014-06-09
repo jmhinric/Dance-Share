@@ -6,12 +6,12 @@
       <li>
         <div class="single-video">
           <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          
-          <h5 class="video-author">
-            Francisco Graciano
+          <span class="full-title"><%= @title %></span>
+          <h5 class="video-title">
+            <%= truncate(@title, length: 40) %>
           </h5>
-          <h6 class="video-title">
-            Using Your Plie and something else you need to know to also as
+          <h6 class="video-author">
+            by Francisco Graciano
           </h6>
         </div>
       </li>
@@ -20,69 +20,18 @@
         <div class="single-video">
           <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
           
-          <h5 class="video-author">
-            Kate Jewett
+          <h5 class="video-title">
+            <%= truncate(@title, length: 40) %>
           </h5>
-          <h6 class="video-title">
-            Using Your Plie
-          </h6>
-        </div>
-      </li>
-
-      <li>
-        <div class="single-video">
-          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          
-          <h5 class="video-author">
-            Emma Rumplestil Desjardins
-          </h5>
-          <h6 class="video-title">
-            Using Your Plie and something else you need to know to also as
-          </h6>
-        </div>
-      </li>
-
-      <li>
-        <div class="single-video">
-          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          
-          <h5 class="video-author">
-            Francisco Graciano
-          </h5>
-          <h6 class="video-title">
-            Using Your Plie and something else you need to know to also as
-          </h6>
-        </div>
-      </li>
-
-      <li>
-        <div class="single-video">
-          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          
-          <h5 class="video-author">
-            Kate Jewett
-          </h5>
-          <h6 class="video-title">
-            Using Your Plie
-          </h6>
-        </div>
-      </li>
-
-      <li>
-        <div class="single-video">
-          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          
-          <h5 class="video-author">
-            Emma Rumplestil Desjardins
-          </h5>
-          <h6 class="video-title">
-            Using Your Plie and something else you need to know to also as
+          <h6 class="video-author">
+            by Emma Desjardins
           </h6>
         </div>
       </li>
 
     </ul>
   
+    <a href="#">More...</a>
   </section>
 
   <section class="reviews-wrapper">
@@ -155,3 +104,31 @@
 
 </main>
 
+<script type="text/javascript">
+  var intervalID, fullTitle, mouseX, mouseY;
+
+  $(".video-title").mouseenter(handlerIn).mouseleave(handlerOut);
+
+  function handlerIn(e) {
+    fullTitle = $(e.target).siblings(".full-title");
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+
+    intervalID = setTimeout(showTitle, 1500);
+  }   
+
+  function showTitle() {
+    fullTitle.show();
+    fullTitle.css({
+      top: (mouseY + 5) + "px",
+      left: (mouseX) + "px"
+    });
+  }
+
+  function handlerOut(e) {
+    clearInterval(intervalID);
+    $(e.target).siblings(".full-title")
+               .css("display", "hidden");
+  }
+
+</script>

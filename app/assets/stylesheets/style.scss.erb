@@ -84,14 +84,17 @@ h1, h2, h3, h4, h5, h6, label, h1 a, h3 a {
 button {
   border-radius: 4px;
   background-color: #A598AA;
+  border: 0;
   color: white;
 }
 
 input[type=submit] {
     border-radius: 10px;
     background-color: #A598AA;
+    border: 0;
     color: white;
     width: 150px;
+    padding: 6px;
     margin: 0 auto;
 }
 
@@ -232,11 +235,28 @@ main.page-wrapper {
         width: 150px;
         text-align: center;
         vertical-align: top;
-        border: 1px solid grey;
+        
 
         .single-video {
           position: relative;
           top: 0;
+
+          .full-title {
+            display: none;
+            position: fixed;
+            background: rgb(253, 245, 219);
+            color: black;
+            font-size: .8em;
+            max-width: 250px;
+            z-index: 1;
+            border: 1px solid black;
+          }
+
+          li.single-video:hover .sample {
+            display: inline-block;
+            position: absolute;
+            width: 500px;
+          }
 
           iframe {
             text-align: center;
@@ -245,12 +265,12 @@ main.page-wrapper {
           .video-author {
             height: 35px;
             margin: 4px;
-            border-bottom: 1px solid black;
           }
           
           .video-title {
-            height: 120px;
+            height: 40px;
             margin: 4px;
+            border-bottom: 1px solid black;
           }
         }
       }
