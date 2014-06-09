@@ -2,6 +2,9 @@
 @import url(http://fonts.googleapis.com/css?family=Libre+Baskerville);
 
 $libre: 'Libre Baskerville', serif;
+/*$purple: #B796CE;*/
+/*$purple: #A598AA;*/
+$purple: #A598B9;
 
 
 /*COLORS: http://color.hailpixel.com/#1F1F22,A598AA,D9D3C1,37566D,1A2E46,9A593A,5740BF,*/
@@ -24,14 +27,14 @@ textarea {
   border: 1px solid #DDDDDD;
 
     -webkit-box-shadow: 
-      inset 0 0 4px  #A598AA,
-            0 0 8px #A598AA; 
+      inset 0 0 4px  $purple,
+            0 0 8px $purple; 
     -moz-box-shadow: 
-      inset 0 0 4px  #A598AA,
-            0 0 8px #A598AA; 
+      inset 0 0 4px  $purple,
+            0 0 8px $purple; 
     box-shadow: 
-      inset 0 0 4px  #A598AA,
-            0 0 8px #A598AA; 
+      inset 0 0 4px  $purple,
+            0 0 8px $purple; 
     padding: 10px;
     margin: 0 0 10px 0;
 }
@@ -42,29 +45,32 @@ input[type=password]:focus,
 input[type=date]:focus,
 input[type=url]:focus,
 textarea:focus {
-  box-shadow: 0 0 3px #A598AA;
+  box-shadow: 0 0 3px $purple;
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
-  border: 1px solid #A598AA;
+  border: 1px solid $purple;
 
   /*border: 5px solid white; */
     -webkit-box-shadow: 
-      inset 0 0 4px  #A598AA,
-            0 0 8px #A598AA; 
+      inset 0 0 4px  $purple,
+            0 0 8px $purple; 
     -moz-box-shadow: 
-      inset 0 0 4px  #A598AA,
-            0 0 8px #A598AA; 
+      inset 0 0 4px  $purple,
+            0 0 8px $purple; 
     box-shadow: 
-      inset 0 0 4px  #A598AA,
-            0 0 8px #A598AA; 
+      inset 0 0 4px  $purple,
+            0 0 8px $purple; 
     padding: 10px;
     margin: 0 0 10px 0;
 }
 
 a {
-  text-decoration: none;
+  /*text-decoration: none;*/
   /*color: #633DFF;*/
-  color: #4049FF;
+  /*color: #4049FF;*/
+  /*color: #5740BF;*/
+  /*color: #D90000;*/
+  color: #9A593A;
 }
 
 body {
@@ -72,7 +78,7 @@ body {
   /*height: 100%;*/
   /*background-repeat: repeat;*/
   /*background: url("theater_audience_high_res.jpg");*/
-  /*background: url("lauren.jpg") no-repeat center center fixed;*/
+  background: url("lauren_jump.jpg") no-repeat center center fixed;
   /*background-size: cover;*/
   /*background-position: center;*/
 }
@@ -83,14 +89,14 @@ h1, h2, h3, h4, h5, h6, label, h1 a, h3 a {
 
 button {
   border-radius: 4px;
-  background-color: #A598AA;
+  background-color: $purple;
   border: 0;
   color: white;
 }
 
 input[type=submit] {
     border-radius: 10px;
-    background-color: #A598AA;
+    background-color: $purple;
     border: 0;
     color: white;
     width: 150px;
@@ -128,13 +134,13 @@ header {
   position: relative;
 
   a {
+    font-family: 'caviar dreams', helvetica, sans-serif;
     color: white;
     text-decoration: none;
   }
 
   a:hover {
     color: #D9D3C1;
-    /*transition-delay: 0.25s;*/
     transition: ease-in 100ms;
   }
 
@@ -218,17 +224,20 @@ main.page-wrapper {
 
   .videos-wrapper {
     margin-left: 10px;
-    width: 40%;
+    width: 27%;
     display: inline-block;
     vertical-align: top;
     
     ul.home-video-set {
-      width: 480px;
+      /*width: 480px;*/
       margin: 0 auto;
       list-style-type: none;
+      display: inline-block;
+      text-align: center;
 
       li {
         display: inline-block;
+        /*margin: 15px auto;*/
         margin: 15px 3px 0 3px;
         width: 150px;
         text-align: center;
@@ -278,15 +287,16 @@ main.page-wrapper {
   .reviews-wrapper {
     display: inline-block;
     vertical-align: top;
-    width: 40%;
+    width: 53%;
     
     ul.home-review-set {
       list-style-type: none;
 
       .home-review {
-        background: rgba(96, 96, 96, .15);
+        background: rgba(211, 211, 211, .8);
         padding: 10px;
         margin-bottom: 20px;
+        border-radius: 3px;
 
         .home-review-company {
           display: block;
@@ -465,10 +475,6 @@ footer {
     bottom: -15px;
     font-size: .8em;
   }
-}
-
-a {
-  color: blue;
 }
 
 

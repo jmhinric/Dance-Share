@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 
   def index
-    @companies = Company.all
+    @companies = Company.all.order(:name)
     @title = "Doing this one thing is better than doing another thing because blah blah blah"
     unless Review.all.empty?
       @reviews = Review.where("id > #{Review.count - 5}").order(:created_at)
