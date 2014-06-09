@@ -105,28 +105,27 @@
 </main>
 
 <script type="text/javascript">
-  var intervalID, fullTitle, mouseX, mouseY;
+  Home.intervalID, Home.fullTitle, Home.mouseX, Home.mouseY;
 
   $(".video-title").mouseenter(handlerIn).mouseleave(handlerOut);
 
   function handlerIn(e) {
-    fullTitle = $(e.target).siblings(".full-title");
-    mouseX = e.pageX;
-    mouseY = e.pageY;
-
-    intervalID = setTimeout(showTitle, 1500);
+    Home.fullTitle = $(e.target).siblings(".full-title");
+    Home.mouseX = e.pageX;
+    Home.mouseY = e.pageY;
+    Home.intervalID = setTimeout(showTitle, 1500);
   }   
 
   function showTitle() {
-    fullTitle.show();
-    fullTitle.css({
-      top: (mouseY + 5) + "px",
-      left: (mouseX) + "px"
+    Home.fullTitle.show();
+    Home.fullTitle.css({
+      top: (Home.mouseY + 5) + "px",
+      left: (Home.mouseX) + "px"
     });
   }
 
   function handlerOut(e) {
-    clearInterval(intervalID);
+    clearInterval(Home.intervalID);
     $(e.target).siblings(".full-title")
                .css("display", "hidden");
   }
