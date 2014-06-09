@@ -1,0 +1,17 @@
+<div class="review-buttons">
+
+  <div class="div-<%= review.id %>">
+    <% if current_user.present? %>
+      
+      <button id="<%= review.id %>" class="<%= review.id %> vote upvote">
+        Vote Up
+      </button>
+      
+      <button id="<%= review.id %>" class="<%= review.id %> vote downvote">
+        Vote Down
+      </button>
+
+    <% end %>
+  </div>
+  
+</div>

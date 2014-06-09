@@ -1,5 +1,6 @@
 <main class="show-run">
   <div class="run-show-info">
+    
     <h1>
       <%= link_to "#{@run.company.name}", company_path(@run.company) %>
     </h1>
@@ -8,31 +9,44 @@
       <%= @run.title %>
     </h2>
 
-    <img src="<%= @run.venue.image_url%>" />
-    <br/>
+    <!-- Venue Information -->
+    <div class="run-venue-info">
     
-    <span class="venue-name"><%= @run.venue.name %></span>
-    <br/>
-    
-    <% @run.venue.display_address.split("\n").each do |line| %>
-      <span><%= line %></span>
-      <br/>
-    <% end %>
+      <img class="venue-picture" src="<%= @run.venue.image_url%>" />
+      
+      <h3 class="venue-name">
+        <%= @run.venue.name %>
+      </h3>
+      
+      
+      <% @run.venue.display_address.split("\n").each do |address_line| %>
+        
+        <span class="venue-address-line">
+          <%= address_line %>
+        </span>
 
+      <% end %>
+
+    </div>
+
+    <!-- Dates and times of the performances -->
     <ul>
       <% @run.performances.order(:date).order(:time).each do |performance| %>
-        <li>
+        <li class="run-perf-date">
           <%= performance.pretty_date %>, 
           <%= performance.pretty_time %>
           <% if performance.date <= Time.now %>
              | <%= link_to "Write a Review!", new_performance_review_path(performance) %>
           <% end %>
         </li>
-        <br/>
+        
       <% end %>
     </ul>
+
+    <!-- Add Performance button -->
     <% if current_user == @company.admin %>
       <div class="add-performance">
+
         <button>Add Performance</button>
         <%= form_for [@run, Performance.new], url: "/runs/#{@run.id}/performances", html: {class: "new-performance hidden"} do |f| %>
           <%= f.label :date %>
@@ -45,8 +59,9 @@
         <% end %>
       </div>
     <% end %>
+
   </div>
-  <br/>
+
 
   
   <div class="performance-reviews">
@@ -55,12 +70,26 @@
         <h3 class="performance-review-heading">
           Reviews for <%= performance.pretty_date %>:
         </h3>
+        
+        <ul class="review-set">
+          <% performance.reviews.each do |review| %>
+            <li class="single-review">
+    
+              <!-- Review title, rating -->
+              <%= render partial: "/reviews/review_title_rating", locals: { review: review } %>
 
-        <% performance.reviews.each do |review| %>
-          <div class="perf-review">
-            <%= render partial: "performance_review", locals: {review: review} %>
-          </div>
-        <% end %>
+              <!-- Review author name -->
+              <%= render partial: "/reviews/review_author", locals: { review: review } %>
+
+              <!-- Review text and link -->
+              <%= render partial: "/reviews/review_text", locals: { review: review } %>
+
+              <!-- Review vote buttons -->
+              <%= render partial: "/reviews/review_vote_buttons", locals: { review: review } %>
+
+            </li>
+          <% end %>
+        </ul>
       <% end %>
     <% end %>
   </div>

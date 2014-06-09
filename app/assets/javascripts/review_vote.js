@@ -16,14 +16,14 @@ $(document).ready(function() {
       type: "post",
       url: "/reviews/" + parseInt(e.target.id) + "/review_votes",
       data: { vote: "up" },
+
       success: function(success) {
         var bClass = "." + success["review"].id;
         var divId = ".div-" + success["review"].id;
-        console.log(bClass);
         $(bClass).remove();
-        var p_tag = $("<p>");
-        p_tag.text("Voted Up | " + success["vote_count"]);
-        p_tag.appendTo(divId);
+        var span_tag = $("<span>");
+        span_tag.text("Voted Up | " + success["vote_count"]);
+        span_tag.appendTo(divId);
       }
     });
   });
@@ -34,13 +34,14 @@ $(document).ready(function() {
       type: "post",
       url: "/reviews/" + parseInt(e.target.id) + "/review_votes",
       data: { vote: "down" },
+      
       success: function(success) {
         var bClass = "." + success["review"].id;
         var divId = ".div-" + success["review"].id;
         $(bClass).remove();
-        var p_tag = $("<p>");
-        p_tag.text("Voted Down | " + success["vote_count"]);
-        p_tag.appendTo(divId);
+        var span_tag = $("<span>");
+        span_tag.text("Voted Down | " + success["vote_count"]);
+        span_tag.appendTo(divId);
       }
     });
   });
