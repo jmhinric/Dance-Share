@@ -130,14 +130,8 @@
     font-size: 1.1em;
   }
 
-  /*input.button {
-    width: 75px;
-  }*/
-
   input[type=submit] {
     border-radius: 10px;
-    background-color: #A598AA;
-    color: white;
     width: 150px;
     margin: 0 auto;
   }
@@ -195,5 +189,15 @@ main.login {
     form {
       text-align: center;
     }
+
+    input[type=submit] {
+      margin-top: 15px;
+      margin-left: 40px;
+      /*background-color: $purple;*/
+    }
+  }
+
+  .login-fill {
+    height: 500px;
   }
 }
