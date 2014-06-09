@@ -70,6 +70,10 @@
     font-size: .7em;
     width: 150px;
     display: block;
+
+    h1 {
+      /*margin-left: 20px;*/
+    }
   }
 
   #wrapper header nav input#search.ui-autocomplete-input {

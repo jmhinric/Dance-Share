@@ -40,14 +40,13 @@
       <li class="single-review">
           
         <!-- Company name, Venue, Date -->
-          <%= render partial: "/reviews/review_show_info", locals: { review: review } %>
+        <%= render partial: "/reviews/review_show_info", locals: { review: review } %>
 
-          <!-- Review title, rating, author name -->
-          <%= render partial: "/reviews/review_title_rating", locals: { review: review } %>
+        <!-- Review title, rating, author name -->
+        <%= render partial: "/reviews/review_title_rating", locals: { review: review } %>
 
-          <!-- Review text and link -->
-          <%= render partial: "/reviews/review_text", locals: { review: review } %>
-
+        <!-- Review text and link -->
+        <%= render partial: "/reviews/review_text", locals: { review: review } %>
         
         <!-- Link to edit review if the current user owns the review -->
         <% if current_user == review.user %>

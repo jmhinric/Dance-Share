@@ -1,8 +1,29 @@
-<h2>
-  Review of <%= @company.name %>:
-</h2>
+<div class="single-review-wrapper">
 
-<%= render partial: "review", locals: {review: @review} %>
+  <div class="single-review">
 
-<%= link_to "View all Reviews of this Performance", 
-    company_performance_path(@company, @review.performance) %>
+    <!-- Company name, Venue, Date -->
+    <%= render partial: "/reviews/review_show_info", locals: { review: @review } %>
+
+    <!-- Review title, rating -->
+    <%= render partial: "/reviews/review_title_rating", locals: { review: @review } %>
+
+    <!-- Review author name -->
+    <%= render partial: "/reviews/review_author", locals: { review: @review } %>
+
+    <!-- Review text -->
+    <span class="review-text">
+      <%= @review.review_text %>
+    </span>
+
+
+  </div>
+
+
+<%= link_to "View all Reviews of this Performance Run", 
+    company_run_path(@company, @review.performance.run) %>
+
+</div>
+
+
+<div class="footer-fill"></div>
