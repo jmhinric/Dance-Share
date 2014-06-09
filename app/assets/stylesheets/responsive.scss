@@ -12,7 +12,7 @@
   }
 
   #wrapper header nav .nav-links ul {
-    margin-right: 20px;
+    font-size: .9em;
   }
 
   /*VENUE NEW*/
@@ -42,7 +42,7 @@
   }
 
   #wrapper header nav .nav-links ul {
-    margin-right: 10px;
+    font-size: .7em;
   }
 
   /*VENUE NEW*/
@@ -50,6 +50,12 @@
 
   main.new-venue {
     width: 700px;
+  }
+}
+
+@media (max-width: 739px) {
+  #wrapper header nav .nav-links ul {
+    margin-top: 1px;
   }
 }
 
@@ -73,7 +79,15 @@
   }
 
   #wrapper header nav .nav-links ul {
-    margin-right: 10px;
+    font-size: .7em;
+  }
+
+  #wrapper header nav input[type=submit] {
+    padding: 3px;
+  }
+
+  #wrapper header nav input[type=text], input[type=email], input[type=password], input[type=date], input[type=url], textarea {
+    padding: 3px;
   }
 
   /*VENUE NEW*/
@@ -106,7 +120,7 @@
   }
 
   #wrapper header nav .nav-links ul {
-    margin-right: 10px;
+    font-size: .7em;
   }
 
   /*VENUE NEW*/
