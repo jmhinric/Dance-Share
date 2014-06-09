@@ -8,13 +8,16 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require jquery.ui.all
+ 
  *= normalize
  *= style
+ *= homepage
+ *= session
  *= users
  *= companies
  *= runs
  *= reviews
+ *= venues
  *= search_suggestions
  *= responsive
  *= require_self
