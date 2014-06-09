@@ -1,10 +1,8 @@
-<h2>Review of <%= @review.performance.run.title %>:</h2>
+<h2>
+  Review of <%= @company.name %>:
+</h2>
 
 <%= render partial: "review", locals: {review: @review} %>
-<br/>
-<%= link_to "Edit Review", edit_performance_review_path(@review.performance, @review) %>
-<br/>
-<%= link_to "#{current_user.first_name}'s Reviews", user_reviews_path(@user) %>
-<br/>
+
 <%= link_to "View all Reviews of this Performance", 
-    company_performance_path(@review.performance.run.company, @review.performance) %>
+    company_performance_path(@company, @review.performance) %>

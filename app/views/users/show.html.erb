@@ -22,7 +22,7 @@
   <%= render "admin_companies" %>
 
 
-  <div class="user-profile-reviews">
+  <section class="user-show-reviews">
     
     <% if current_user == @user %>
       <h2>My Reviews</h2>
@@ -34,43 +34,31 @@
       <span><em>No Reviews Yet</em></span>
     <% end %>
 
-    <% @user.reviews.order('created_at DESC').each do |review| %>
+    <ul class="review-set">
+      <% @user.reviews.order('created_at DESC').each do |review| %>
 
-      
-      <%# render partial: "review", locals: {review: review} %>
-      <div class="user-profile-review">
-      
-        <article>
-          <h3>
-            <%= link_to review.performance.run.title, company_run_path(review.performance.run.company, review.performance.run) %>
-          </h3>
-          <p>
-            <%= review.performance.pretty_date %>
-            <%# review.performance.run.venue.name %>
-          </p>
-          <span class="review-rating">
-            <% review.rating.times do %>
-              <%= image_tag "star_icon_custom.png", size: "12x12", alt: "star" %>
-            <% end %>
-            <% (5 - review.rating).times do %>
-              <%= image_tag "gray_empty_star_icon.png", size: "9x9" %>
-            <% end %>
-          </span>
-          <span class="review-title">
-            <em><%= review.title %></em>
-          </span>
-          <p><%= review.review_text %></p>
-        </article>
+      <li class="single-review">
+          
+        <!-- Company name, Venue, Date -->
+          <%= render partial: "/reviews/review_show_info", locals: { review: review } %>
 
+          <!-- Review title, rating, author name -->
+          <%= render partial: "/reviews/review_title_rating", locals: { review: review } %>
+
+          <!-- Review text and link -->
+          <%= render partial: "/reviews/review_text", locals: { review: review } %>
+
+        
+        <!-- Link to edit review if the current user owns the review -->
         <% if current_user == review.user %>
-          <span class="edit-review">
+          <span class="edit-review-link">
             <%= link_to "Edit Review", edit_performance_review_path(review.performance, review) %>
           </span>
         <% end %>
 
-      </div>
+      </li>
 
-    <% end %>
-
-  </div>
+      <% end %>
+    </ul>
+  </section>
 </div>

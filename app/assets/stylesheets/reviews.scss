@@ -2,10 +2,17 @@
 
 .new-perf-review, .edit-perf-review {
   text-align: center;
+  margin-bottom: 100px;
 
-  .new-review {
+  .review-form {
+    
+    input[type=text] {
+      width: 500px;
+    }
+
     input[type=submit] {
       margin-top: 20px;
+
     }
 
     input[type=textarea] {
@@ -16,4 +23,56 @@
   }
 }
 
+/*===================================*/
+/*SHOW*/
 
+.review-set {
+  list-style-type: none;
+}
+
+.single-review {
+  background: rgba(212, 212, 212, .8);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+
+  .review-company {
+    display: block;
+  }
+
+  .review-venue {
+    display: block;
+    font-size: .8em;
+    color: dark-grey;
+    margin-bottom: 13px;
+  }
+  
+  .review-info {
+    margin-bottom: 6px;
+    display: inline-block;
+
+    .review-title {
+      font-style: italic;
+      font-weight: bold;
+    }
+
+    .review-rating {
+      padding-left: 10px;
+    }
+
+  }
+
+  .review-author {
+    font-size: .8em;
+    padding-left: 10px;
+    display: inline-block;
+  }
+
+  .review-text {
+    display: block;
+  }
+
+  .review-link {
+    font-size: .8em;
+  }
+}

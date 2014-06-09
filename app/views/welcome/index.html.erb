@@ -137,38 +137,23 @@
 
   <section class="reviews-wrapper">
     <h2>Recent Reviews</h2>
-    <ul class="home-review-set">
+    <ul class="review-set">
       
       <% @reviews.each do |review| %>
-        <li class="home-review">
-          <span class="home-review-company">
-            <%= link_to review.performance.run.company.name, company_path(review.performance.run.company) %>
-            <span class="home-review-venue">
-              <%= review.performance.run.venue.name %>,  
-              <%= review.performance.pretty_date %>
-            </span>
-          </span>
+        <li class="single-review">
+          
+          <!-- Company name, Venue, Date -->
+          <%= render partial: "/reviews/review_show_info", locals: { review: review } %>
 
-          <div class="home-review-info">
-            <em><%= review.title %></em>
-            <span class="home-review-rating">
-              <% review.rating.times do %>
-                <%= image_tag "star_icon_custom.png", size: "12x12", alt: "star" %>
-              <% end %>
-              <% (5 - review.rating).times do %>
-                <%= image_tag "gray_empty_star_icon.png", size: "9x9" %>
-              <% end %>
-            </span>
+          <!-- Review title, rating -->
+          <%= render partial: "/reviews/review_title_rating", locals: { review: review } %>
 
-            <span class="home-author">
-              By 
-              <%= link_to "#{review.user.first_name} #{review.user.last_name}", user_path(review.user) %>
-            </span>
-          </div>
+          <!-- Review author name -->
+          <%= render partial: "/reviews/review_author", locals: { review: review } %>
 
-          <span class="review-text">
-            <%= truncate(review.review_text, length:300) %>
-          </span>
+          <!-- Review text and link -->
+          <%= render partial: "/reviews/review_text", locals: { review: review } %>
+
         </li>
       <% end %>
 

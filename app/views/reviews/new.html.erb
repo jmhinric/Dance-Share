@@ -1,8 +1,10 @@
 <main class="new-perf-review">
-  <h1>Write a Review!</h1>
-  <h2><%= @performance.run.company.name %></h2>
+  <h1>
+    Write a Review!
+  </h1>
 
-  <h2><%= @performance.date.strftime("%A, %B %e, %Y") %>, <%= @performance.time.strftime("%l:%M %p") %></h2>
+  <%= render partial: "review_form", locals: { performance: @performance,
+    review: @review
+  } %>
 
-  <%= render "review_form" %>
 </main>

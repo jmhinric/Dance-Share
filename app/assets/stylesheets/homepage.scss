@@ -73,43 +73,6 @@ main.page-wrapper {
     display: inline-block;
     vertical-align: top;
     width: 50%;
-    
-    ul.home-review-set {
-      list-style-type: none;
-
-      .home-review {
-        /*background: rgba(223, 228, 221, .8);*/
-        background: rgba(212, 212, 212, .8);
-        padding: 10px;
-        margin-bottom: 20px;
-        border-radius: 3px;
-
-        .home-review-company {
-          display: block;
-          margin-bottom: 13px;
-
-          .home-review-venue {
-            display: block;
-            font-size: .8em;
-            color: dark-grey;
-          }
-        }
-        
-        .home-review-info {
-          margin-bottom: 6px;
-
-          .home-review-rating {
-            padding-left: 10px;
-          }
-
-          .home-author {
-            font-size: .8em;
-            padding-left: 10px;
-            display: inline-block;
-          }
-        }
-      }
-    }
   }
 
   .sidebar-wrapper {

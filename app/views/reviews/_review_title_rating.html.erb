@@ -1,0 +1,16 @@
+<div class="review-info">
+  <!-- Review title -->
+  <span class="review-title">
+    <%= review.title %>
+  </span>
+  
+  <!-- Review rating -->
+  <span class="review-rating">
+    <% review.rating.times do %>
+      <%= image_tag "star_icon_custom.png", size: "12x12", alt: "star" %>
+    <% end %>
+    <% (5 - review.rating).times do %>
+      <%= image_tag "gray_empty_star_icon.png", size: "9x9" %>
+    <% end %>
+  </span>
+</div>

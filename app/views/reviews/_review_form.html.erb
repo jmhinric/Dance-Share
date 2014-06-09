@@ -1,5 +1,14 @@
-<div class="new-review">
-  <%= form_for [@performance, @review] do |f| %>
+<h2>
+    <%= performance.run.company.name %>
+</h2>
+
+<h4>
+    <%= performance.date.strftime("%A, %B %e, %Y") %>, <%= performance.time.strftime("%l:%M %p") %>
+</h4>
+
+
+<div class="review-form">
+  <%= form_for [performance, review] do |f| %>
 
     <%= f.label :title %>
     <%= f.text_field :title, cols: 30, rows: 1 %>

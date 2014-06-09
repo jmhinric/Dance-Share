@@ -1,12 +1,11 @@
 class ReviewsController < ApplicationController
 
-  before_action :load_review, only: [:show, :edit, :update]
   before_action :load_user
-  before_action :load_performance, only: [:new, :create, :edit, :update]
+  before_action :load_review, only: [:show, :edit, :update]
+  before_action :load_performance, except: [:index, :destroy]
 
   before_action :authenticate, only: [:new, :create, :edit, :update]
   before_action :authorize, only: [:new, :create, :edit, :update]
-
   before_action :authorize_user_review, only: [:edit, :update, :destroy]
 
   def index

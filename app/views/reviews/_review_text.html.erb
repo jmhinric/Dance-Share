@@ -1,0 +1,7 @@
+<span class="review-text">
+  <%= truncate(review.review_text, length:300) %>
+</span>
+
+<span class="review-link">
+  <%= link_to "Read full review", performance_review_path(review.performance, review) %>
+</span>
