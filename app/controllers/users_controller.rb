@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @companies = @user.companies
+    @reviews = @user.reviews
   end
 
   def new

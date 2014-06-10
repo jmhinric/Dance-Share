@@ -46,7 +46,7 @@
     <% end %>
 
     <ul class="review-set">
-      <% @user.reviews.order('created_at DESC').each do |review| %>
+      <% @reviews.order('created_at DESC').each do |review| %>
 
       <li class="single-review">
           

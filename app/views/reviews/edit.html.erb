@@ -1,10 +1,10 @@
-<main class="edit-perf-review">
-  <h1>
+<main class="single-form">
+  
+  <h2 class="form-title">
     Edit Review
-  </h1>
+  </h2>
 
-  <%= render partial: "review_form", locals: {
-    performance: @performance,
+  <%= render partial: "review_form", locals: { performance: @performance,
     review: @review
   } %>
 

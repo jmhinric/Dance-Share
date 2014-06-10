@@ -59,6 +59,8 @@ gem 'json'
 
 gem 'pg_search'
 
+gem 'will_paginate', '~> 3.0'
+
 gem 'multi_json', '1.9.2'
 
 gem 'rails_12factor', group: :production
@@ -72,8 +74,6 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'launchy'
-  # gem 'factory_girl_rails'
-  # gem 'ffaker'
   gem 'simplecov'
 end
 
