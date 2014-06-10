@@ -47,9 +47,6 @@
 
         <!-- Review text and link -->
         <%= render partial: "/reviews/review_text", locals: { review: review } %>
-
-        <!-- Review vote buttons -->
-        <%= render partial: "/reviews/review_vote_buttons", locals: { review: review } %>
         
         <!-- Link to edit review if the current user owns the review -->
         <% if current_user == review.user %>
@@ -57,6 +54,9 @@
             <%= link_to "Edit Review", edit_performance_review_path(review.performance, review) %>
           </span>
         <% end %>
+
+        <!-- Review vote buttons -->
+        <%= render partial: "/reviews/review_vote_buttons", locals: { review: review } %>
 
       </li>
 

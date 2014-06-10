@@ -1,5 +1,8 @@
 <div class="company-profile-heading">
-  <h1><%= @company.name %></h1>
+  <h1>
+    <%= @company.name %>
+  </h1>
+
   <span class="company-profile-edit">
     <%= link_to "edit", edit_company_path(@company) if current_user == @company.admin %>
   </span>
@@ -20,15 +23,14 @@
 
   <% @company.runs.each do |run| %>
     <div class="indiv-run">
-      <h3><%= link_to run.title, company_run_path(@company, run) %></h3>
-      <span><%= render partial: "shared/run_date_span", locals: { run: run } %></span>
+      <h3>
+        <%= link_to run.title, company_run_path(@company, run) %>
+      </h3>
+
+      <span>
+        <%= render partial: "shared/run_date_span", locals: { run: run } %>
+      </span>
     </div>
-  <% end %>
-
-  
-
-  <% @company.runs.each do |run| %>
-    
   <% end %>
 
 </section>
