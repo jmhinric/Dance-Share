@@ -18,14 +18,15 @@
         <%= @run.venue.name %>
       </h3>
       
-      
-      <% @run.venue.display_address.split("\n").each do |address_line| %>
-        
-        <span class="venue-address-line">
-          <%= address_line %>
-        </span>
+      <div class="venue-address">
+        <% @run.venue.display_address.split("\n").each do |address_line| %>
+          
+          <span class="venue-address-line">
+            <%= address_line %>
+          </span>
 
-      <% end %>
+        <% end %>
+      </div>
 
     </div>
 
