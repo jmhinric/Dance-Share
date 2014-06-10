@@ -9,7 +9,9 @@
 </div>
 
 <div class="show-company-photo">
-  <img src="<%= @company.photo_url %>" />
+  <% if @company.photo_url.present? %>
+    <img src="<%= @company.photo_url %>" />
+  <% end %>
 </div>
 
 <section class="runs">
