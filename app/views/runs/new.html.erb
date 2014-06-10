@@ -1,10 +1,14 @@
 <main class="new-run">
-  <h2>Add a Run of Performances:</h2>
+  <h2>
+    Add a Run of Performances:
+  </h2>
 
     <%= form_tag new_company_run_path, method: 'get' do %>
-      <h3>
+
+      <span>
         Search for or select your Venue:
-      </h3>
+      </span>
+
       <%= text_field_tag :search, params[:search] %>
       <%= hidden_field_tag "company_id", "#{@company.id}" %>
 
@@ -12,17 +16,16 @@
     <% end %>
 
   <%= form_for [@company, @run] do |f| %>
-    <h3><%= f.label :title %></h3>
-    <%= f.text_field :title %>
-    <br/>
-
     
+    <%= f.label :title %>
+    <%= f.text_field :title %>
 
-    <h3><%= f.label "Select Venue:" %></h3>
+    <%= f.label "Select Venue:" %>
 
 <!-- Venue name, image, address -->
     <div class="venue-list">
       <% @venues.each do |venue| %>  
+        
         <div class="single-venue">
           <label>
             <%= venue.name %>
@@ -36,6 +39,7 @@
               <%= line %>
             </span>
           <% end %>
+
         </div>
       <% end %>
     </div>
