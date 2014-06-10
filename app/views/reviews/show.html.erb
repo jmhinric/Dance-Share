@@ -16,6 +16,12 @@
       <%= @review.review_text %>
     </span>
 
+    <!-- Link to edit review if the current user owns the review -->
+    <% if current_user == @review.user %>
+      <span class="edit-review-link">
+        <%= link_to "Edit Review", edit_performance_review_path(@review.performance, @review) %>
+      </span>
+    <% end %>
 
   </div>
 
