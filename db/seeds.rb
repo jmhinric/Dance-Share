@@ -1,13 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-
-
 def yelp_call(theater)
   search_theater = theater.gsub(" ", "+")
 
@@ -162,147 +152,34 @@ User.destroy_all("id > '5'")
 #   )
 # tim.save
 
-# kara_company = Company.create(
-#   name: "Kryptonians",
-#   photo_url: "http://static.comicvine.com/uploads/scale_small/1/15297/682277-new_krypton.jpg",
-#     user_id: kara.id
-#   )
-# kara.companies << kara_company
-
-# tim_company1 = Company.create(
-#   name: "Red Birds",
-#   photo_url: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ3Wd5GGJ-65EILHD12sgLVEF14dM4RawNY6IBDYH_8VUkdTpFDPg",
-#   user_id: tim.id
-#   )
-# tim.companies << tim_company1
-
-# tim_company2 = Company.create(
-#   name: "Renegades",
-#   photo_url: "http://www.tuvie.com/wp-content/uploads/suzuki-crosscage-hybrid-motorcycle-concept1.jpg",
-#   user_id: tim.id
-#   )
-# tim.companies << tim_company2
-
-# kara_p1 = Performance.create(
-#   title: kara_company.name,
-#   date: "2014-02-01",
-#   time: "20:00:00",
-#   company_id: kara_company.id,
-#   venue_id: joyce.id)
-#   kara_p1.pretty_date = kara_p1.date.strftime("%A, %B %e, %Y")
-#   kara_p1.pretty_time = kara_p1.time.strftime("%l:%M %p")
-#   kara_p1.save
-
-# kara_p2 = Performance.create(
-#   title: kara_company.name,
-#   date: "2014-02-17",
-#   time: "20:00:00",
-#   company_id: kara_company.id,
-#   venue_id: ailey.id)
-#   kara_p2.pretty_date = kara_p2.date.strftime("%A, %B %e, %Y")
-#   kara_p2.pretty_time = kara_p2.time.strftime("%l:%M %p")
-#   kara_p2.save
-
-# kara_p3 = Performance.create(
-#   title: kara_company.name,
-#   date: "2014-02-20",
-#   time: "20:00:00",
-#   company_id: kara_company.id,
-#   venue_id: ps122.id)
-#   kara_p3.pretty_date = kara_p3.date.strftime("%A, %B %e, %Y")
-#   kara_p3.pretty_time = kara_p3.time.strftime("%l:%M %p")
-#   kara_p3.save
-
-# kara_p4 = Performance.create(
-#   title: kara_company.name,
-#   date: "2014-04-01",
-#   time: "20:00:00",
-#   company_id: kara_company.id,
-#   venue_id: lincoln_center.id)
-#   kara_p4.pretty_date = kara_p4.date.strftime("%A, %B %e, %Y")
-#   kara_p4.pretty_time = kara_p4.time.strftime("%l:%M %p")
-#   kara_p4.save
-
-# tim1_p1 = Performance.create(
-#   title: tim_company1.name,
-#   date: "2014-02-02",
-#   time: "20:00:00",
-#   company_id: tim_company1.id,
-#   venue_id: joyce.id)
-#   tim1_p1.pretty_date = tim1_p1.date.strftime("%A, %B %e, %Y")
-#   tim1_p1.pretty_time = tim1_p1.time.strftime("%l:%M %p")
-#   tim1_p1.save
-
-# tim1_p2 = Performance.create(
-#   title: tim_company1.name,
-#   date: "2014-02-16",
-#   time: "20:00:00",
-#   company_id: tim_company1.id,
-#   venue_id: ailey.id)
-#   tim1_p2.pretty_date = tim1_p2.date.strftime("%A, %B %e, %Y")
-#   tim1_p2.pretty_time = tim1_p2.time.strftime("%l:%M %p")
-#   tim1_p2.save
-
-# tim1_p3 = Performance.create(
-#   title: tim_company1.name,
-#   date: "2014-02-21",
-#   time: "20:00:00",
-#   company_id: tim_company1.id,
-#   venue_id: ps122.id)
-#   tim1_p3.pretty_date = tim1_p3.date.strftime("%A, %B %e, %Y")
-#   tim1_p3.pretty_time = tim1_p3.time.strftime("%l:%M %p")
-#   tim1_p3.save
-
-# tim1_p4 = Performance.create(
-#   title: tim_company1.name,
-#   date: "2014-05-01",
-#   time: "20:00:00",
-#   company_id: tim_company1.id,
-#   venue_id: lincoln_center.id)
-#   tim1_p4.pretty_date = tim1_p4.date.strftime("%A, %B %e, %Y")
-#   tim1_p4.pretty_time = tim1_p4.time.strftime("%l:%M %p")
-#   tim1_p4.save
 
 
-# tim2_p1 = Performance.create(
-#   title: tim_company2.name,
-#   date: "2014-02-01",
-#   time: "20:00:00",
-#   company_id: tim_company2.id,
-#   venue_id: ailey.id)
-#   tim2_p1.pretty_date = tim2_p1.date.strftime("%A, %B %e, %Y")
-#   tim2_p1.pretty_time = tim2_p1.time.strftime("%l:%M %p")
-#   tim2_p1.save
 
-# tim2_p2 = Performance.create(
-#   title: tim_company2.name,
-#   date: "2014-02-15",
-#   time: "20:00:00",
-#   company_id: tim_company2.id,
-#   venue_id: ps122.id)
-#   tim2_p2.pretty_date = tim2_p2.date.strftime("%A, %B %e, %Y")
-#   tim2_p2.pretty_time = tim2_p2.time.strftime("%l:%M %p")
-#   tim2_p2.save
 
-# tim2_p3 = Performance.create(
-#   title: tim_company2.name,
-#   date: "2014-02-24",
-#   time: "20:00:00",
-#   company_id: tim_company2.id,
-#   venue_id: lincoln_center.id)
-#   tim2_p3.pretty_date = tim2_p3.date.strftime("%A, %B %e, %Y")
-#   tim2_p3.pretty_time = tim2_p3.time.strftime("%l:%M %p")
-#   tim2_p3.save
 
-# tim2_p4 = Performance.create(
-#   title: tim_company2.name,
-#   date: "2014-06-01",
-#   time: "20:00:00",
-#   company_id: tim_company2.id,
-#   venue_id: joyce.id)
-#   tim2_p4.pretty_date = tim2_p4.date.strftime("%A, %B %e, %Y")
-#   tim2_p4.pretty_time = tim2_p4.time.strftime("%l:%M %p")
-#   tim2_p4.save
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# DUMMY REVIEWS
+
 
 # Review.create(
 #   title: "From Another World",

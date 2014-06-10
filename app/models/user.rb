@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   has_many :review_votes
   has_many :artists
   has_many :companies, through: :artists
+  has_many :videos
 end

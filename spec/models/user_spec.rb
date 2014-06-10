@@ -9,6 +9,8 @@ describe User do
   it { should have_many(:artists) }
   it { should have_many(:companies).through(:artists) }
   it { should have_many(:review_votes) }
+  it { should have_many(:videos) }
+
 
   it { should validate_uniqueness_of(:email) }
 
