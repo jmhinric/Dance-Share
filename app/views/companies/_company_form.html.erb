@@ -1,0 +1,13 @@
+<%= form_for company, html: { class: "wide-forty" } do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, { placeholder: "Company name" } %>
+
+  <%= f.label :photo_url %>
+  <%= f.url_field :photo_url, { placeholder: "http://example_photo.com" } %>
+
+  <% text = company.id.present? ? "Update Profile" : "Create Company" %>
+
+  <%= f.submit "#{text}" %>
+
+<% end %>
+

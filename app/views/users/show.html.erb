@@ -3,19 +3,24 @@
   <div class="user-profile-heading">
     <!-- Call to gravatar_for helper -->
       <%= gravatar_for @user %>
+    
     <div class="user-profile-info">
+      
       <h3>
         <%= @user.first_name %> 
         <%= @user.last_name %>
       </h3>
+
       <% if current_user == @user %>
-        <p>
+        <span class="user-email">
           <%= @user.email %> 
-          <span class="inline-link">
-            <%= link_to "(edit)", edit_user_path(@user) %>
-          </span>
-        </p>
+        </span>
+
+        <span class="inline-link">
+          <%= link_to "(edit)", edit_user_path(@user) %>
+        </span>
       <% end %>
+
     </div>
   </div>
 
@@ -25,13 +30,19 @@
   <section class="user-show-reviews">
     
     <% if current_user == @user %>
-      <h2>My Reviews</h2>
+      <h2>
+        My Reviews
+      </h2>
     <% else %>
-      <h2><%= @user.first_name %>'s Reviews</h2>
+      <h2>
+        <%= @user.first_name %>'s Reviews
+      </h2>
     <% end %>
     
     <% if @user.reviews.empty? %>
-      <span><em>No Reviews Yet</em></span>
+      <span>
+        <em>No Reviews Yet</em>
+      </span>
     <% end %>
 
     <ul class="review-set">

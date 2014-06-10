@@ -1,9 +1,14 @@
 <main class="edit-company">
-  <h1>
+
+  <%= render partial: "shared/errors", locals: { entity: @company } %>
+
+  <h2 class="company-form-title">
     Edit <%= @company.name %>'s Profile
-  </h1>
+  </h2>
 
-  <%= render partial: "shared/errors", locals: {entity: @company} %>
 
-  <%= render "edit_form" %>
+  <%= render partial: "company_form", locals: { company: @company } %>
+
+  <div class="footer-fill"></div>
+
 </main>

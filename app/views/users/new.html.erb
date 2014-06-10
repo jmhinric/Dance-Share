@@ -1,12 +1,11 @@
+<main class="new-user">
 
-<main class="signup">
-
-  <%= render partial: "shared/errors", locals: {entity: @user} %>
+  <%= render partial: "shared/errors", locals: { entity: @user } %>
 
   <h2 class="user-form-title">
     Join the Community!
   </h2>
 
-  <%= render partial: "user_info_form", locals: { user: @user } %>
+  <%= render partial: "user_form", locals: { user: @user } %>
 
 </main>

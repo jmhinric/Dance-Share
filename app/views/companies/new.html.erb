@@ -1,13 +1,12 @@
 <main class="new-company">
-  <h1>
+  
+  <%= render partial: "shared/errors", locals: { entity: @company } %>
+
+  <h2 class="company-form-title">
     Register a Dance Company
-  </h1>
+  </h2>
 
-  <%= form_for @company do |f| %>
-    <%= f.text_field :name, {placeholder: "Company name"} %>
-
-    <%= f.submit "Create Company" %>
-  <% end %>
+  <%= render partial: "company_form", locals: { company: @company } %>
 
   <div class="footer-fill"></div>
   
