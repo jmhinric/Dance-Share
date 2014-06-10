@@ -1,15 +1,30 @@
 <div class="user-companies">
+  
   <% if @user.companies.present? && current_user == @user %>
 
     <h2>
-      My Companies <span class="inline-link small">(<%= link_to "create new", new_company_path %>)</span>
+      My Companies 
+      <span class="inline-link small">
+      (<%= link_to "create new", new_company_path %>)
+      </span>
     </h2>
+
     <ul>
       <% @user.companies.each do |company| %>
-        <li><%= link_to "#{company.name}", company_path(company) %></li> |
+        
+        <li>
+          <%= link_to "#{company.name}", company_path(company) %>
+        </li>
+
+        <% unless company == @user.companies.last %>
+          <span class="companies-separator"> | </span>
+        <% end %>
+
       <% end %>
     </ul>
+
   <% end %>
+
   <% if @user.companies.empty? && current_user == @user %>
     <span class="inline-link-small">
       <%= link_to "Create a Company", new_company_path %>

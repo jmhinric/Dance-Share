@@ -1,9 +1,14 @@
-<main class="new-or-edit-company">
-  <h1>Register a Dance Company</h1>
+<main class="new-company">
+  <h1>
+    Register a Dance Company
+  </h1>
 
   <%= form_for @company do |f| %>
     <%= f.text_field :name, {placeholder: "Company name"} %>
 
     <%= f.submit "Create Company" %>
   <% end %>
-</div>
+
+  <div class="footer-fill"></div>
+  
+</main>
