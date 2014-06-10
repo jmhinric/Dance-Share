@@ -13,7 +13,7 @@ class SessionController < ApplicationController
       render :new
     elsif user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to user_path(user)
+      redirect_back_or user_path(user)
     else
       flash[:error] = "That's not the correct password"
       render :new

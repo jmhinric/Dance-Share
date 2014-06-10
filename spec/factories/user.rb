@@ -5,8 +5,8 @@ FactoryGirl.define do
     last_name { Faker::Name.last_name }
     password "password"
     password_confirmation "password"
-    gender "male"
-    dob Date.today
+    # gender "male"
+    # dob Date.today
 
     # factory :admin_user do
     #   after(:create) do |user|

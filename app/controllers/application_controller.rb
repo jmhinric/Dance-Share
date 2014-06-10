@@ -14,12 +14,14 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     unless logged_in?
+      store_location
       redirect_to login_path
     end
   end
 
   def authorize
     if current_user != @user && !logged_in?
+      deny_access
       redirect_to login_path
     elsif current_user != @user
       flash[:notice] = "Authorization failed"
@@ -37,6 +39,25 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :logged_in?, :authenticate, :authorize, :admin_authorize
 
+  def deny_access
+    store_location
+    redirect_to signin_path, :notice => "Please sign in to access this page."
+  end
+
+  def redirect_back_or(default)
+    redirect_to(session[:return_to] || default)
+    clear_return_to
+  end
+
+  private
+
+  def store_location
+    session[:return_to] = request.fullpath
+  end
+
+  def clear_return_to
+    session[:return_to] = nil
+  end
 
 
 end
