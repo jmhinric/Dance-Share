@@ -2,10 +2,6 @@
 /*HEADER*/
 
 
-#wrapper {
-  position: relative;
-  min-height: 100%;
-
 header {
   background: rgb(26, 46, 70);
   width: 100%;
@@ -13,69 +9,70 @@ header {
   position: relative;
 
   a {
-    font-family: 'Lato', sans-serif;
     color: white;
+    font-family: 'Lato', sans-serif;
     text-decoration: none;
   }
 
   a:hover {
     color: rgb(223, 228, 221);
     transition: ease-in 100ms;
+  }  
+
+  /*HEADER TITLE SECTION*/
+
+  .header-title {
+    width: 27%;
+    display: inline-block;
+
+    h1 {
+      text-align: center;
+
+    }
   }
 
-  nav {
-    display: block;
+  /*HEADER SEARCH*/
 
-    .header-title {
-      width: 27%;
-      display: inline-block;
+  .header-search {
+    width: 50%;
+    display: inline-block;
 
-    }
-      h1 {
-        /*margin-left: 35px;*/
-        text-align: center;
-      }
+    .header-search-wrap {
+      width: 80%;
+      margin: 0 auto;
 
-    .header-search {
-      width: 50%;
-      display: inline-block;
-      color: #37566D;
-      
-      .header-search-wrap {      
+      form {
+        margin: 0 auto;
 
-        .search-home {
-          width: 500px;
-          margin: 0 auto;
-
-          input[type=text] {
-            width: 350px;
-          }
-
-          input[type=submit] {
-            width: 90px;
-            margin-left: 10px;
-          }
+        input[type=text] {
+          width: 60%;
         }
-      }
-    }
 
-    .nav-links {
-      width: 20%;
-      margin-top: 16px;
-      display: inline-block;
-      float: right;
-      
-      ul {
-
-        li {
-          display: inline-block;
-          text-decoration: none;
-          padding: 0px 10px;
+        input[type=submit] {
+          width: 20%;
         }
       }
     }
   }
-}
+
+  /*HEADER LOGIN/LOGOUT*/
+
+  .header-links {
+    width: 20%;
+    margin-top: 16px;
+    display: inline-block;
+    float: right;
+    
+    ul {
+      position: relative;
+
+      li {
+        display: inline-block;
+        text-decoration: none;
+        padding: 0px 10px;
+      }
+    }
+  }
 }
 
 

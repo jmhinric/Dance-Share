@@ -1,19 +1,7 @@
 @media (max-width: 1000px) {
   
-  /*HEADER*/
-  /*=============================================*/
-
-  #wrapper header nav input#search.ui-autocomplete-input {
-    width: 250px;
-  }
-
-  #wrapper header nav .header-search .header-search-wrap form.search-home input {
-    width: 390px;
-  }
-
-  #wrapper header nav .nav-links {
+  body {
     font-size: .9em;
-    margin-top: 19px;
   }
 
   /*VENUE NEW*/
@@ -27,25 +15,14 @@
 
 @media (max-width: 900px) {
   
-  /*HEADER*/
-  /*=============================================*/
+  body {
+    font-size: .8em;
 
-  #wrapper header nav .header-title {
-    font-size: .7em
+    .header-links {
+      margin-top: 13px;
+    }
   }
 
-  #wrapper header nav input#search.ui-autocomplete-input {
-    width: 150px;
-  }
-
-  #wrapper header nav .header-search .header-search-wrap form.search-home input {
-    width: 290px;
-  }
-
-  #wrapper header nav .nav-links {
-    font-size: .7em;
-    margin-top: 19px;
-  }
 
   /*VENUE NEW*/
   /*================================================*/
@@ -55,43 +32,35 @@
   }
 }
 
-@media (max-width: 739px) {
-  #wrapper header nav .nav-links ul {
-    margin-top: 1px;
-  }
-}
 
 @media (max-width: 700px) {
   
-  /*HEADER*/
-  /*=============================================*/
-
-  #wrapper header nav .header-title {
+  main {
     font-size: .7em;
-    width: 150px;
-    display: block;
   }
 
-  #wrapper header nav input#search.ui-autocomplete-input {
-    width: 150px;
-  }
-
-  #wrapper header nav .header-search .header-search-wrap form.search-home input {
-    width: 290px;
-  }
-
-  #wrapper header nav .nav-links {
+  header {
     font-size: .7em;
-    margin-top: 19px;
+    
+    .header-links {
+      margin-top: 9px;
+      
+      ul li {
+        padding: 0 5px;
+      }
+    }
   }
 
-  #wrapper header nav input[type=submit] {
-    padding: 3px;
+  main.page-wrapper {
+
+    .videos-wrapper, .reviews-wrapper, .sidebar-wrapper {
+      width: 80%;
+      display: block;
+      margin: 0 auto;
+      float: none;
+    }
   }
 
-  #wrapper header nav input[type=text], input[type=email], input[type=password], input[type=date], input[type=url], textarea {
-    padding: 3px;
-  }
 
   /*VENUE NEW*/
   /*================================================*/
@@ -103,28 +72,33 @@
 }
 
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   
-  /*HEADER*/
-  /*=============================================*/
+  header {
+    margin-top: -20px;
 
-  #wrapper header nav .header-title {
-    font-size: .7em;
-    width: 20%;
-    display: block;
-  }
+    .header-title {
+      display: block;
+      margin: 0 auto;
+      padding-top: 20px;
+    }
 
-  #wrapper header nav input#search.ui-autocomplete-input {
-    width: 150px;
-  }
+    .header-search {
+      width: 70%;
 
-  #wrapper header nav .header-search .header-search-wrap form.search-home input {
-    width: 290px;
-  }
+      .header-search-wrap {
+        padding-bottom: 10px;
 
-  #wrapper header nav .nav-links {
-    font-size: .7em;
-    margin-top: 19px;
+        form {
+          margin: 0 auto;
+        }
+      }
+    }
+
+    .header-links {
+      width: 20%;
+
+    }
   }
 
   /*VENUE NEW*/
@@ -135,19 +109,4 @@
   }
   
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

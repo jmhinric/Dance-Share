@@ -1,7 +1,12 @@
 <main class="page-wrapper">
+  
   <section class="videos-wrapper">
-    <h2>Explore Videos</h2>
-    <ul class="home-video-set">
+    
+    <h2 class="section-title">
+      Explore Videos
+    </h2>
+
+    <ul class="video-set">
       
       <li>
         <div class="single-video">
@@ -133,10 +138,15 @@
         </div>
       </li>
     </ul>
+
   </section>
 
   <section class="reviews-wrapper">
-    <h2>Recent Reviews</h2>
+    
+    <h2 class="section-title">
+      Recent Reviews
+    </h2>
+    
     <ul class="review-set">
       
       <% @reviews.each do |review| %>
@@ -158,17 +168,22 @@
       <% end %>
 
     </ul>
+
   </section>
 
   <section class="sidebar-wrapper">
-    <h3>Companies</h3>
-      <ul>
-        <% @companies.each do |company| %>
-          <li>
-            <%= link_to company.name, company_path(company) %>
-          </li>
-        <% end %>
-      </ul>
+    
+    <h3 class="section-title">
+      Companies
+    </h3>
+
+    <ul class="company-set">
+      <% @companies.each do |company| %>
+        <li>
+          <%= link_to company.name, company_path(company) %>
+        </li>
+      <% end %>
+    </ul>
   </section>
 
     <!-- <a href="#">

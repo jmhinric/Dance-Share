@@ -4,7 +4,7 @@ main.page-wrapper {
   width: 100%;
   margin: 0;
 
-  h2, h3 {
+  .section-title {
     text-align: center;
     padding: 20px 0;
     font-family: georgia, serif;
@@ -15,7 +15,7 @@ main.page-wrapper {
     display: inline-block;
     vertical-align: top;
     
-    ul.home-video-set {
+    ul.video-set {
       margin: 0 auto;
       list-style-type: none;
       display: inline-block;
@@ -81,7 +81,7 @@ main.page-wrapper {
     vertical-align: top;
     float: right;
 
-    h3 {
+    .section-title {
       text-align: left;
       margin-left: 9px;
     }

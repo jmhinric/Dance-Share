@@ -1,51 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>DanceShare</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div id="wrapper" >
+  <head>
+    <title>DanceShare</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
     <header>
-      <nav>
-        <div class="header-title">
-          <h1>
-            <%= link_to "DanceShare", root_path %>
-          </h1>
-        </div>
 
-        <div class="header-search">
-          <div class="header-search-wrap">
-            <%= form_tag '/companies/search', {class: 'search-home', method: :get} do %>
-              <%= text_field_tag :search, params[:search], placeholder: "Enter company name...", size: 30 %>
-              <%= submit_tag "Search", name: nil %>
-            <% end %>
-          </div>
-        </div>
+      <div class="header-title">
+        <h1>
+          <%= link_to "DanceShare", root_path %>
+        </h1>
+      </div>
 
-        <div class="nav-links">
-          <ul>
-            <% if logged_in? %>
-              <li>
-                <%= link_to "#{current_user.first_name}'s Profile", user_path(current_user) %>
-              </li>
-              <li>
-                <%= link_to "Log Out", "/session", method: "delete" %>
-              </li>  
-            <% else %>
-              <li>
-                <%= link_to "Sign Up", new_user_path %>
-              </li>
-              <li>
-                <%= link_to "Log In","/login" %>
-              </li>
-            <% end %>
-          </ul>
+      <div class="header-search">
+        <div class="header-search-wrap">
+          <%= form_tag '/companies/search', {class: 'search-home', method: :get} do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Enter company name..." %>
+            <%= submit_tag "Search", name: nil %>
+          <% end %>
         </div>
-      </nav>
+      </div>
 
+      <div class="header-links">
+        <ul>
+          <% if logged_in? %>
+            <li>
+              <%= link_to "#{current_user.first_name}'s Profile", user_path(current_user) %>
+            </li>
+            <li>
+              <%= link_to "Log Out", "/session", method: "delete" %>
+            </li>  
+          <% else %>
+            <li>
+              <%= link_to "Sign Up", new_user_path %>
+            </li>
+            <li>
+              <%= link_to "Log In","/login" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </header>
 
     <% if flash[:notice] %>
@@ -61,8 +58,7 @@
     <footer>
       <span>&copy DanceShare 2014</span>
     </footer>
-  
-  </div>
+    
     <%= javascript_include_tag "home"%>
-</body>
+  </body>
 </html>
