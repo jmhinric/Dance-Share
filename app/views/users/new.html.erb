@@ -1,41 +1,12 @@
 
-<%= render partial: "shared/errors", locals: {entity: @user} %>
+<main class="signup">
 
-<div class="signup">
+  <%= render partial: "shared/errors", locals: {entity: @user} %>
 
-  <h1>Join the Community!</h1>
+  <h2 class="user-form-title">
+    Join the Community!
+  </h2>
 
-  <%= form_for @user do |f| %>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %><br/>
+  <%= render partial: "user_info_form", locals: { user: @user } %>
 
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %><br/>
-
-    <%= f.label :email %>
-    <%= f.email_field :email %><br/>
-    
-    <% if @user.id.nil? %>
-      <%= f.label :password %>
-      <%= f.password_field :password %><br/>
-
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation %><br/>
-    <% end %>
-
-    <%# f.label "Male" %>
-    <%# f.radio_button(:gender, "male") %>
-    <%# f.label "Female" %>
-    <%# f.radio_button(:gender, "female") %><br/>
-
-    <%# f.label :dob %>
-    <%# f.date_field :dob %><br/>
-
-    <%# f.label :photo_url %>
-    <%# f.url_field :photo_url %><br/>  
-    
-    <span class="button">
-      <%= f.submit "Join"%>
-    </span>
-  <% end %>
-</div>
+</main>

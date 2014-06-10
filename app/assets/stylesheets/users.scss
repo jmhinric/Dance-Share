@@ -91,22 +91,29 @@
 
 /*============================================================================================*/
 
-/*USER NEW*/
+/*USER NEW, LOGIN*/
 
 /*============================================================================================*/
 
 
-.signup {
+.signup, .login, .edit-user {
 
-  h1 {
+  .user-form-title {
     margin-top: 50px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
+  .delete-user {
+    display: block;
+    margin: 0 auto;
     text-align: center;
   }
 
   form {
-    width: 600px;
+    width: 20%;
     margin: 0 auto;
+    margin-top: 20px;
     margin-bottom: 100px;
   }
 
@@ -115,19 +122,15 @@
     font-size: 1.3em;
   }
 
-
   input {
-    display: block;
-    margin-top: 4px;
-    padding: 7px 3px;
-    font-size: 1.1em;
     width: 100%;
-    border: 1px solid grey;
-    border-radius: 5px;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1em;
   }
 
   input:focus {
-    padding: 7px 0;
+    margin-bottom: 10px;
     font-size: 1.1em;
   }
 
@@ -135,66 +138,11 @@
     border-radius: 10px;
     width: 150px;
     margin: 0 auto;
+    margin-top: 35px;
   }
   
 }
 
-/*USER EDIT*/
-/*==============================================*/
-
-.edit {
-  margin: 0 auto;
-  text-align: center;
-}
-
-h2.edit {
-  /*display: inline-block;*/
-  padding-top: 30px;
-}
-
-form.user-form {
-  padding-top: 30px;
-  /*border: 1px solid red;*/
-}
-
-form.user-form label {
-  display: inline-block;
-  text-align: right;
-  width: 80px;
-  padding-right: 8px;
-  /*border: 1px solid blue;*/
-}
-
-.delete-user {
-  padding-left: 15px;
-}
-
-input[type=radio] {
-  /*display: block;*/
-}
 
 
-/*LOGIN*/
 
-/*===================================================*/
-
-main.login {
-  h1 {
-    text-align: center;
-  }
-
-  .login-form {
-    margin: 0 auto;
-    width: 500px;
-
-    form {
-      text-align: center;
-    }
-
-    input[type=submit] {
-      margin-top: 15px;
-      margin-left: 40px;
-      /*background-color: $purple;*/
-    }
-  }
-}
