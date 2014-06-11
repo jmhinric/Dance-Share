@@ -128,8 +128,6 @@ danceshare_user = User.create(
   first_name: "DanceShare",
   last_name: "NYC",
   email: "ds@ex.com",
-  password: "danceshare",
-  password_confirmation: "danceshare"
 )
 
 Video.create(
