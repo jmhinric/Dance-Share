@@ -24,7 +24,7 @@ DanceshareApp::Application.routes.draw do
   resources :venues, only: [:new, :create]
 
   resources :performances, only: [] do
-    resources :reviews do
+    resources :reviews, except: [:index] do
     end
   end
 

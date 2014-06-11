@@ -8,8 +8,6 @@ class ReviewsController < ApplicationController
   before_action :authorize, only: [:new, :create, :edit, :update]
   before_action :authorize_user_review, only: [:edit, :update, :destroy]
 
-  def index
-  end
 
   def show
     @company = @review.performance.run.company

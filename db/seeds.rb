@@ -113,50 +113,36 @@ User.destroy_all("id > '5'")
 
 
 
-# hal = User.new(
-#   first_name: "Hal",
-#   last_name: "Jordan",
-#   email: "hal@ex.com",
-#   password: "greenlantern",
-#   password_confirmation: "greenlantern",
-#   gender: "male",
-#   dob: "1976-01-01",
-#   photo_url: "http://static.comicvine.com/uploads/scale_small/6/66303/1673684-green_lantern_62.jpg",
-#   # is_admin: false
-#   )
-# hal.save
 
-# kara = User.new(
-#   first_name: "Kara",
-#   last_name: "Kent",
-#   email: "kara@ex.com",
-#   password: "supergirl",
-#   password_confirmation: "supergirl",
-#   gender: "female",
-#   dob: "1985-07-01",
-#   photo_url: "http://static.comicvine.com/uploads/scale_small/0/4/34569-5263-38612-1-supergirl.jpg",
-#   # is_admin: true
-#   )
-# kara.save
 
-# tim = User.new(
-#   first_name: "Tim",
-#   last_name: "Drake",
-#   email: "tim@ex.com",
-#   password: "robin",
-#   password_confirmation: "robin",
-#   gender: "male",
-#   dob: "1983-10-01",
-#   photo_url: "http://static.comicvine.com/uploads/scale_small/0/40/311801-4975-123392-1-robin.jpg",
-#   # is_admin: true
-#   )
-# tim.save
+# END OF FAKE SEED DATA
+
+# ==============================================
+# ==============================================
 
 
 
+# CREATE A DANCESHARE admin
 
+danceshare_user = User.create(
+  first_name: "DanceShare",
+  last_name: "NYC",
+  email: "ds@ex.com",
+  password: "danceshare",
+  password_confirmation: "danceshare"
+)
 
+Video.create(
+  author: "DanceShare",
+  title: "",
+  sub_title: "",
+  category: "",
+  sub_category: "",
+  url: "",
+  user: danceshare_user,
+  description: ""
 
+)
 
 
 
