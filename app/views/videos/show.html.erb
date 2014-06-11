@@ -1,2 +1,30 @@
-<%= @video.author %>
-<%= @video.title %>
+<main class="video-show">
+  
+  <div class="main-video">
+    
+    <h2 class="video-title">
+      <%= @video.title %>
+    </h2>
+
+    <h3 class="video-author">
+      <%= @video.author %>
+    </h3>
+
+    <iframe src="<%= @video.youtube_url(@video.video_id) %>" frameborder="0" allowfullscreen></iframe>
+
+    <h5 class="video-owner">
+      <%= "By #{ @video.user.first_name } #{ @video.user.last_name }" %>
+    </h5>
+
+    <span class="video-description">
+      <%= @video.description %>
+    </span>
+
+    <h6 class="video-category">
+      <%= "#{ @video.category } < #{ @video.sub_category }" %>
+    </h6>
+
+  </div>
+
+</main>
+

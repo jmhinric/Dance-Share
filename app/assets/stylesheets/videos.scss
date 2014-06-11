@@ -1,0 +1,28 @@
+.video-show {
+  display: inline-block;
+
+  .main-video {
+    text-align: center;
+
+    .video-title {
+      margin-top: 50px;
+    }
+
+    iframe {
+      margin-top: 15px;
+      width: 640px;
+      height: 360px;
+    }
+
+    .video-description {
+      position: relative;
+      display: inline-block;
+      width: 45%;
+    }
+
+    .video-category {
+      margin-top: 80px;
+    }
+
+  }
+}
