@@ -20,3 +20,5 @@
 /log/test.log
 
 /tmp/*
+
+/coverage/*

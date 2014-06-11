@@ -134,18 +134,73 @@ danceshare_user = User.create(
 
 Video.create(
   author: "Francisco Graciano",
-  title: "Owning Your Flaws as a performers",
-  sub_title: "",
+  title: "Owning Your Flaws as a Performer",
   category: "Performance",
   sub_category: "Elements of Performance",
-  url: "",
-  video_id: "",
+  video_id: "4XMAx83j-fs",
   user: danceshare_user,
   description: "Francisco Graciano of Paul Taylor Dance Company talks about dealing with one's inner flaws and problems as a performer.  He discusses accepting flaws versus hiding them and how this affects one's performance."
 )
 
+Video.create(
+  author: "Jennifer Goggans",
+  title: 'The Value of "Just Do It" in Dance',
+  category: "Training",
+  sub_category: "Class/Rehearsal",
+  video_id: "BCgNfJD5OBU",
+  user: danceshare_user,
+  description: "Jennifer Goggans, former member of Merce Cunningham Dance Company, shares the philosophy she adopted of one of her past teachers when it comes to dancing- \"just do it.\"  One can analyze and think about dance a lot, but the physical act of dancing is what's most important.  She shares how Merce Cunningham also seemed to share this philosophy."
+)
 
+Video.create(
+  author: "Daniel Madoff",
+  title: 'How to Enhance the Sense of Opposition in Arabesque',
+  category: "Technique",
+  sub_category: "Arabesque",
+  video_id: "RQHbUqZ7F6k",
+  user: danceshare_user,
+  description: "Daniel Madoff, former member of Merce Cunningham Dance Company, discusses an idea for arabesque he got from ballet teacher Janet Panetta which is to find opposition between the back leg and same side of the back."
+)
 
+Video.create(
+  author: "Emma Desjardins",
+  title: 'What Makes an Interesting Dancer?',
+  category: "Performance",
+  sub_category: "What Makes an Interesting Dancer",
+  video_id: "8oOi-AH00Z4",
+  user: danceshare_user,
+  description: "Emma Desjardins, former member of Merce Cunningham Dance Company, discusses what she thinks makes dancers in performance interesting to watch."
+)
+
+Video.create(
+  author: "Chelsea Lynn Acree",
+  title: 'Imagery to Make Rotation a Movement',
+  category: "Technique",
+  sub_category: "External Rotation",
+  video_id: "-7haGvQ8bio",
+  user: danceshare_user,
+  description: "Chelsea Lynn Acree of Mark Morris Dance Group shares an image she uses in her teaching that helps make external rotation a movement rather than a position."
+)
+
+Video.create(
+  author: "Robert Swinston",
+  title: 'How to Use Opposition in Lunges and Triplets',
+  category: "Technique",
+  sub_category: "Movement Quality/ Principles",
+  video_id: "m2IKZFx2eoo",
+  user: danceshare_user,
+  description: "Robert Swinston, former member of Merce Cunningham Dance Company, talks about the usefulness of being active with the back leg in lunges and triplets and how this opposition gives clarity to the movements."
+)
+
+# Video.create(
+#   author: "",
+#   title: '',
+#   category: "",
+#   sub_category: "",
+#   video_id: "",
+#   user: danceshare_user,
+#   description: ""
+# )
 
 
 

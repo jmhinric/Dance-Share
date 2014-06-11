@@ -5,7 +5,6 @@ describe Video do
 
   it { should validate_presence_of(:author) }
   it { should validate_presence_of(:title) }
-  it { should validate_presence_of(:sub_title) }
   it { should validate_presence_of(:category) }
   it { should validate_presence_of(:sub_category) }
   it { should validate_presence_of(:description) }
