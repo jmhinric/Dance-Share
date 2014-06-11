@@ -127,7 +127,9 @@ User.destroy_all("id > '5'")
 danceshare_user = User.create(
   first_name: "DanceShare",
   last_name: "NYC",
-  email: "ds@ex.com"
+  email: "ds@ex.com",
+  password: "password",
+  password_confirmation: "password"
 )
 
 Video.create(
