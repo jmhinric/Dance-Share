@@ -30,6 +30,6 @@ DanceshareApp::Application.routes.draw do
 
   post "reviews/:id/review_votes", to: "review_votes#create"
 
-
+  resources :videos, only: [:index, :show]
 
 end

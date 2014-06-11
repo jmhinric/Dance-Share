@@ -36,22 +36,20 @@ main.page-wrapper {
           .full-title {
             display: none;
             position: fixed;
+            text-align: left;
             background: rgb(253, 245, 219);
             color: black;
             font-size: .8em;
-            max-width: 250px;
+            max-width: 300px;
             z-index: 1;
+            padding: 3px 7px;
             border: 1px solid black;
           }
 
-          li.single-video:hover .sample {
-            display: inline-block;
-            position: absolute;
-            width: 500px;
-          }
-
-          iframe {
-            text-align: center;
+          a img {
+            width: 150px;
+            height: 84px;
+            margin: 0 auto;
           }
           
           .video-author {

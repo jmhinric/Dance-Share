@@ -7,136 +7,32 @@
     </h2>
 
     <ul class="video-set">
-      
-      <li>
-        <div class="single-video">
-          <iframe width="150" height="84" src="http://www.youtube.com/embed/8oOi-AH00Z4" frameborder="0" allowfullscreen></iframe>
-          <span class="full-title"><%= @title %></span>
-          <h5 class="video-title">
-            <%= truncate(@title, length: 40) %>
-          </h5>
-          <h6 class="video-author">
-            by Francisco Graciano
-          </h6>
-        </div>
-      </li>
 
-      <li>
-        <div class="single-video">
-          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          <span class="full-title"><%= @title %></span>
-          <h5 class="video-title">
-            <%= truncate(@title, length: 40) %>
-          </h5>
-          <h6 class="video-author">
-            by Emma Desjardins
-          </h6>
-        </div>
-      </li>
+      <% @videos.each do |video| %>      
+        <li>
+          <div class="single-video">
+            
+            <a href="<%= video_path(video) %>">
+              <img src="<%= video.youtube_photo(video.video_id) %>" alt="video thumbnail">
+            </a>
+            
+            <!-- Title which displays on mouse hover -->
+            <span class="full-title">
+              <%= video.title %>
+            </span>
 
-      <li>
-        <div class="single-video">
-          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          <span class="full-title"><%= @title %></span>
-          <h5 class="video-title">
-            <%= truncate(@title, length: 40) %>
-          </h5>
-          <h6 class="video-author">
-            by Chelsea Lynn-Acree
-          </h6>
-        </div>
-      </li>
+            <h6 class="video-title">
+              <%= link_to truncate(video.title, length: 40), video_path(video) %>
+            </h6>
 
-      <li>
-        <div class="single-video">
-          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          <span class="full-title"><%= @title %></span>
-          <h5 class="video-title">
-            <%= truncate(@title, length: 40) %>
-          </h5>
-          <h6 class="video-author">
-            by Francisco Graciano
-          </h6>
-        </div>
-      </li>
+            <h6 class="video-author">
+              by <%= "#{ video.user.first_name } #{ video.user.last_name }" %>
+            </h6>
 
-      <li>
-        <div class="single-video">
-          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          <span class="full-title"><%= @title %></span>
-          <h5 class="video-title">
-            <%= truncate(@title, length: 40) %>
-          </h5>
-          <h6 class="video-author">
-            by Francisco Graciano
-          </h6>
-        </div>
-      </li>
+          </div>
+        </li>
+      <% end %>
 
-      <li>
-        <div class="single-video">
-          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          <span class="full-title"><%= @title %></span>
-          <h5 class="video-title">
-            <%= truncate(@title, length: 40) %>
-          </h5>
-          <h6 class="video-author">
-            by Francisco Graciano
-          </h6>
-        </div>
-      </li>
-
-      <li>
-        <div class="single-video">
-          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          <span class="full-title"><%= @title %></span>
-          <h5 class="video-title">
-            <%= truncate(@title, length: 40) %>
-          </h5>
-          <h6 class="video-author">
-            by Francisco Graciano
-          </h6>
-        </div>
-      </li>
-
-      <li>
-        <div class="single-video">
-          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          <span class="full-title"><%= @title %></span>
-          <h5 class="video-title">
-            <%= truncate(@title, length: 40) %>
-          </h5>
-          <h6 class="video-author">
-            by Francisco Graciano
-          </h6>
-        </div>
-      </li>
-
-      <li>
-        <div class="single-video">
-          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          <span class="full-title"><%= @title %></span>
-          <h5 class="video-title">
-            <%= truncate(@title, length: 40) %>
-          </h5>
-          <h6 class="video-author">
-            by Francisco Graciano
-          </h6>
-        </div>
-      </li>
-
-      <li>
-        <div class="single-video">
-          <iframe src="http://player.vimeo.com/video/58339951" width="150" height="84" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          <span class="full-title"><%= @title %></span>
-          <h5 class="video-title">
-            <%= truncate(@title, length: 40) %>
-          </h5>
-          <h6 class="video-author">
-            by Francisco Graciano
-          </h6>
-        </div>
-      </li>
     </ul>
 
   </section>
@@ -149,22 +45,24 @@
     
     <ul class="review-set">
       
-      <% @reviews.each do |review| %>
-        <li class="single-review">
-          
-          <!-- Company name, Venue, Date -->
-          <%= render partial: "/reviews/review_show_info", locals: { review: review } %>
+      <% unless @reviews.nil? %>
+        <% @reviews.each do |review| %>
+          <li class="single-review">
+            
+            <!-- Company name, Venue, Date -->
+            <%= render partial: "/reviews/review_show_info", locals: { review: review } %>
 
-          <!-- Review title, rating -->
-          <%= render partial: "/reviews/review_title_rating", locals: { review: review } %>
+            <!-- Review title, rating -->
+            <%= render partial: "/reviews/review_title_rating", locals: { review: review } %>
 
-          <!-- Review author name -->
-          <%= render partial: "/reviews/review_author", locals: { review: review } %>
+            <!-- Review author name -->
+            <%= render partial: "/reviews/review_author", locals: { review: review } %>
 
-          <!-- Review text and link -->
-          <%= render partial: "/reviews/review_text", locals: { review: review } %>
+            <!-- Review text and link -->
+            <%= render partial: "/reviews/review_text", locals: { review: review } %>
 
-        </li>
+          </li>
+        <% end %>
       <% end %>
 
     </ul>
@@ -178,10 +76,12 @@
     </h3>
 
     <ul class="company-set">
-      <% @companies.each do |company| %>
-        <li>
-          <%= link_to company.name, company_path(company) %>
-        </li>
+      <% unless @companies.nil? %>
+        <% @companies.each do |company| %>
+          <li>
+            <%= link_to company.name, company_path(company) %>
+          </li>
+        <% end %>
       <% end %>
     </ul>
   </section>
