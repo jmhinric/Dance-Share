@@ -122,7 +122,7 @@ User.destroy_all("id > '5'")
 
 
 
-# CREATE A DANCESHARE admin
+# Create a DanceShare admin
 
 danceshare_user = User.create(
   first_name: "DanceShare",
@@ -133,15 +133,15 @@ danceshare_user = User.create(
 )
 
 Video.create(
-  author: "DanceShare",
-  title: "",
+  author: "Francisco Graciano",
+  title: "Owning Your Flaws as a performers",
   sub_title: "",
-  category: "",
-  sub_category: "",
+  category: "Performance",
+  sub_category: "Elements of Performance",
   url: "",
+  video_id: "",
   user: danceshare_user,
-  description: ""
-
+  description: "Francisco Graciano of Paul Taylor Dance Company talks about dealing with one's inner flaws and problems as a performer.  He discusses accepting flaws versus hiding them and how this affects one's performance."
 )
 
 

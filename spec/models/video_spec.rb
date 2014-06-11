@@ -9,6 +9,6 @@ describe Video do
   it { should validate_presence_of(:category) }
   it { should validate_presence_of(:sub_category) }
   it { should validate_presence_of(:description) }
-  it { should validate_presence_of(:url) }
+  it { should validate_presence_of(:video_id) }
 
 end
