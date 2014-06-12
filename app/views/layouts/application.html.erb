@@ -7,53 +7,57 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <header>
+    <div class="whole-page-wrap">
+      
+      <header>
 
-      <div class="header-title">
-        <h1>
-          <%= link_to "DanceShare", root_path %>
-        </h1>
-      </div>
-
-      <div class="header-search">
-        <div class="header-search-wrap">
-          <%= form_tag '/companies/search', {class: 'search-home', method: :get} do %>
-            <%= text_field_tag :search, params[:search], placeholder: "Enter company name..." %>
-            <%= submit_tag "Search", name: nil %>
-          <% end %>
+        <div class="header-title">
+          <h1>
+            <%= link_to "DanceShare", root_path %>
+          </h1>
         </div>
-      </div>
 
-      <div class="header-links">
-        <ul>
-          <% if logged_in? %>
-            <li>
-              <%= link_to "#{current_user.first_name}'s Profile", user_path(current_user) %>
-            </li>
-            <li>
-              <%= link_to "Log Out", "/session", method: "delete" %>
-            </li>  
-          <% else %>
-            <li>
-              <%= link_to "Sign Up", new_user_path %>
-            </li>
-            <li>
-              <%= link_to "Log In","/login" %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </header>
+        <div class="header-search">
+          <div class="header-search-wrap">
+            <%= form_tag '/companies/search', {class: 'search-home', method: :get} do %>
+              <%= text_field_tag :search, params[:search], placeholder: "Enter company name..." %>
+              <%= submit_tag "Search", name: nil %>
+            <% end %>
+          </div>
+        </div>
 
-    <% if flash[:notice] %>
-      <div class="errors">
-        <span class="error">
-          <%= flash[:notice] %>
-        </span>
-      </div>
-    <% end %>
+        <div class="header-links">
+          <ul>
+            <% if logged_in? %>
+              <li>
+                <%= link_to "#{current_user.first_name}'s Profile", user_path(current_user) %>
+              </li>
+              <li>
+                <%= link_to "Log Out", "/session", method: "delete" %>
+              </li>  
+            <% else %>
+              <li>
+                <%= link_to "Sign Up", new_user_path %>
+              </li>
+              <li>
+                <%= link_to "Log In","/login" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </header>
 
-    <%= yield %>
+      <% if flash[:notice] %>
+        <div class="errors">
+          <span class="error">
+            <%= flash[:notice] %>
+          </span>
+        </div>
+      <% end %>
+    
+      <%= yield %>
+
+    </div>
 
     <footer>
       <span>&copy DanceShare 2014</span>

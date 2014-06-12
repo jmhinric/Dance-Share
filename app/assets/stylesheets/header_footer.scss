@@ -88,6 +88,26 @@ div#clear-float {
   height: 500px;
 }
 
+
+/*==============================================*/
+/*STICKY FOOTER CSS HERE*/
+/*==============================================*/
+
+.whole-page-wrap {
+  min-height: 100%;
+  /*This margin height is equal to the footer height*/
+  margin-bottom: -50px;
+}
+
+.whole-page-wrap:after {
+  content: "";
+  display: block;
+}
+footer, .whole-page-wrap:after {
+  /* .push must be the same height as footer */
+  height: 50px; 
+}
+
 footer {
   color: white;
   background: rgb(26, 46, 70);
