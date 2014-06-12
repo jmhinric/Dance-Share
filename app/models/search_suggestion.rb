@@ -15,4 +15,6 @@ class SearchSuggestion < ActiveRecord::Base
       suggestion.increment! :popularity, by = 1
     end
   end
+
+  # rake task:  $rake search_suggestions:index
 end
