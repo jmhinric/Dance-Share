@@ -1,9 +1,5 @@
 @media (max-width: 1000px) {
   
-  body {
-    font-size: .9em;
-  }
-
   /*VENUE NEW*/
   /*================================================*/
 
@@ -16,10 +12,15 @@
 @media (max-width: 900px) {
   
   body {
-    font-size: .8em;
+    .page-wrapper {
 
-    .header-links {
-      margin-top: 13px;
+      .header-links {
+        margin-top: 13px;
+      }
+
+      .videos-wrapper, .reviews-wrapper {
+        width: 45%;
+      }
     }
   }
 
@@ -33,11 +34,18 @@
 }
 
 
-@media (max-width: 700px) {
-  
-  main {
-    font-size: .7em;
+@media (max-width: 800px) {
+  body {
+
+    .page-wrapper {
+      .videos-wrapper, .reviews-wrapper {
+        width: 95%;
+      }
+    }
   }
+}
+
+@media (max-width: 700px) {
 
   header {
     font-size: .7em;
