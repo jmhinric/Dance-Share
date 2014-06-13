@@ -92,34 +92,6 @@
 </main>
 
 
+<%= javascript_include_tag "homepage_hover" %>
 
 
-
-<!-- Script for showing video titles on hover -->
-<script type="text/javascript">
-  Home.intervalID, Home.fullTitle, Home.mouseX, Home.mouseY;
-
-  $(".video-title").mouseenter(handlerIn).mouseleave(handlerOut);
-
-  function handlerIn(e) {
-    Home.fullTitle = $(e.target).siblings(".full-title");
-    Home.mouseX = e.pageX;
-    Home.mouseY = e.pageY;
-    Home.intervalID = setTimeout(showTitle, 1500);
-  }   
-
-  function showTitle() {
-    Home.fullTitle.show();
-    Home.fullTitle.css({
-      top: (Home.mouseY + 5) + "px",
-      left: (Home.mouseX) + "px"
-    });
-  }
-
-  function handlerOut(e) {
-    clearInterval(Home.intervalID);
-    $(e.target).siblings(".full-title")
-               .css("display", "hidden");
-  }
-
-</script>

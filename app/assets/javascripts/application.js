@@ -13,8 +13,10 @@
 //= require jquery
 //= require jquery.ui.autocomplete
 //= require jquery_ujs
-//= require review_vote
 //= require turbolinks
-//= require_tree .
+//= require_self
 
-var Home = {};
+window.App = {
+  Home: {},
+  Vote: {}
+};
