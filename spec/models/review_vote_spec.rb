@@ -1,13 +1,24 @@
 require 'spec_helper'
 
 describe ReviewVote do
-  before(:each) do
-    FactoryGirl.create(:review_vote)
-  end
 
-  it { should belong_to(:user) }
-  it { should belong_to(:review) }
+  it { should belong_to(:user_voter).with_foreign_key('user_id') }
+  it { should belong_to(:voted_on_review).with_foreign_key('review_id') }
 
-  it { should validate_uniqueness_of(:review_id).scoped_to(:user_id) }
-  # it { should ensure_inclusion_of(:value).in_array(%w(-1, 1)) }
+  # TODO figure out these tests
+
+  it { should validate_uniqueness_of(:review_id).scoped_to(:user_id).with_message('already exists') }
+  
+  # it { should ensure_inclusion_of(:value).in_array([1, -1]) }
+
+  # describe "#ensure_not_author" do
+
+  #   it "ensures the author of the review can't vote on the review" do
+      
+
+  #   end
+
+  # end
+
 end
+

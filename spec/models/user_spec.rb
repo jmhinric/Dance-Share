@@ -9,6 +9,7 @@ describe User do
   it { should have_many(:artists) }
   it { should have_many(:companies).through(:artists) }
   it { should have_many(:review_votes) }
+  it { should have_many(:voted_on_reviews).through(:review_votes) }
   it { should have_many(:videos) }
 
 

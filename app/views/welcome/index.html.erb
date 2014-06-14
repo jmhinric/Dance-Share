@@ -7,30 +7,32 @@
     </h2>
 
     <ul class="video-set">
+      
+      <% unless @videos.nil? %>
+        <% @videos.each do |video| %>      
+          <li>
+            <div class="single-video">
+              
+              <a href="<%= video_path(video) %>">
+                <img src="<%= video.youtube_photo(video.video_id) %>" alt="video thumbnail">
+              </a>
+              
+              <!-- Title which displays on mouse hover -->
+              <span class="full-title">
+                <%= video.title %>
+              </span>
 
-      <% @videos.each do |video| %>      
-        <li>
-          <div class="single-video">
-            
-            <a href="<%= video_path(video) %>">
-              <img src="<%= video.youtube_photo(video.video_id) %>" alt="video thumbnail">
-            </a>
-            
-            <!-- Title which displays on mouse hover -->
-            <span class="full-title">
-              <%= video.title %>
-            </span>
+              <h6 class="video-title">
+                <%= link_to truncate(video.title, length: 40), video_path(video) %>
+              </h6>
 
-            <h6 class="video-title">
-              <%= link_to truncate(video.title, length: 40), video_path(video) %>
-            </h6>
+              <h6 class="video-author">
+                by <%= "#{ video.user.first_name } #{ video.user.last_name }" %>
+              </h6>
 
-            <h6 class="video-author">
-              by <%= "#{ video.user.first_name } #{ video.user.last_name }" %>
-            </h6>
-
-          </div>
-        </li>
+            </div>
+          </li>
+        <% end %>
       <% end %>
 
     </ul>

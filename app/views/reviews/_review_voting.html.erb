@@ -1,0 +1,34 @@
+<% user_vote = review.review_votes.find_by(user_id: current_user.id) %>
+
+<div class="review-votes">
+
+  <div class="div-<%= review.id %> blah">
+    
+    <div class="vote-count">
+      <span>
+        <%= review.vote_total %>
+      </span>
+    </div>
+
+    <% if current_user.present? && current_user != review.user && user_vote == nil %>
+      
+      <button id="<%= review.id %>" class="<%= review.id %> vote upvote">
+        Vote Up
+      </button>
+      
+      <button id="<%= review.id %>" class="<%= review.id %> vote downvote">
+        Vote Down
+      </button>
+
+    <% elsif current_user.present? && current_user != review.user && user_vote != nil %>
+      
+      <span>
+        Voted <%= user_vote.value == 1 ? "Up" : "Down" %>
+      </span>
+
+    <% end %>
+  </div>
+  
+</div>
+
+<%= javascript_include_tag "review_vote" %>

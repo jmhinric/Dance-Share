@@ -10,19 +10,17 @@ class ReviewVotesController < ApplicationController
       review_id: review_id,
       value: value
     )
-    # if @review_vote.save
+
+    unless @review_vote.id.nil?
       @review.review_votes << @review_vote
       current_user.review_votes << @review_vote
       @review.save
       current_user.save
-      render json: { review: @review,vote_count: @review.review_votes.sum(value) }
-    # end
-      # render json: { review: nil }
+
+      render json: { review: @review, vote_count: @review.vote_total }
+    else
+      render json: { review: nil }
+    end
   end
   
-  # private
-
-  # def strong_params
-  #   params.require(:review).permit("id")
-  # end
 end

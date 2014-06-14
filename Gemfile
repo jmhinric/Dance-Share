@@ -75,6 +75,9 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
+  gem 'selenium-webdriver'
+  gem 'capybara-webkit'
+  gem 'database_cleaner'
 end
 
 ruby '2.1.0'

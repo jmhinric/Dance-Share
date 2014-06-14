@@ -19,12 +19,16 @@ $(".upvote").click(function(e) {
     data: { vote: "up" },
 
     success: function(success) {
-      var bClass = "." + success["review"].id;
+      var buttons = "." + success["review"].id;
       var divId = ".div-" + success["review"].id;
-      $(bClass).remove();
+      var voteTotal = divId + " .vote-count span";
       var span_tag = $("<span>");
-      span_tag.text("Voted Up | " + success["vote_count"]);
+
+      $(buttons).remove();
+      span_tag.text("Voted Up");
       span_tag.appendTo(divId);
+
+      $(voteTotal).text(success["vote_count"]);
     }
   });
 });
@@ -37,12 +41,16 @@ $(".downvote").click(function(e) {
     data: { vote: "down" },
     
     success: function(success) {
-      var bClass = "." + success["review"].id;
+      var buttons = "." + success["review"].id;
       var divId = ".div-" + success["review"].id;
-      $(bClass).remove();
+      var voteTotal = divId + " .vote-count span";
       var span_tag = $("<span>");
-      span_tag.text("Voted Down | " + success["vote_count"]);
+
+      $(buttons).remove();
+      span_tag.text("Voted Down");
       span_tag.appendTo(divId);
+
+      $(voteTotal).text(success["vote_count"]);
     }
   });
 });
