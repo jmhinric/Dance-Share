@@ -1,13 +1,11 @@
 class ReviewVotesController < ApplicationController
   def create
     @review = Review.find(params["id"])
-    review_id = @review.id
-    user_id = current_user.id
-    value = params["vote"] == "up" ? 1 : -1
+    value = params["vote"] == "Up" ? 1 : -1
 
     @review_vote = ReviewVote.create(
-      user_id: user_id,
-      review_id: review_id,
+      user_id: current_user.id,
+      review_id: @review.id,
       value: value
     )
 
@@ -17,7 +15,7 @@ class ReviewVotesController < ApplicationController
       @review.save
       current_user.save
 
-      render json: { review: @review, vote_count: @review.vote_total }
+      render json: { review_id: @review.id, vote_count: @review.vote_total }
     else
       render json: { review: nil }
     end
