@@ -118,7 +118,7 @@
 users = User.where('id > 1' && 'id < 6')
 
 users.each do |user|
-  Performance.each do |perf|
+  Performance.all.each do |perf|
     reviews = Review.where("performance_id = #{perf.id}" && "user_id != #{user.id}")
     reviews.each do |review|
       value = [1, -1].sample
