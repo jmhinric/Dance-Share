@@ -124,7 +124,7 @@ users.each do |user|
       value = [1, -1].sample
       ReviewVote.create(
         user_id: user.id,
-        performance_id: perf.id,
+        review_id: review.id,
         value: value
         )
     end
