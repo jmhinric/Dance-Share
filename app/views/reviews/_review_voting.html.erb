@@ -1,4 +1,6 @@
-<% user_vote = review.review_votes.find_by(user_id: current_user.id) %>
+<% if current_user %>
+  <% user_vote = review.review_votes.find_by(user_id: current_user.id) %>
+<% end %>
 
 <div class="review-votes">
 
@@ -33,4 +35,4 @@
   
 </div>
 
-<%= javascript_include_tag "review_vote" %>
+<%= javascript_include_tag "review_voting" %>

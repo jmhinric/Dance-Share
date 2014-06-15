@@ -68,12 +68,13 @@
     .vote-count {
       display: inline-block;
       margin-right: 12px;
+
+      span {
       background: rgba(96, 96, 96, .8);
       border-radius: 20px;
       padding: 5px 10px;
-
-      span {
         color: white;
+        font-size: .8em;
       }
     }
 

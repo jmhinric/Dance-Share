@@ -63,6 +63,9 @@
             <!-- Review text and link -->
             <%= render partial: "/reviews/review_text", locals: { review: review } %>
 
+            <!-- Review voting -->
+            <%= render partial: "/reviews/review_voting", locals: { review: review } %>
+
           </li>
         <% end %>
       <% end %>
