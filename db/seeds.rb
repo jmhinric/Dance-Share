@@ -114,21 +114,26 @@
 
 
 # ==============================================
-# Add ReviewVotes
-users = User.where('id > 1' && 'id < 6')
+# # Add ReviewVotes
+# users = User.where('id > 1' && 'id < 6')
 
-users.each do |user|
-  Performance.all.each do |perf|
-    reviews = Review.where("performance_id = #{perf.id}" && "user_id != #{user.id}")
-    reviews.each do |review|
-      value = [1, -1].sample
-      ReviewVote.create(
-        user_id: user.id,
-        review_id: review.id,
-        value: value
-        )
-    end
-  end
+# users.each do |user|
+#   Performance.all.each do |perf|
+#     reviews = Review.where("performance_id = #{perf.id}" && "user_id != #{user.id}")
+#     reviews.each do |review|
+#       value = [1, -1].sample
+#       ReviewVote.create(
+#         user_id: user.id,
+#         review_id: review.id,
+#         value: value
+#         )
+#     end
+#   end
+# end
+
+Review.all.each do |review|
+  review.vote_total = review.compute_vote_total
+  review.save
 end
 # ==============================================
 
@@ -211,15 +216,15 @@ end
 #   description: "Robert Swinston, former member of Merce Cunningham Dance Company, talks about the usefulness of being active with the back leg in lunges and triplets and how this opposition gives clarity to the movements."
 # )
 
-# Video.create(
-#   author: "",
-#   title: '',
-#   category: "",
-#   sub_category: "",
-#   video_id: "",
-#   user: danceshare_user,
-#   description: ""
-# )
+# # Video.create(
+# #   author: "",
+# #   title: '',
+# #   category: "",
+# #   sub_category: "",
+# #   video_id: "",
+# #   user: danceshare_user,
+# #   description: ""
+# # )
 
 
 
@@ -238,108 +243,108 @@ end
 
 
 
-# DUMMY REVIEWS
+# # DUMMY REVIEWS
 
 
-# Review.create(
-#   title: "From Another World",
-#   review_text: "I loved the feel of the design elements!",
-#   rating: "4",
-#   created_at: "2014-02-02",
-#   updated_at: "2014-02-02",
-#   user_id: hal.id,
-#   performance_id: kara_p1.id
-#   )
+# # Review.create(
+# #   title: "From Another World",
+# #   review_text: "I loved the feel of the design elements!",
+# #   rating: "4",
+# #   created_at: "2014-02-02",
+# #   updated_at: "2014-02-02",
+# #   user_id: hal.id,
+# #   performance_id: kara_p1.id
+# #   )
 
-# Review.create(
-#   title: "Refreshing a Memory",
-#   review_text: "This peformance felt like a continuation of the company's last piece. I enjoyed seeing that development!",
-#   rating: "5",
-#   created_at: "2014-02-03",
-#   updated_at: "2014-02-03",
-#   user_id: tim.id,
-#   performance_id: kara_p1.id
-#   )
+# # Review.create(
+# #   title: "Refreshing a Memory",
+# #   review_text: "This peformance felt like a continuation of the company's last piece. I enjoyed seeing that development!",
+# #   rating: "5",
+# #   created_at: "2014-02-03",
+# #   updated_at: "2014-02-03",
+# #   user_id: tim.id,
+# #   performance_id: kara_p1.id
+# #   )
 
-# Review.create(
-#   title: "Didn't Connect",
-#   review_text: "I just couldn't connect with the piece. It started very slowly, and the parts never came together for me.",
-#   rating: "2",
-#   created_at: "2014-02-18",
-#   updated_at: "2014-02-18",
-#   user_id: hal.id,
-#   performance_id: kara_p2.id
-#   )
+# # Review.create(
+# #   title: "Didn't Connect",
+# #   review_text: "I just couldn't connect with the piece. It started very slowly, and the parts never came together for me.",
+# #   rating: "2",
+# #   created_at: "2014-02-18",
+# #   updated_at: "2014-02-18",
+# #   user_id: hal.id,
+# #   performance_id: kara_p2.id
+# #   )
 
-# Review.create(
-#   title: "Getting There...",
-#   review_text: "I think I see where they were trying to go with this, but it felt like an unfinished idea. And why was the witch involved so much? The character felt so powerful at the beginning, but it lost that due to overuse IMHO. :)",
-#   rating: "3",
-#   created_at: "2014-02-19",
-#   updated_at: "2014-02-19",
-#   user_id: tim.id,
-#   performance_id: kara_p2.id
-#   )
+# # Review.create(
+# #   title: "Getting There...",
+# #   review_text: "I think I see where they were trying to go with this, but it felt like an unfinished idea. And why was the witch involved so much? The character felt so powerful at the beginning, but it lost that due to overuse IMHO. :)",
+# #   rating: "3",
+# #   created_at: "2014-02-19",
+# #   updated_at: "2014-02-19",
+# #   user_id: tim.id,
+# #   performance_id: kara_p2.id
+# #   )
 
-# Review.create(
-#   title: "Very Cryptic",
-#   review_text: "It's been three days since the performance, and I'm still figuring it out. I can't put words to my thoughts, but I just realized how much I love that! A dance that can provide deep thought for three days is a gem in my book!",
-#   rating: "5",
-#   created_at: "2014-02-05",
-#   updated_at: "2014-02-05",
-#   user_id: kara.id,
-#   performance_id: tim1_p1.id
-#   )
+# # Review.create(
+# #   title: "Very Cryptic",
+# #   review_text: "It's been three days since the performance, and I'm still figuring it out. I can't put words to my thoughts, but I just realized how much I love that! A dance that can provide deep thought for three days is a gem in my book!",
+# #   rating: "5",
+# #   created_at: "2014-02-05",
+# #   updated_at: "2014-02-05",
+# #   user_id: kara.id,
+# #   performance_id: tim1_p1.id
+# #   )
 
-# Review.create(
-#   title: "What...Was...That!?",
-#   review_text: "Complete gibberish. I had no clue what was going on.",
-#   rating: "2",
-#   created_at: "2014-02-03",
-#   updated_at: "2014-02-03",
-#   user_id: hal.id,
-#   performance_id: tim1_p1.id
-#   )
+# # Review.create(
+# #   title: "What...Was...That!?",
+# #   review_text: "Complete gibberish. I had no clue what was going on.",
+# #   rating: "2",
+# #   created_at: "2014-02-03",
+# #   updated_at: "2014-02-03",
+# #   user_id: hal.id,
+# #   performance_id: tim1_p1.id
+# #   )
 
-# Review.create(
-#   title: "Impressive!",
-#   review_text: "This is a company of acrobat-dancers. The choreographer did a great job of generating material that showed off the individual dancers' strengths. So interesting to see each of the performers' uniquenesses.",
-#   rating: "3",
-#   created_at: "2014-02-19",
-#   updated_at: "2014-02-19",
-#   user_id: kara.id,
-#   performance_id: tim1_p2.id
-#   )
+# # Review.create(
+# #   title: "Impressive!",
+# #   review_text: "This is a company of acrobat-dancers. The choreographer did a great job of generating material that showed off the individual dancers' strengths. So interesting to see each of the performers' uniquenesses.",
+# #   rating: "3",
+# #   created_at: "2014-02-19",
+# #   updated_at: "2014-02-19",
+# #   user_id: kara.id,
+# #   performance_id: tim1_p2.id
+# #   )
 
-# Review.create(
-#   title: "A Challenge of Endurance",
-#   review_text: "The piece was forty minutes long with the same techno-beat going the whole time. I felt frustrated that it went on so long. I enjoyed the first twenty minutes, but I felt the second half didn't elaborate or develop at all.",
-#   rating: "3",
-#   created_at: "2014-02-02",
-#   updated_at: "2014-02-02",
-#   user_id: kara.id,
-#   performance_id: tim2_p1.id
-#   )
+# # Review.create(
+# #   title: "A Challenge of Endurance",
+# #   review_text: "The piece was forty minutes long with the same techno-beat going the whole time. I felt frustrated that it went on so long. I enjoyed the first twenty minutes, but I felt the second half didn't elaborate or develop at all.",
+# #   rating: "3",
+# #   created_at: "2014-02-02",
+# #   updated_at: "2014-02-02",
+# #   user_id: kara.id,
+# #   performance_id: tim2_p1.id
+# #   )
 
-# Review.create(
-#   title: "The Music Ruined It",
-#   review_text: "I enjoyed the exquisite lines of the dancers, but the music was waaaay too loud and gave me a headache. I seriously wanted to walk out.",
-#   rating: "3",
-#   created_at: "2014-02-15",
-#   updated_at: "2014-02-15",
-#   user_id: hal.id,
-#   performance_id: tim2_p2.id
-#   )
+# # Review.create(
+# #   title: "The Music Ruined It",
+# #   review_text: "I enjoyed the exquisite lines of the dancers, but the music was waaaay too loud and gave me a headache. I seriously wanted to walk out.",
+# #   rating: "3",
+# #   created_at: "2014-02-15",
+# #   updated_at: "2014-02-15",
+# #   user_id: hal.id,
+# #   performance_id: tim2_p2.id
+# #   )
 
-# Review.create(
-#   title: "Visceral",
-#   review_text: "How intense! The dancers were going non-stop. I don't know how they lasted. The intensity of the music matched this chaos. It was so loud that my seat was vibrating, and I could feel it in my bones. What an intense, riveting combination of visual and aural complexity!",
-#   rating: "3",
-#   created_at: "2014-02-18",
-#   updated_at: "2014-02-18",
-#   user_id: kara.id,
-#   performance_id: tim2_p2.id
-#   )
+# # Review.create(
+# #   title: "Visceral",
+# #   review_text: "How intense! The dancers were going non-stop. I don't know how they lasted. The intensity of the music matched this chaos. It was so loud that my seat was vibrating, and I could feel it in my bones. What an intense, riveting combination of visual and aural complexity!",
+# #   rating: "3",
+# #   created_at: "2014-02-18",
+# #   updated_at: "2014-02-18",
+# #   user_id: kara.id,
+# #   performance_id: tim2_p2.id
+# #   )
 
 
 

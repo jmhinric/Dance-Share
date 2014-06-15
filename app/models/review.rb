@@ -10,7 +10,7 @@ class Review < ActiveRecord::Base
     return self.review_votes.find_by(user_id: user.id).present?
   end
 
-  def vote_total
+  def compute_vote_total
     self.review_votes.sum(:value)
   end
   

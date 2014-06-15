@@ -11,11 +11,13 @@ class ReviewVotesController < ApplicationController
 
     unless @review_vote.id.nil?
       @review.review_votes << @review_vote
-      current_user.review_votes << @review_vote
+      @review.vote_total = @review.compute_vote_total
       @review.save
+
+      current_user.review_votes << @review_vote
       current_user.save
 
-      render json: { review_id: @review.id, vote_count: @review.vote_total }
+      render json: { review_id: @review.id, vote_count: @review.compute_vote_total }
     else
       render json: { review: nil }
     end

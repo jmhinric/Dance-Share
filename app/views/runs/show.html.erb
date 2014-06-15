@@ -73,7 +73,7 @@
         </h3>
         
         <ul class="review-set">
-          <% performance.reviews.each do |review| %>
+          <% performance.reviews.order('vote_total DESC').each do |review| %>
             <li class="single-review">
     
               <!-- Review title, rating -->
