@@ -29,7 +29,9 @@ function showVenues(success) {
 
   if (venues.length > 0) {
     success["venues"].forEach(function(venue) {
-      
+      var template = $("script.list-venue").html();
+      var rendered = _.template(template, { venue: venue });
+      $(".venue-set").append(rendered);
     });
   }
 }
