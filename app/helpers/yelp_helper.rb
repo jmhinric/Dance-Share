@@ -31,7 +31,7 @@ module YelpHelper
     consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
     access_token = OAuth::AccessToken.new(consumer, token, token_secret)
 
-    path = "/v2/search?term=#{search_theater}+theater+performing+arts&location=#{search_location}&limit=10"
+    path = "/v2/search?term=#{search_theater}+theater+performing+arts&location=#{search_location}&limit=5"
     
     JSON(access_token.get(path).body)
   end

@@ -23,3 +23,66 @@
     }
   }
 }
+
+.venues-wrapper {
+  width: 100%;
+  text-align: center;
+  
+  ul.venue-set {
+    width: 70%;
+    margin: 0 auto;
+    list-style-type: none;
+    display: inline-block;
+    text-align: center;
+    padding-top: 30px;
+
+    li {
+      display: block;
+      margin: 0 auto;
+      margin-top: 25px;
+      width: 300px;
+      text-align: center;
+      vertical-align: top;
+      border: 2px solid grey;
+      border-radius: 10px;
+      
+
+      .single-venue {
+        position: relative;
+        top: 0;
+        cursor: pointer;
+
+        .venue-name {
+          text-align: center;
+          margin: 4px;
+          padding-bottom: 2px;
+          border-bottom: 1px solid black;
+        }
+
+        img {
+          width: 100px;
+          height: 100px;
+          display: inline-block;
+          margin: 15px 0;
+        }
+
+        .venue-info {
+          width: 50%;
+          margin: 25px 4px 4px 4px;
+          display: inline-block;
+          vertical-align: top;
+
+
+          .venue-address-lines {
+
+            span {
+              margin-top: 5px;
+              display: block;
+              font-size: .8em;
+            }
+          }
+        }
+      }
+    }
+  }
+}

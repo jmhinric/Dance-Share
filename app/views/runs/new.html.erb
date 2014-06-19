@@ -24,21 +24,26 @@
 </script>
 
 <script type="template" class="list-venue">
-  <li class="single-venue">
-    <img src="<%%= venue.image_url %>" />
+  <li>
+    <div class="single-venue" data-venue="<%%= venue %>">
 
-    <div class="venue-info">
       <h4 class="venue-name">
         <%%= venue.name %>
       </h4>
-    
-      <div class="venue-address-line">
-        <%% venue.display_address.split("\n").forEach(function(line) { %>
-            <span>
-              <%%= line %>
-            </span>
-        <%% }); %>
+
+      <img src="<%%= venue.image_url %>" />
+
+      <div class="venue-info">
+      
+        <div class="venue-address-lines">
+          <%% venue.display_address.split("\n").forEach(function(line) { %>
+              <span>
+                <%%= line %>
+              </span>
+          <%% }); %>
+        </div>
       </div>
+
     </div>
   </li>
 </script>
