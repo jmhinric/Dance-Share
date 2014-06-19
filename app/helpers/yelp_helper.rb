@@ -1,7 +1,6 @@
 module YelpHelper
   def self.ask_for_theaters(theater, company_id)
-  
-    # YelpHelper::api_call_theaters(theater)["businesses"].map do |venue|  
+   
     YelpHelper::api_call_theaters(theater)["businesses"].map do |venue|  
       {
         name:             venue["name"],
