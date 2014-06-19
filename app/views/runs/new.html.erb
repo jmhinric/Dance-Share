@@ -1,20 +1,19 @@
-<main class="new-run">
+<main class="single-form">
   
-  <h2>
+  <h2 class="form-title">
     Add a Run of Performances:
   </h2>
 
-  <div class="select-venue-form">
-    <h3>
-      Select Venue:
-    </h3>
+  <h3 class="form-subtitle">
+    Select Venue:
+  </h3>
 
-    <form class="run-venue">
-      <input type="text" placeholder="Venue Name" />
-      <input type="text" placeholder="Address / City / State">
-      <input type="submit">
-    </form>
-  </div>
-
+  <form class="wide-thirty">
+    <input class="venue-name" type="text" placeholder="Venue Name" />
+    <input class="venue-address" type="text" placeholder="Address / City / State">
+    <input type="submit">
+  </form>
     
 </main>
+
+<%= javascript_include_tag "venues" %>

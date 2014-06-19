@@ -32,6 +32,11 @@
     margin-top: 40px;
   }
 
+  /*Used for Run new*/
+  form.wide-thirty {
+    width: 30%;
+  }
+
   /*===================================*/
   /*Used for Company new and edit form b/c of URL*/
   form.wide-forty {
@@ -58,6 +63,10 @@
   }
 
   textarea {
+    margin-top: 20px;
+  }
+
+  .venue-address, .venue-address:focus {
     margin-top: 20px;
   }
 
