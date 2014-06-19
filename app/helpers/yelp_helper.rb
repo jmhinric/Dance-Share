@@ -1,7 +1,7 @@
 module YelpHelper
-  def self.ask_for_theaters(theater, company_id)
+  def self.ask_for_theaters(venue_name, venue_address)
    
-    YelpHelper::api_call_theaters(theater)["businesses"].map do |venue|  
+    YelpHelper::api_call_theaters(venue_name, venue_address)["businesses"].map do |venue|  
       {
         name:             venue["name"],
         display_address:  venue["location"]["display_address"].join("\n"),
@@ -12,14 +12,14 @@ module YelpHelper
         url:              venue["url"],
         rating_image_url: venue["rating_img_url"],
         yelp_id:          venue["id"],
-        review_count:     venue["review_count"],
-        search_query:     company_id
+        review_count:     venue["review_count"]
       }
     end
   end
 
-  def self.api_call_theaters(theater)
-    search_theater = theater.gsub(" ", "+")
+  def self.api_call_theaters(venue_name, venue_address)
+    search_theater = venue_name.gsub(" ", "+").gsub(",", "")
+    search_location = venue_address.gsub(" ", "+").gsub(",", "")
 
     consumer_key = YELP_CONSUMER_KEY
     consumer_secret = "#{YELP_CONSUMER_SECRET}"
@@ -31,7 +31,7 @@ module YelpHelper
     consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
     access_token = OAuth::AccessToken.new(consumer, token, token_secret)
 
-    path = "/v2/search?term=#{search_theater}+theater+performing+arts&location=new+york&limit=10"
+    path = "/v2/search?term=#{search_theater}+theater+performing+arts&location=#{search_location}&limit=10"
     
     JSON(access_token.get(path).body)
   end

@@ -2,7 +2,6 @@ class VenuesController < ApplicationController
 
   def new
     @company = Company.find(params[:company_id])
-    @venues = venue_selection(params[:venue_name], @company.id)
   end
 
 
@@ -26,11 +25,17 @@ class VenuesController < ApplicationController
     redirect_to new_company_run_path(@company)
   end
 
+  def get_venues
+    @venues = venue_selection(params[:venue_name], params[:venue_address])
+
+    render json: { venues: @venues }
+  end
+
 
   private
 
-    def venue_selection(search_term, company_id)
-      @venues = YelpHelper::ask_for_theaters(search_term, company_id)
+    def venue_selection(venue_name, venue_address)
+      @venues = YelpHelper::ask_for_theaters(venue_name, venue_address)
     end
 
 end

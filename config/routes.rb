@@ -23,6 +23,8 @@ DanceshareApp::Application.routes.draw do
   
   resources :venues, only: [:new, :create]
 
+  get "/venues/get_venues", to: "venues#get_venues"
+
   resources :performances, only: [] do
     resources :reviews, except: [:index] do
     end

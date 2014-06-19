@@ -6,19 +6,32 @@ $("form.wide-thirty").submit(function(e) {
 
   $.ajax({
     dataType: "json",
-    type: "post",
-    url: "/venues/new",
-    data: { name: name, address: address },
+    type: "get",
+    url: "/venues/get_venues",
+    data: { venue_name: name, venue_address: address },
 
     success: function(success) {
       $(".wide-thirty").remove();
+      appendUl();
       showVenues(success);
     }
   });
 });
 
+function appendUl() {
+  var template = $("script.venues-list").html();
+  var rendered = _.template(template);
+  $(".single-form").append(rendered);
+}
+
 function showVenues(success) {
-  
+  venues = success["venues"];
+
+  if (venues.length > 0) {
+    success["venues"].forEach(function(venue) {
+      
+    });
+  }
 }
 
 
