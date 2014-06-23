@@ -8,6 +8,7 @@ class RunsController < ApplicationController
   end
 
   def create
+    binding.pry
     @venue = Venue.find(params["venue_id"].to_i)
     @run = Run.create(title: params["run"]["title"], venue: @venue)
     @venue.runs << @run

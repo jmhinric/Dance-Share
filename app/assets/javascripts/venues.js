@@ -31,9 +31,27 @@ function showVenues(success) {
     success["venues"].forEach(function(venue) {
       var template = $("script.list-venue").html();
       var rendered = _.template(template, { venue: venue });
+      addListener();
+
       $(".venue-set").append(rendered);
     });
   }
 }
+
+function addListener() {
+  $(".single-venue-li").click(function(e) {
+    console.log("Success!");
+    $.ajax({
+      dataType: "json",
+      type: "post",
+      url: "/companies//runs/create",
+      data: { venue: $(e).data('venue') }
+    });
+  });
+}
+
+
+
+
 
 
