@@ -1,3 +1,23 @@
+<%= javascript_include_tag "google_places" %>
+
+<input id="pac-input" class="controls" type="text"
+placeholder="Enter a location">
+
+<div id="type-selector" class="controls">
+  <input type="radio" name="type" id="changetype-all" checked="checked">
+  <label for="changetype-all">All</label>
+
+  <input type="radio" name="type" id="changetype-establishment">
+  <label for="changetype-establishment">Establishments</label>
+
+  <input type="radio" name="type" id="changetype-geocode">
+  <label for="changetype-geocode">Geocodes</label>
+</div>
+
+<div id="map-canvas"></div>
+
+
+<!-- 
 <main class="single-form">
   
   <h2 class="form-title">
@@ -8,14 +28,16 @@
     Find Your Venue:
   </h3>
 
-  <%= form_for [@company, @venue], :html => {:class => "wide-thirty"} do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <%# form_for [@company, @venue], :html => {:class => "wide-thirty"} do |f| %>
+    <%# f.label :name %>
+    <%# f.text_field :name %>
 
-    <%= f.label :address %>
-    <%= f.text_field :address %>
+    <%# f.label :address %>
+    <%# f.text_field :address %>
 
-    <%= f.submit %>
-  <% end %>
+    <%# f.submit %>
+  <%# end %>
 
 </main>
+
+ -->

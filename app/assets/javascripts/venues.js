@@ -1,13 +1,13 @@
 $("form.wide-thirty").submit(function(e) {
   e.preventDefault();
 
-  var name = $(".venue-name").val();
-  var address = $(".venue-address").val();
+  var name = $("#venue_name").val();
+  var address = $("#venue_address").val();
 
   $.ajax({
     dataType: "json",
     type: "get",
-    url: "/venues/get_venues",
+    url: "/companies/#{params[:company_id]}/venues/get_venues",
     data: { venue_name: name, venue_address: address },
 
     success: function(success) {
