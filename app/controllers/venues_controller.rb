@@ -2,6 +2,7 @@ class VenuesController < ApplicationController
 
   def new
     @company = Company.find(params[:company_id])
+    @venue = Venue.new
   end
 
 

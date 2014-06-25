@@ -12,7 +12,7 @@ DanceshareApp::Application.routes.draw do
 
   resources :companies, except: [:index] do
     resources :runs, except: [:index]
-    # resources :performances, except: [:destroy]
+    resources :venues, only: [:new, :create]
   end
 
   get "/companies/search", to: "companies#search"
@@ -21,7 +21,7 @@ DanceshareApp::Application.routes.draw do
     resources :performances, only: [:new, :create, :update, :destroy]
   end
   
-  resources :venues, only: [:new, :create]
+  # resources :venues, only: [:new, :create]
 
   get "/venues/get_venues", to: "venues#get_venues"
 

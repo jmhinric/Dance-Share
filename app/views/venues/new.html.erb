@@ -1,46 +1,21 @@
-<main class="new-venue">
-  <h1>Venue:</h1>
-
-  <h2>Click on a picture to create a venue:</h2>
+<main class="single-form">
   
-  <% if @venues.present? %>
-    <% @venues.each do |venue| %>
-    
-      <div class="single-venue">
-        <%= link_to image_tag("#{venue[:image_url]}"), venues_path(venue), method: :post %>
-        <br/><%= venue[:name] %><br/>
-        <% venue[:display_address].split("\n").each do |line| %>
-          <%= line %><br/>
-        <% end %>
-        <br/>
-      </div> 
-    <% end %>
+  <h2 class="form-title">
+    Add a Run of Performances:
+  </h2>
 
-    <p>Don't see your venue?  Search again! </p>
+  <h3 class="form-subtitle">
+    Find Your Venue:
+  </h3>
 
-  <% else %>
-    <h3>None found!  Please search again!</h3>
+  <%= form_for [@company, @venue], :html => {:class => "wide-thirty"} do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+
+    <%= f.submit %>
   <% end %>
 
-
-
-  <!-- Always render the search form: -->
-  <div class="new-venue-search">
-    <%= form_tag("/venues/new", method: "get") do %>
-      <%= text_field_tag "venue_name", nil, placeholder: "Venue Name" %>
-      <%= hidden_field_tag "company_id", @company.id %>
-
-      <%= submit_tag "Search for Venue" %>
-    <% end %>
-  </div>
-
-
-  <%# form_for @company, url: new_company_venue_path(@company), method: :get do |f| %>
-    <%# f.text_field :venue_name, :placeholder => "Venue Name" %>
-    <%# f.submit "Search for Venue" %>
-  <%# end %>
-
-  <%# render "shared/search_venue_form" %>
-
-  <%# render "potential_venues" %>
-</div>
+</main>

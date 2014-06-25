@@ -5,14 +5,24 @@
   </h2>
 
   <h3 class="form-subtitle">
-    Select Venue:
+    Find Your Venue:
   </h3>
 
-  <form class="wide-thirty">
+  <%= form_for @venue, :html => {:class => "wide-thirty"} do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+
+    <%= f.submit %>
+  <% end %>
+
+  <!-- <form class="wide-thirty">
     <input class="venue-name" type="text" placeholder="Venue Name" />
     <input class="venue-address" type="text" placeholder="Address / City / State">
     <input type="submit">
-  </form>
+  </form> -->
     
 </main>
 
