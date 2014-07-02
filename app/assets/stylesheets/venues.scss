@@ -5,9 +5,10 @@
 /*===============================================*/
 
 #map-canvas {
-  height: 100%;
-  margin: 0px;
-  padding: 0px
+  width: 50%;
+  height: 500px;
+  margin: 0;
+  padding: 0;
 }
 
 .controls {
@@ -32,7 +33,6 @@
 }
 
 #pac-input:focus {
-  border-color: #4d90fe;
   margin-left: -1px;
   padding-left: 14px;
   /* Regular padding-left + 1. */
