@@ -1,24 +1,23 @@
-
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
 
 <%= javascript_include_tag "google_places" %>
 
-<input id="pac-input" class="controls" type="text"
-placeholder="Enter a location">
+<!-- <main class="new-venue-map"> -->
+  <h3 class="new-venue">
+    Find Your Venue:
+  </h3>
 
-<!-- <div id="type-selector" class="controls">
-  <input type="radio" name="type" id="changetype-all" checked="checked">
-  <label for="changetype-all">All</label>
+  <input id="pac-input" class="controls" type="text"
+  placeholder="Enter a location">
 
-  <input type="radio" name="type" id="changetype-establishment">
-  <label for="changetype-establishment">Establishments</label>
+  <div id="map-canvas"></div>
 
-  <input type="radio" name="type" id="changetype-geocode">
-  <label for="changetype-geocode">Geocodes</label>
-</div> -->
-
-<div id="map-canvas"></div>
-
+  <div class="submit-venue-wrapper">
+    <button class="submit-venue">
+      Use this Venue
+    </button>
+  </div>
+<!-- </main> -->
 
 <!-- 
 <main class="single-form">
