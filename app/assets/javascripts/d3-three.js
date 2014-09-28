@@ -147,7 +147,8 @@
   renderer.setSize(width, height);
   renderer.domElement.style.position = 'absolute';
   document.getElementById('container').appendChild(renderer.domElement);
-  $('#d3-three').css('height', $(document).height());
+  var backHeight = $(document).height().toString() + "px";
+  d3.select('#d3-three').style({'height': backHeight});
 
   controls = new THREE.TrackballControls(camera, renderer.domElement);
   controls.rotateSpeed = 0.5;

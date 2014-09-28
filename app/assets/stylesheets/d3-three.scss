@@ -26,8 +26,10 @@ h5 {
   position: fixed;
   width: 535px;
   height: 281px;
-  top: 200px;
-  left: 470px;
+  top: 50%;
+  left: 50%;
+  margin-top: -140px;
+  margin-left: -268px;
 }
 
 .close-video {
