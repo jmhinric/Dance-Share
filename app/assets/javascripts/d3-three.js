@@ -244,7 +244,6 @@
   renderer = new THREE.CSS3DRenderer();
   renderer.setSize(width, height);
   renderer.domElement.style.position = 'absolute';
-  // renderer.domElement.id = 'd3-Three';
   document.getElementById('container').appendChild(renderer.domElement);
   $("#d3-three").css("height", $(document).height());
 

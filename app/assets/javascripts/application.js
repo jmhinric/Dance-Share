@@ -10,11 +10,11 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require d3.min
 //= require three.min
 //= require tween
 //= require CSS3DRenderer
 //= require TrackballControls
-//= require d3.min
 //= require jquery
 //= require jquery.ui.autocomplete
 //= require jquery_ujs
