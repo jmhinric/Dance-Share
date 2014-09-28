@@ -42,15 +42,18 @@
       .addClass('close-video')
       .text('X')
       .on('click', function() {
-        $('.video-player').remove();
+        $('.video-player-wrapper').remove();
       });
 
     var closeVideo = $('<div>')
       .append(closeButton);
 
-    $('<div>').addClass('video-player')
+    var player = $('<div>')
+      .addClass('video-player')
       .append(closeVideo)
-      .append(d.video)
+      .append(d.video);
+    $('<div>').addClass('video-player-wrapper')
+      .append(player)
       .appendTo('#container');
   }
 
