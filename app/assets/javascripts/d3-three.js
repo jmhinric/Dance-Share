@@ -29,7 +29,7 @@
 
     elements.append('img')
       .attr('class', 'customImage')
-      .attr('src', 'http://static.comicvine.com/uploads/square_medium/11117/111171244/3944117-27.jpg')
+      .attr('src', function(d) { return d.image; })
       .attr('width', width)
       .attr('height', height);
 
