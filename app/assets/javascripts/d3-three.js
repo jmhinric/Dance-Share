@@ -1,7 +1,8 @@
 (function(){
   var VIZ ={};
   var camera, renderer, controls, scene = new THREE.Scene();
-  var width = window.innerWidth, height = window.innerHeight;
+  var width = window.innerWidth*2/3, height = window.innerHeight;
+  var inViewMode = false;
 
   camera = new THREE.PerspectiveCamera(40, width/height , 1, 10000);
   camera.position.z = 3000;
@@ -19,16 +20,25 @@
         .data(data).enter()
         .append('div')
         .attr('class', 'element')
+        .attr('class', function(d) {
+          return "element " + d.category.toLowerCase();
+        })
         .on('click', function(d) {
-            display_video(d);
-        });
+          displayVideo(d);
+          inViewMode = true;
+        })
+        .on('mouseenter', function(d) {
+          removeVideoData();
+          displayVideoData(d);
+        })
+        .on('mouseleave', removeVideoData);
 
     elements.append('div')
-      .attr('class', 'chartTitle')
+      .attr('class', 'dancer-name')
       .html(function (d) { return d.name; });
 
     elements.append('img')
-      .attr('class', 'customImage')
+      .attr('class', 'custom-image')
       .attr('src', function(d) { return d.image; })
       .attr('width', width)
       .attr('height', height);
@@ -37,12 +47,13 @@
     elements.each(objectify);
   };
 
-  function display_video(d) {
+  function displayVideo(d) {
     var closeButton = $('<span>')
       .addClass('close-video')
       .text('X')
       .on('click', function() {
         $('.video-player-wrapper').remove();
+        inViewMode = false;
       });
 
     var closeVideo = $('<div>')
@@ -55,6 +66,28 @@
     $('<div>').addClass('video-player-wrapper')
       .append(player)
       .appendTo('#container');
+  }
+
+  function displayVideoData(d) {
+
+    var summary = $("<div class='video-viz-video-summary'>");
+    summary
+      .append($("<img class='video-viz-dancer-pic' />")
+        .attr("src", d.image))
+      .append($("<h2 class='video-viz-dancer-name'></h2>")
+        .text(d.name))
+      .append($("<h3 class='video-viz-category'></h3>")
+        .text(d.category))
+      .append($("<h4 class='video-viz-video-descr'></h4>")
+        .text(d.description))
+      .appendTo($(".video-viz-summary-wrapper"));
+
+  }
+
+  function removeVideoData() {
+    if (!inViewMode) {
+      $(".video-viz-video-summary").remove();
+    }
   }
 
   function objectify(d) {
@@ -148,8 +181,9 @@
 
   renderer = new THREE.CSS3DRenderer();
   renderer.setSize(width, height);
-  renderer.domElement.style.position = 'absolute';
+  renderer.domElement.className = 'video-viz';
   document.getElementById('container').appendChild(renderer.domElement);
+
   var backHeight = $(document).height().toString() + "px";
   d3.select('#d3-three').style({'height': backHeight});
 
@@ -157,12 +191,13 @@
   controls.rotateSpeed = 0.5;
   controls.minDistance = 100;
   controls.maxDistance = 6000;
+  controls.rotationDampening = 0.2;
   controls.addEventListener('change', VIZ.render);
 
   VIZ.onWindowResize = function () {
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(window.innerWidth*2/3, window.innerHeight);
     VIZ.render();
   };
   window.VIZ = VIZ;
